@@ -1,0 +1,24 @@
+{
+  "name": "blog-markup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alex <user@nomail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.2.3",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.3.1",
+    "webpack": "^4.11.1",
+    "webpack-stream": "^4.0.3"
+  }
+}
