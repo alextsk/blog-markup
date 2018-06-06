@@ -20,5 +20,8 @@
     "jquery": "^3.3.1",
     "webpack": "^4.11.1",
     "webpack-stream": "^4.0.3"
+  },
+  "dependencies": {
+    "ripple-jquery": "^1.0.3"
   }
 }
