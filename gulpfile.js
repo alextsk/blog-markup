@@ -47,7 +47,10 @@ function html() {
 
 function css() {
   return gulp.src('src/styles.styl')
-    .pipe(stylus({'include css': true}))
+    .pipe(stylus({
+      'include css': true,
+       include: 'node_modules'
+    }))
 //    .pipe(minifyCSS())
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
