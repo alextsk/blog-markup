@@ -1,22 +1,38 @@
 .button
 	box-sizing border-box
 	height 32px
-	border-radius 2px
+	line-height: 35px
+	border-radius 3px
+	font-size 12px
+	letter-spacing .5px
 	display inline-block
-	justify-content center
-	align-items center
 	background-color #4eb7a8
-	box-shadow 0 3px 0 0 #37aa9a
+	box-shadow 0 2px 0 0 #37aa9a
 	color white
-	line-height: 32px
+	font-weight bold
 	padding: 0 32px
 	text-transform uppercase
 	font-family sans-serif
 	transition .2s
 	position relative
-	top 0
-	&:hover	
-		top 3px
-		box-shadow 0 0px 0 0 #37aa9a
-.ripple-container
-	opacity .4
+
+	&--small
+		height 22px
+		line-height: 22px
+		font-size 10px
+		padding: 0 16px
+
+	&--error
+		background-color #e75735
+		border-color #bf3e1f
+		box-shadow 0 2px 0 0 #e75735
+	&--ghosted
+		border-style solid
+		border-width 1px
+		color #37aa9a
+		background-color transparent
+
+	&--ghosted&--error
+		color #bf3e1f
+		box-shadow 0 2px 0 0 currentColor
+		

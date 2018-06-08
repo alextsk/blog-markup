@@ -8,7 +8,27 @@ html(lang='en')
     title Document
     include components/button/button.pug
   body
-    h1 Pug is compiled
-    +button("Button!")
+    .wrapper
+      section.buttons-section
+        h1.buttons-section__header Standart buttons
+        .buttons-section__body
+          div
+            +button("Button!", {size:'small'})
+          div
+            +button("Button!")
+          div
+            +button("Button!", {purpose: 'error'})
+          div
+            +button("Button!", {purpose: 'error', size: 'small'})
+          div
+            +button("Button!", {size:'small', fill:'ghosted'})
+          div
+            +button("Button!", {fill: 'ghosted'})
+          div
+            +button("Button!", {fill: 'ghosted', purpose: 'error'})
+          div
+            +button("Button!", {fill: 'ghosted', purpose: 'error', size: 'small'})
+    div
+      +button("Button!")
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     script(src='app.js')

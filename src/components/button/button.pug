@@ -1,3 +1,6 @@
-mixin button(text)
-	.button
-		.button__text=text
+mixin button(text, theme)
+  - var classes = []
+  if theme
+    - var classes = [theme.size, theme.purpose, theme.fill].filter(i => i).map(i => 'button--' + i)
+
+  .button(class=classes)=text
