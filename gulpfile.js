@@ -47,7 +47,7 @@ function html() {
 
 function css() {
   return gulp.src('src/styles.styl')
-    .pipe(stylus())
+    .pipe(stylus({'include css': true}))
 //    .pipe(minifyCSS())
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());

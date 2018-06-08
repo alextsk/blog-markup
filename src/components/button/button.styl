@@ -1,3 +1,6 @@
+
+
+	
 .button
 	box-sizing border-box
 	height 32px
@@ -7,7 +10,8 @@
 	letter-spacing .5px
 	display inline-block
 	background-color #4eb7a8
-	box-shadow 0 2px 0 0 #37aa9a
+	box-shadow 0 3px 0 0 #37aa9a
+	user-select: none
 	color white
 	font-weight bold
 	padding: 0 32px
@@ -21,18 +25,30 @@
 		line-height: 22px
 		font-size 10px
 		padding: 0 16px
+		box-shadow 0 2px 0 0 #37aa9a
+		
 
 	&--error
 		background-color #e75735
 		border-color #bf3e1f
-		box-shadow 0 2px 0 0 #e75735
+		box-shadow 0 3px 0 0 #bf3e1f
+		
 	&--ghosted
 		border-style solid
 		border-width 1px
 		color #37aa9a
+		box-shadow 0 4px 0 0 #37aa9a
 		background-color transparent
-
+		
+	&--small&--error
+		box-shadow 0 2px 0 0 #bf3e1f
+		
 	&--ghosted&--error
 		color #bf3e1f
-		box-shadow 0 2px 0 0 currentColor
+		box-shadow 0 4px 0 0 #bf3e1f
+	
+	&--ghosted&--error&--small
+		box-shadow 0 3px 0 0 #bf3e1f
 		
+.button.mdc-ripple-upgraded--foreground-activation
+	box-shadow none !important

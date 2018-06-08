@@ -2,6 +2,26 @@
 # yarn lockfile v1
 
 
+"@material/animation@^0.34.0":
+  version "0.34.0"
+  resolved "https://registry.yarnpkg.com/@material/animation/-/animation-0.34.0.tgz#a99cc9dabf7d0179b4da9a0aaa1575c4d1513823"
+
+"@material/base@^0.35.0":
+  version "0.35.0"
+  resolved "https://registry.yarnpkg.com/@material/base/-/base-0.35.0.tgz#8640c2da385e8cc393ff56153c5a319f5a7704cb"
+
+"@material/ripple@^0.36.0":
+  version "0.36.0"
+  resolved "https://registry.yarnpkg.com/@material/ripple/-/ripple-0.36.0.tgz#262491c37643c3aabad93cd033698622c70beb13"
+  dependencies:
+    "@material/animation" "^0.34.0"
+    "@material/base" "^0.35.0"
+    "@material/theme" "^0.35.0"
+
+"@material/theme@^0.35.0":
+  version "0.35.0"
+  resolved "https://registry.yarnpkg.com/@material/theme/-/theme-0.35.0.tgz#a2c76f60b82a53d399b769ef91ec52e83ad3c3bd"
+
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.2.tgz#63dc3e5e7f6367e1819d2bba5213783cd926c5d5"
