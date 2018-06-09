@@ -1,4 +1,6 @@
 @require './components/button/button.styl'
+@require './components/arrow-button/arrow-button.styl'
+
 @require '@material/ripple/dist/mdc.ripple.min.css'
 
 
@@ -11,12 +13,19 @@
 .wrapper 
 	margin 0 auto
 	width: 1200px
-
+	
+.section-header
+	text-align: center
+	margin 40px 0	
+	font-family sans-serif
+	
 .buttons-section__body
 	display grid
 	grid-template-columns 1fr 1.5fr 1.5fr 1fr
 	grid-gap 20px 50px
 	place-items  end center
-.buttons-section__header
-	text-align: center
-	margin 40px 0	
+	
+.arrows-section__body
+	text-align center
+	
+

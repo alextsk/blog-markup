@@ -7,10 +7,11 @@ html(lang='en')
     link(rel="stylesheet", href="styles.css")
     title Document
     include components/button/button.pug
+    include components/arrow-button/arrow-button.pug
   body
     .wrapper
       section.buttons-section
-        h1.buttons-section__header Standart buttons
+        h1.buttons-section__header.section-header Standart buttons
         .buttons-section__body
           div
             +button("Button!", {size:'small'})
@@ -20,18 +21,11 @@ html(lang='en')
             +button("Button!", {theme: 'error'})
           div
             +button("Button!", {theme: 'error', size: 'small'})
-          div
-            +button("Button!", {size:'small'})
-          div
-            +button("Button!")
-          div
-            +button("Button!", { theme: 'error'})
-          div
-            +button("Button!", { theme: 'error', size: 'small'})
       section.arrows-section
-        h1.arrows-section__header
-          .arrows-section__body
-            div
-            //  +arrow-button({})
+        h1.arrows-section__header.section-header Arrow buttons
+        .arrows-section__body
+          div
+            +arrow-button('left', true)
+            +arrow-button('right')
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     script(src='app.js')

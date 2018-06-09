@@ -1,0 +1,32 @@
+.arrow-button
+  box-sizing border-box
+  display inline-block
+  user-select none
+  width 50px
+  height 50px
+  border-radius 50%
+  line-height 50px
+  text-align center
+  color #4eb7a8
+  circle
+    fill grey 
+    stroke grey
+  path
+    stroke white
+    
+  &--left
+    transform rotateZ(180deg)
+  &--enabled
+    circle,
+    path
+      stroke #4eb7a8
+      fill transparent
+    &:hover
+      circle
+        stroke #4eb7a8
+        fill #4eb7a8
+      path
+        stroke white
+
+      
+    

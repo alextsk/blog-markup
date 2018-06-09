@@ -1,0 +1,7 @@
+mixin arrow-button(direction, enabled)
+
+  - var clas = [enabled ? 'arrow-button--enabled' : '', direction == 'left'? 'arrow-button--left' : '' ];
+  div.arrow-button(class=clas)
+    svg(width="54px", height="54")
+      circle(cx='25' cy='25' r='23' fill='transparent' stroke='#000' stroke-width="4px")
+      path(d="m20,14 l11, 11 l-11, 11" stroke="#000" fill='transparent' stroke-width='4px')
