@@ -17,17 +17,21 @@ html(lang='en')
           div
             +button("Button!")
           div
-            +button("Button!", {purpose: 'error'})
+            +button("Button!", {theme: 'error'})
           div
-            +button("Button!", {purpose: 'error', size: 'small'})
+            +button("Button!", {theme: 'error', size: 'small'})
           div
-            +button("Button!", {size:'small', fill:'ghosted'})
+            +button("Button!", {size:'small'})
           div
-            +button("Button!", {fill: 'ghosted'})
+            +button("Button!")
           div
-            +button("Button!", {fill: 'ghosted', purpose: 'error'})
+            +button("Button!", { theme: 'error'})
           div
-            +button("Button!", {fill: 'ghosted', purpose: 'error', size: 'small'})
-    div
+            +button("Button!", { theme: 'error', size: 'small'})
+      section.arrows-section
+        h1.arrows-section__header
+          .arrows-section__body
+            div
+            //  +arrow-button({})
     script(src='https://code.jquery.com/jquery-3.3.1.min.js')
     script(src='app.js')

@@ -1,54 +1,68 @@
 
+dark-green = #28a290
+medium-green = #4eb7a8
+text-green = #44ae9f
 
-	
+medium-red = #e75735
+dark-red = #bf3e1f
+text-red = #e34a26
+
 .button
+	--mdc-theme-primary: white
 	box-sizing border-box
 	height 32px
 	line-height: 35px
-	border-radius 3px
-	font-size 12px
-	letter-spacing .5px
-	display inline-block
-	background-color #4eb7a8
-	box-shadow 0 3px 0 0 #37aa9a
-	user-select: none
-	color white
-	font-weight bold
 	padding: 0 32px
+	border-radius 3px
+	display inline-block
+	user-select: none
+	letter-spacing .5px
+	font-size 12px
+	font-weight bold
 	text-transform uppercase
 	font-family sans-serif
-	transition .2s
+	border-style solid
+	border-width 1px
+	color text-green
+	box-shadow 0 4px 0 0 dark-green
+	background-color transparent
 	position relative
-
+	transition .2s
+	&:hover
+		background-color medium-green
+		color white
+		box-shadow 0 3px 0 0 dark-green
+		border 1px solid medium-green
+		
 	&--small
 		height 22px
 		line-height: 22px
 		font-size 10px
 		padding: 0 16px
-		box-shadow 0 2px 0 0 #37aa9a
+		box-shadow 0 2px 0 0 dark-green
 		
 
 	&--error
-		background-color #e75735
-		border-color #bf3e1f
-		box-shadow 0 3px 0 0 #bf3e1f
-		
-	&--ghosted
-		border-style solid
-		border-width 1px
-		color #37aa9a
-		box-shadow 0 4px 0 0 #37aa9a
-		background-color transparent
+		color text-red
+		border-color medium-red
+		box-shadow 0 3px 0 0 dark-red
+		&:hover
+			background-color medium-red
+			color white
+			box-shadow 0 3px 0 0 dark-red
+			border 1px solid medium-red
 		
 	&--small&--error
-		box-shadow 0 2px 0 0 #bf3e1f
+		box-shadow 0 2px 0 0 dark-red
 		
-	&--ghosted&--error
-		color #bf3e1f
-		box-shadow 0 4px 0 0 #bf3e1f
-	
-	&--ghosted&--error&--small
-		box-shadow 0 3px 0 0 #bf3e1f
+
+.mdc-ripple-surface:hover:before
+	opacity 0 !important
 		
 .button.mdc-ripple-upgraded--foreground-activation
 	box-shadow none !important
+	border-color #6ac2b5
+	
+.button.button--error.mdc-ripple-upgraded--foreground-activation
+	box-shadow none !important
+	border-color #ea7155
