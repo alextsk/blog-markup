@@ -10,6 +10,7 @@ html(lang='en')
     include components/arrow-button/arrow-button.pug
     include components/circlecharts/percentage.pug
     include components/circlecharts/donut.pug
+    include components/slider/slider.pug
 
   body
     .wrapper
@@ -42,6 +43,12 @@ html(lang='en')
           div
             +percentage(100)
           div
-            +donut([[100, "#747474"], [400, "#e75735"], [500, "#4eb7a8"], [400, "#e5e5e5"]])
-            
+            +donut([[100, "#747474"], [400, "#e75735"], [500, "#4eb7a8"], [400, "#e5e5e5"]])  
+      section.sliders-section
+        h1.sliders-section__header.section-header Sliders
+        .sliders-section__body
+          div
+            +slider(200, {color: 1})   
+          div
+            +slider(100, {parts: 11, color: 2})
     script(src='app.js')
