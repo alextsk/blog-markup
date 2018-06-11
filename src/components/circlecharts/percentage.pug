@@ -1,0 +1,12 @@
+mixin percentage(num)
+  
+  - var rest = num !== 100 ? 100 - num : 1;
+  - var colorRest = num !== 100 ? 'transparent' : '#e75735';
+  div(
+  chart-type="donut",
+  data-chart-inner-radius="45"
+  data-chart-outer-radius="50",
+  data-chart-text=(num.toString()),
+  data-chart-segments='[ [' + num + ',"#e75735"], [' + (rest) + ',"' + (colorRest) + '"] ]'
+  ).percentage
+    

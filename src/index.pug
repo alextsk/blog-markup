@@ -8,6 +8,9 @@ html(lang='en')
     title Document
     include components/button/button.pug
     include components/arrow-button/arrow-button.pug
+    include components/circlecharts/percentage.pug
+    include components/circlecharts/donut.pug
+
   body
     .wrapper
       section.buttons-section
@@ -27,5 +30,18 @@ html(lang='en')
           div
             +arrow-button('left', true)
             +arrow-button('right')
-    script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+      section.piechart-section
+        h1.piechart-section__header.section-header percentages / donut chart
+        .piechart-section__body
+          div
+            +percentage(0)
+          div
+            +percentage(38)
+          div
+            +percentage(62)
+          div
+            +percentage(100)
+          div
+            +donut([[100, "#747474"], [400, "#e75735"], [500, "#4eb7a8"], [400, "#e5e5e5"]])
+            
     script(src='app.js')

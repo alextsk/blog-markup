@@ -27,9 +27,6 @@ var gulp = require('gulp'),
             }
           }
         ]
-      },
-      externals: {
-        jquery: 'jQuery'
       }
     }))
     .pipe(gulp.dest('./dist/'))
