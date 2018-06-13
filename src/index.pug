@@ -11,6 +11,7 @@ html(lang='en')
     include components/circlecharts/percentage.pug
     include components/circlecharts/donut.pug
     include components/slider/slider.pug
+    include components/stage/stage.pug
 
   body
     .wrapper
@@ -51,4 +52,13 @@ html(lang='en')
             +slider(200, {color: 1})   
           div
             +slider(100, {parts: 11, color: 2})
+
+      section.stages-section
+        h1.stages-section__header.section-header Sliders
+        .sliders-section__body
+          div
+            +stage(3, 5)
+          div
+            +stage(4, 10)
+          
     script(src='app.js')
