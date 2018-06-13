@@ -1,0 +1,21 @@
+
+.tickbox__label
+  display inline-block
+  border-radius 50%
+  width 23px
+  height 23px
+  background-color var(--light-grey)
+
+    
+.tickbox__mark
+  stroke var(--text-dark)
+  display none
+
+
+.hidden
+  display none
+  &:checked + .tickbox__label
+    background-color var(--support-color)
+    .tickbox__mark
+      display inline-block
+      stroke white
