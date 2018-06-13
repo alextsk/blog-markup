@@ -13,6 +13,7 @@ html(lang='en')
     include components/slider/slider.pug
     include components/stage/stage.pug
     include components/form-elements/tickbox.pug
+    include components/form-elements/input.pug
 
   body
     .wrapper
@@ -63,10 +64,17 @@ html(lang='en')
             +stage(4, 10)
       
       section.stages-section
-        h1.stages-section__header.section-header Sliders
+        h1.stages-section__header.section-header Form elements
         .sliders-section__body
           div
-            +tickbox(true)
+            form.elements
+              div
+                +input()
+              div
+                +input('success')
+              div
+                +input('error')
           div
+            +tickbox(true)
             +tickbox(false)
     script(src='app.js')

@@ -1,0 +1,11 @@
+mixin input(state)
+  - var modifier = ''
+  if (state)
+    - modifier = state === 'success' ? 'input--success' : 'input--error'
+    - message = state === 'success' ? 'Thanks!' : 'Error'
+ 
+  .input(class=modifier)
+    .input__back
+      input(type='text').input__actual
+    if state
+      div.input__message(class=modifier)=message
