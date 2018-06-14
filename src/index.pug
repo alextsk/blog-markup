@@ -15,6 +15,7 @@ html(lang='en')
     include components/form-elements/tickbox.pug
     include components/form-elements/input.pug
     include components/form-elements/textarea.pug
+    include components/form-elements/toggle.pug
 
   body
     .wrapper
@@ -64,20 +65,24 @@ html(lang='en')
           div
             +stage(4, 10)
       
-      section.stages-section
-        h1.stages-section__header.section-header Form elements
-        .sliders-section__body
+      section.form-elements-section
+        h1.form-elements-section__header.section-header Form elements
+        form.form-elements-section__inputs
           div
-            form.elements
-              div
-                +input()
-              div
-                +input('success')
-              div
-                +input('error')
-              div
-                +textarea()
+            +input()
           div
-            +tickbox(true)
-            +tickbox(false)
+            +input('success')
+          div
+            +input('error')
+          div
+            +textarea()
+
+        div.form-elements-section__subsection
+          h1.section-header toggles
+          +toggle(true)
+          +toggle(false)
+        div.form-elements-section__subsection
+          h1.section-header tickboxes
+          +tickbox(true)
+          +tickbox(false)
     script(src='app.js')

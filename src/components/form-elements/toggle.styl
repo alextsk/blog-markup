@@ -1,0 +1,41 @@
+.toggle
+  --state-color var(--light-grey)
+  &__actual
+    display none
+  &__label
+    width 60px
+    height 24px
+    background-color var(--state-color)
+    border-radius 25px
+    display flex
+    justify-content space-between
+    align-items center
+    padding 4px
+    &:after
+      content:"off"
+      flex 1
+      text-align center
+      color white
+      text-transform uppercase
+      font-size 10px
+      letter-spacing 1px
+      font-family sans-serif
+        
+  &__circle
+    width 18px
+    height 18px
+    border-radius 50%
+    background-color white
+
+  .toggle__actual:checked
+    &+.toggle__label 
+      background-color var(--support-color)
+      & > .toggle__circle
+        order 2  
+    &+.toggle__label:after
+      content "on" 
+      order 1
+
+      
+  
+  
