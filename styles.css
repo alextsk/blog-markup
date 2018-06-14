@@ -212,6 +212,9 @@
   background-color: var(--main-color);
   color: #fff;
 }
+.tickbox {
+  height: 23px;
+}
 .tickbox__label {
   display: inline-block;
   border-radius: 50%;
@@ -281,6 +284,61 @@
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
 }
+.textarea__back {
+  display: flex;
+  justify-content: stretch;
+  background-color: var(--light-grey);
+  padding: 15px;
+  border-radius: 4px;
+}
+.textarea__actual {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  resize: none;
+}
+.toggle {
+  --state-color: var(--light-grey);
+}
+.toggle__actual {
+  display: none;
+}
+.toggle__label {
+  width: 60px;
+  height: 24px;
+  background-color: var(--state-color);
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+}
+.toggle__label:after {
+  content: "off";
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+}
+.toggle__circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.toggle .toggle__actual:checked+.toggle__label {
+  background-color: var(--support-color);
+}
+.toggle .toggle__actual:checked+.toggle__label > .toggle__circle {
+  order: 2;
+}
+.toggle .toggle__actual:checked+.toggle__label:after {
+  content: "on";
+  order: 1;
+}
 * {
   box-sizing: border-box;
 }
@@ -299,6 +357,7 @@
   font-family: sans-serif;
   text-transform: uppercase;
   color: #4f4f4f;
+  width: 100%;
 }
 .buttons-section__body {
   display: grid;
@@ -320,4 +379,27 @@
 }
 form.elements>div {
   margin-bottom: 15px;
+}
+.form-elements-section {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px auto;
+}
+.form-elements-section__header {
+  grid-column-end: span 2;
+}
+.form-elements-section > form {
+  grid-row-end: span 2;
+}
+.form-elements-section > form > * {
+  margin-bottom: 15px;
+}
+.form-elements-section__subsection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.form-elements-section__subsection > .section-header {
+  margin: 10px 0;
 }
