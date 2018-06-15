@@ -20,6 +20,7 @@
 @require './components/form-elements/textarea.styl'
 @require './components/form-elements/toggle.styl'
 @require './components/search/search.styl'
+@require './components/dropdown/dropdown.styl'
 
 
   
@@ -32,7 +33,7 @@
   background red
 .wrapper 
   margin 0 auto
-  width: 1200px
+  max-width: 1200px
   
 .section-header
   text-align: center
@@ -82,4 +83,7 @@ form.elements
     justify-content center
     & > .section-header
       margin 10px 0
-
+.dropdown-section
+  width: calc(50% - 10px)
+  & > div
+    margin-bottom 15px

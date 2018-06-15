@@ -17,6 +17,7 @@ html(lang='en')
     include components/form-elements/textarea.pug
     include components/form-elements/toggle.pug
     include components/search/search.pug
+    include components/dropdown/dropdown.pug
 
 
   body
@@ -32,7 +33,7 @@ html(lang='en')
             +button("Button!", {theme: 'error'})
           div
             +button("Button!", {theme: 'error', size: 'small'})
-      section.arrows-section
+      //section.arrows-section
         h1.arrows-section__header.section-header Arrow buttons
         .arrows-section__body
           div
@@ -59,7 +60,7 @@ html(lang='en')
           div
             +slider(100, {parts: 11, color: 2})
 
-      section.stages-section
+      //section.stages-section
         h1.stages-section__header.section-header Sliders
         .sliders-section__body
           div
@@ -89,6 +90,12 @@ html(lang='en')
           +tickbox(false)
       section.dropdown-section
         h1.section-header dropdowns/search
+        div
           +search()
+        div
           +search('failed')
+        div
+          +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})
+      section.profile-section
+
     script(src='app.js')
