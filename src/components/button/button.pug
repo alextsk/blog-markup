@@ -3,4 +3,4 @@ mixin button(text, opts)
   if opts
     - var classes = [opts.size, opts.theme].filter(i => i).map(i => 'button--' + i)
 
-  .button.mdc-ripple-surface.mdc-ripple-surface--primary(class=classes)=text
+  button.button.mdc-ripple-surface.mdc-ripple-surface--primary(class=classes)=text
