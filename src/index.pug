@@ -16,6 +16,8 @@ html(lang='en')
     include components/form-elements/input.pug
     include components/form-elements/textarea.pug
     include components/form-elements/toggle.pug
+    include components/search/search.pug
+
 
   body
     .wrapper
@@ -85,4 +87,8 @@ html(lang='en')
           h1.section-header tickboxes
           +tickbox(true)
           +tickbox(false)
+      section.dropdown-section
+        h1.section-header dropdowns/search
+          +search()
+          +search('failed')
     script(src='app.js')
