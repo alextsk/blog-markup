@@ -18,6 +18,7 @@ html(lang='en')
     include components/form-elements/toggle.pug
     include components/search/search.pug
     include components/dropdown/dropdown.pug
+    include components/profile/profile.pug
 
 
   body
@@ -33,7 +34,7 @@ html(lang='en')
             +button("Button!", {theme: 'error'})
           div
             +button("Button!", {theme: 'error', size: 'small'})
-      //section.arrows-section
+      section.arrows-section
         h1.arrows-section__header.section-header Arrow buttons
         .arrows-section__body
           div
@@ -60,7 +61,7 @@ html(lang='en')
           div
             +slider(100, {parts: 11, color: 2})
 
-      //section.stages-section
+      section.stages-section
         h1.stages-section__header.section-header Sliders
         .sliders-section__body
           div
@@ -96,6 +97,15 @@ html(lang='en')
           +search('failed')
         div
           +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})
+
       section.profile-section
 
+        h1.section-header dropdowns/search
+        div
+          +profile({image: "/images/userpic-1.jpg", name: "John Smith", profession: "ux designer"})
+        div
+          +profile({image: "/images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
+
+      //section.news
+        h1.section-header news & events
     script(src='app.js')

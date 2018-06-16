@@ -54,8 +54,8 @@ function css() {
 }
 
 function img() {
-  return gulp.src('img/*.*')
-    .pipe(gulp.dest('./dist/img/'))
+  return gulp.src('images/*.*')
+    .pipe(gulp.dest('./dist/images/'))
 }
  
 function clean () {

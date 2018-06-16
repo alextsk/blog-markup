@@ -21,12 +21,17 @@
 @require './components/form-elements/toggle.styl'
 @require './components/search/search.styl'
 @require './components/dropdown/dropdown.styl'
+@require './components/profile/profile.styl'
 
 
-  
+img
+  max-width 100%
+  max-height 100%
+  display inline-block
 
 *
   box-sizing border-box
+  font-family sans-serif
 .button1 
   width 200px
   height 200px
@@ -83,7 +88,21 @@ form.elements
     justify-content center
     & > .section-header
       margin 10px 0
+      
 .dropdown-section
   width: calc(50% - 10px)
+  display inline-block
   & > div
     margin-bottom 15px
+
+.profile-section
+  width calc(50% - 20px)
+  margin-left 20px
+  display inline-block
+  vertical-align top
+  &>div 
+    display flex
+    margin-bottom 27px
+    justify-content center
+    
+    
