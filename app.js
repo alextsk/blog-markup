@@ -10824,9 +10824,10 @@ __webpack_require__(18);
 
 __webpack_require__(20);
 
+__webpack_require__(21);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_jquery2.default);
 (0, _jquery2.default)(document).ready(function () {
   var str = 'window location is ' + window.location;
   console.log(str);
@@ -14491,6 +14492,31 @@ function scope ( target, options, originalOptions ){
 
 "use strict";
 
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _jquery2.default)(".dropdown").each(function (i, el) {
+  (0, _jquery2.default)(el).find(".dropdown__button").click(function () {
+    (0, _jquery2.default)(el).toggleClass("dropdown--open");
+  });
+  (0, _jquery2.default)(el).find(".dropdown__item").click(function (e) {
+    var item = e.currentTarget;
+
+    (0, _jquery2.default)(el).removeClass("dropdown--open");
+    (0, _jquery2.default)(el).find(".dropdown__actual").val((0, _jquery2.default)(item).text());
+  });
+});
 
 /***/ })
 /******/ ]);
