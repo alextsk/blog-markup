@@ -1,0 +1,7 @@
+mixin news(opts)
+  .news(style="--image-location: url(" + opts.image + ");")
+    .news__image
+    .news__body
+      h2.news__title=opts.title
+      .news__date=opts.date || (new Date()).toLocaleDateString()
+      .news__copy=opts.copy || "lorem ipsum"
