@@ -1,0 +1,12 @@
+include ../button/button.pug
+mixin event(opts)
+  .event(style="--image-location: url(" + opts.image + ");")
+    .event__image
+    .event__body
+      .event__date
+        span.event__day=opts.date.day
+        span.event__month=opts.date.month
+      h2.event__title=opts.title
+      .event__copy=opts.copy || "lorem ipsum"
+      .event__button-back
+        +button("Add to calendar", {size:'small'})

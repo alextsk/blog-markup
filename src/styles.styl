@@ -6,6 +6,7 @@
   --text-light #9d9d9d
   --text-dark #4f4f4f
 
+@require './fonts.styl'
 @require './components/button/button.styl'
 @require './components/arrow-button/arrow-button.styl'
 
@@ -23,6 +24,7 @@
 @require './components/dropdown/dropdown.styl'
 @require './components/profile/profile.styl'
 @require './components/news/news.styl'
+@require './components/event/event.styl'
 
 
 img
@@ -32,7 +34,9 @@ img
 
 *
   box-sizing border-box
-  font-family sans-serif
+  font-family "Lato"
+h1,h2 
+  font-family "Lato" !important
 .button1 
   width 200px
   height 200px
@@ -105,5 +109,9 @@ form.elements
     display flex
     margin-bottom 27px
     justify-content center
-    
+.news-section
+  display grid
+  grid-template-columns 288px 288px
+  grid-gap 20px
+  justify-content: center;  
     

@@ -7,6 +7,7 @@ html(lang='en')
     link(rel="stylesheet", href="styles.css")
     title Document
     - var lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.";
+    - var lorem1="Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
     include components/button/button.pug
     include components/arrow-button/arrow-button.pug
     include components/circlecharts/percentage.pug
@@ -21,6 +22,7 @@ html(lang='en')
     include components/dropdown/dropdown.pug
     include components/profile/profile.pug
     include components/news/news.pug
+    include components/event/event.pug
 
 
   body
@@ -108,11 +110,10 @@ html(lang='en')
         div
           +profile({image: "/images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
 
+      h1.section-header news & events
       section.news-section
-        h1.section-header news & events
         div
           +news({image:"images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
-        hr
         div
-          +news({image:"images/city.jpg"})
+          +event({image:"images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
     script(src='app.js')
