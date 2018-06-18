@@ -29,8 +29,13 @@
   &__icon
     width 26px
     height 26px
-    background-color white
-    
+    cursor pointer
+    &:not(:first-child)
+      margin-left 10px
+    &:hover svg g
+      stroke var(--support-color)
+    &:nth-of-type(2):hover svg g
+      fill var(--support-color)
   &__address
     color white
     text-transform uppercase
