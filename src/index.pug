@@ -23,6 +23,7 @@ html(lang='en')
     include components/profile/profile.pug
     include components/news/news.pug
     include components/event/event.pug
+    include components/location/location.pug
 
 
   body
@@ -116,4 +117,9 @@ html(lang='en')
           +news({image:"images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
         div
           +event({image:"images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
+      
+      h1.section-header location
+      section.location-section
+        +location()
     script(src='app.js')
+    
