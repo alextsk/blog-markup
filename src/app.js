@@ -5,6 +5,7 @@ import './components/slider'
 import './components/stage'
 import './components/dropdown'
 import './components/location'
+import './components/calendar'
 
 
 $(document).ready(()=>{
