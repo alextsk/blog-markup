@@ -15,7 +15,7 @@ maps.load(function(google) {
   });
   
   var geocoder = new google.maps.Geocoder();
-  var geolocate = new google.maps.LatLng(56.49771, 84.97437)
+  var geolocate = new google.maps.LatLng(lat, lng)
   geocoder.geocode({'latLng': geolocate}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       var result;
