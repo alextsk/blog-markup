@@ -3,12 +3,13 @@ import maps from "google-maps"
 
 
 const el = document.querySelector(".js-map")
-
-//maps.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w"
+const lat = $(el).data("lat")
+const lng = $(el).data("lng")
+maps.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w"
 maps.LANGUAGE = "en" 
 maps.load(function(google) {
   var place =  new google.maps.Map(el, {
-    center: {lat: 56.49771, lng: 84.97437},
+    center: {lat: lat, lng: lng},
     zoom: 12,
     disableDefaultUI: true
   });
