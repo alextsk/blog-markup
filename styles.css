@@ -6,6 +6,27 @@
   --text-light: #9d9d9d;
   --text-dark: #4f4f4f;
 }
+@font-face {
+  font-family: 'Lato';
+  src: url("fonts/Lato-Regular.eot");
+  src: local('☺'), url("fonts/Lato-Regular.woff") format('woff'), url("fonts/Lato-Regular.ttf") format('truetype'), url("fonts/Lato-Regular.svg") format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("fonts/Lato-Light.eot");
+  src: local('☺'), url("fonts/Lato-Light.woff") format('woff'), url("fonts/Lato-Light.ttf") format('truetype'), url("fonts/Lato-Light.svg") format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url("fonts/Lato-Bold.eot");
+  src: local('☺'), url("fonts/Lato-Bold.woff") format('woff'), url("fonts/Lato-Bold.ttf") format('truetype'), url("fonts/Lato-Bold.svg") format('svg');
+  font-weight: 600;
+  font-style: normal;
+}
 .button {
   --mdc-theme-primary: #fff;
   box-sizing: border-box;
@@ -487,6 +508,250 @@
 .icon:hover {
   fill: var(--main-color);
 }
+.news {
+  height: 212px;
+  width: 100%;
+  display: flex;
+  color: #fff;
+}
+.news__image {
+  background-image: var(--image-location);
+  background-repeat: no-repeat;
+  background-position: center top;
+  width: 32.98%;
+  height: 100%;
+}
+.news__body {
+  padding: 25px 20px 25px 25px;
+  height: 100%;
+  flex: 1;
+  background-color: var(--main-color);
+}
+.news__title {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 94%;
+}
+.news__date {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+  margin-top: 10px;
+}
+.news__copy {
+  margin-top: 16px;
+  font-size: 11px;
+}
+.event {
+  height: 212px;
+  width: 100%;
+  display: flex;
+  color: #fff;
+}
+.event__image {
+  background-image: var(--image-location);
+  background-repeat: no-repeat;
+  background-position: center top;
+  width: 32.98%;
+  height: 100%;
+}
+.event__body {
+  padding: 25px 25px 25px 25px;
+  background-color: var(--support-color);
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.event__title {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 15px 0 0;
+}
+.event__date {
+  color: #fff;
+  font-family: Lato;
+  font-weight: 300;
+  white-space: nowrap;
+}
+.event__day {
+  font-size: 72px;
+  margin-top: 25px;
+  line-height: 0;
+  display: inline-block;
+  margin-left: -5px;
+}
+.event__month {
+  font-size: 34px;
+  margin-left: 7px;
+}
+.event__copy {
+  margin-top: 2px;
+  font-size: 11px;
+  flex: 1;
+}
+.event__button-back {
+  align-self: center;
+  border-radius: 4px;
+  width: 90%;
+  background-color: #fff;
+}
+.event__button-back .button {
+  width: 100%;
+  font-size: 10px;
+  font-family: Lato;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.map {
+  height: 272px;
+  position: relative;
+}
+.map__actual {
+  height: 100%;
+  width: 100%;
+}
+.map__bar {
+  height: 70px;
+  background-color: var(--main-color);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: 1.77fr 3.67fr 1fr;
+  align-items: center;
+}
+.map__message {
+  justify-self: center;
+  font-weight: 300;
+  font-size: 30px;
+  color: #fff;
+}
+.map__controls {
+  display: flex;
+  justify-self: end;
+}
+.map__icon {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+.map__icon:not(:first-child) {
+  margin: 0 26px 0 21px;
+}
+.map__icon:hover svg g {
+  stroke: var(--support-color);
+}
+.map__icon:nth-of-type(2):hover svg g {
+  fill: var(--support-color);
+}
+.map__address {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.datepicker {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calendar__head {
+  height: 109px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  color: #fff;
+  background-color: var(--main-color);
+}
+.calendar__footer {
+  height: 49px;
+  width: 100%;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  color: #868686;
+  padding-left: 20px;
+  background-color: var(--light-grey);
+}
+.ui-datepicker-inline {
+  width: 100%;
+}
+.ui-datepicker-header {
+  background-color: #d54c2c;
+  position: relative;
+  height: 43px;
+  padding-top: 20px;
+  font-weight: 300;
+  font-size: 24px;
+  color: #fff;
+  line-height: 0;
+}
+.ui-datepicker-title {
+  text-align: center;
+}
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+}
+.ui-datepicker-prev:hover svg path,
+.ui-datepicker-next:hover svg path {
+  stroke: var(--support-color);
+}
+.ui-datepicker-prev {
+  left: 16px;
+}
+.ui-datepicker-next {
+  right: 16px;
+}
+.ui-datepicker-year {
+  display: none;
+}
+.ui-datepicker-calendar {
+  border-collapse: collapse;
+  background-color: #f2f2f2;
+}
+.ui-datepicker-calendar th {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.ui-datepicker-calendar td {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+.ui-datepicker-calendar td.ui-datepicker-other-month {
+  color: #fff;
+}
+.ui-datepicker-calendar td a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--text-light);
+}
+.ui-datepicker-calendar td a.ui-state-active {
+  background-color: var(--main-color);
+  color: #fff;
+}
+.ui-datepicker-calendar td a:hover {
+  background-color: var(--support-color);
+  color: #fff;
+}
 img {
   max-width: 100%;
   max-height: 100%;
@@ -494,7 +759,11 @@ img {
 }
 * {
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: "Lato";
+}
+h1,
+h2 {
+  font-size: 1em;
 }
 .button1 {
   width: 200px;
@@ -508,7 +777,6 @@ img {
 .section-header {
   text-align: center;
   margin: 40px 0;
-  font-family: sans-serif;
   text-transform: uppercase;
   color: #4f4f4f;
   width: 100%;
@@ -573,5 +841,11 @@ form.elements>div {
 .profile-section>div {
   display: flex;
   margin-bottom: 27px;
+  justify-content: center;
+}
+.news-section {
+  display: grid;
+  grid-template-columns: 288px 288px;
+  grid-gap: 20px;
   justify-content: center;
 }
