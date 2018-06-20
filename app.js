@@ -16982,7 +16982,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   var progressBar = (0, _jquery2.default)('.js-video__progress-bar');
   var progressPosition = (0, _jquery2.default)('.js-video__progress-position');
   var fullscreenButton = (0, _jquery2.default)('.js-video__fullscreen');
-  var playButton = (0, _jquery2.default)("#play-pause-button");
+  var playButton = (0, _jquery2.default)(".js-video__play-pause-button");
+  var icons = (0, _jquery2.default)(".js-video__pp-icon");
   mediaPlayer.controls = false;
   playButton.click(togglePlayPause);
   progressBar.click(setVideoTime);
@@ -17002,11 +17003,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   }
 
   function togglePlayPause() {
+    icons.toggleClass('hidden');
     if (mediaPlayer.paused || mediaPlayer.ended) {
-      playButton.html('||');
       mediaPlayer.play();
     } else {
-      playButton.html('>');
       mediaPlayer.pause();
     }
   }
