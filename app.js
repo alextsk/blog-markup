@@ -10830,6 +10830,8 @@ __webpack_require__(22);
 
 __webpack_require__(24);
 
+__webpack_require__(26);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(document).ready(function () {
@@ -16958,6 +16960,66 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     */
 
 	module.exports = exports["default"];
+});
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _jquery2.default)(function () {
+  var $mediaPlayer = (0, _jquery2.default)('.video__actual');
+  var mediaPlayer = $mediaPlayer[0];
+  $mediaPlayer.on('timeupdate', updateProgressBar);
+  var progressBar = (0, _jquery2.default)('.js-video__progress-bar');
+  var progressPosition = (0, _jquery2.default)('.js-video__progress-position');
+  var fullscreenButton = (0, _jquery2.default)('.js-video__fullscreen');
+  var playButton = (0, _jquery2.default)("#play-pause-button");
+  mediaPlayer.controls = false;
+  playButton.click(togglePlayPause);
+  progressBar.click(setVideoTime);
+  fullscreenButton.click(function () {
+    return setFullscreen(mediaPlayer);
+  });
+
+  function setVideoTime(evt) {
+    var ratio = evt.offsetX / progressBar.width();
+    mediaPlayer.currentTime = ratio * mediaPlayer.duration;
+    updateProgressBar();
+  }
+
+  function updateProgressBar() {
+    var percentage = Math.floor(100 / mediaPlayer.duration * mediaPlayer.currentTime);
+    progressPosition.css({ width: percentage + '%' });
+  }
+
+  function togglePlayPause() {
+    if (mediaPlayer.paused || mediaPlayer.ended) {
+      playButton.html('||');
+      mediaPlayer.play();
+    } else {
+      playButton.html('>');
+      mediaPlayer.pause();
+    }
+  }
+
+  function setFullscreen(elem) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+  }
 });
 
 /***/ })
