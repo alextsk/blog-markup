@@ -1,0 +1,22 @@
+include /button/button.pug
+include /form-elements/textarea.pug
+
+mixin messaging()
+  .chat
+    .chat__title
+      | Sarah Brown
+    .chat__body
+      .chat__icons
+        svg(width=20 height=20)
+          circle(cx=10 cy=10 r=10)
+        .chat__head-icon
+          img(src="images/userpic-2.jpg")
+        svg(width=20 height=20)
+          circle(cx=10 cy=10 r=10)
+      .chat__messages
+        .chat__incoming-message
+          | Hey! So are we cool to meet at the art gallery? Say 8pm
+        .chat__outgoing-message
+        .chat__form
+          +textarea()
+          +button("reply", {theme:'filled'})

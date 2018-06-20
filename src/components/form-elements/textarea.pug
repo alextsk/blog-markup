@@ -1,4 +1,5 @@
-mixin textarea()
+mixin textarea(opts)
+  - var rows = (opts && opts.lines) ? opts.lines : 5
   div.textarea
     .textarea__back
-      textarea(rows="5", oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"').textarea__actual
+      textarea(rows=rows, oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"').textarea__actual

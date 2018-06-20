@@ -25,6 +25,7 @@ html(lang='en')
     include components/event/event.pug
     include components/location/location.pug
     include components/calendar/calendar.pug
+    include components/messaging/messaging.pug
 
 
   body
@@ -122,8 +123,11 @@ html(lang='en')
       h1.section-header location
       section.location-section
         +location()
-      h1.section-header
+      h1.section-header calendar
       section.datepicker-section
         +calendar()
+      h1.section-header messaging
+      section.messaging-section
+        +messaging()
     script(src='app.js')
     
