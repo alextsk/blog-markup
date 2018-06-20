@@ -4,19 +4,24 @@ include /form-elements/textarea.pug
 mixin messaging()
   .chat
     .chat__title
-      | Sarah Brown
+      .chat__title-text Sarah Brown
+    .chat__icons
+      span.chat__icon
+        svg(width=20 height=20)
+          rect(x=0, y=0, width=20 height=20, rx=4, ry=4)
+      span.chat__head-icon
+        img(src="images/userpic-2.jpg")
+      span.chat__icon
+        svg(width=20 height=20)
+          circle(cx=10 cy=10 r=10)
     .chat__body
-      .chat__icons
-        svg(width=20 height=20)
-          circle(cx=10 cy=10 r=10)
-        .chat__head-icon
-          img(src="images/userpic-2.jpg")
-        svg(width=20 height=20)
-          circle(cx=10 cy=10 r=10)
       .chat__messages
         .chat__incoming-message
+          svg(width="14" height="6" viewBox="0 0 13 7" class="chat__bubble-tail")
+            path(d="M 0 7 C 8 -1, 5 -1, 13 7") 
           | Hey! So are we cool to meet at the art gallery? Say 8pm
         .chat__outgoing-message
         .chat__form
-          +textarea()
-          +button("reply", {theme:'filled'})
+          form
+            +textarea({lines:2})
+            +button("reply", {theme:'filled'})

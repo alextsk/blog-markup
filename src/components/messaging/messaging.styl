@@ -1,8 +1,57 @@
+pads = 30px
+
 .chat
   width 288px
+  border-radius 4px
+  overflow hidden
   &__title
-    height 82px
+    line-height 100%
+    font-size 34px
+    color white
+    font-weight 300
+    height 83px
     background-color var(--support-color)
+
+  &__title-text
+    letter-spacing -1.7px
+    text-align center
+      
   &__icons
-    text-align justify
+    width 100%
+    height 34px
+    background-color #46ab9d
+    display flex
+    justify-content space-between
+    align-items flex-end
+    padding 0 pads
     vertical-align bottom
+    & > *
+      margin-bottom -45px
+  &__head-icon
+    height 93px
+    width: 93px
+    display inline-block
+    border-radius 50%
+    overflow hidden
+    border 5px solid var(--light-grey)
+  &__incoming-message
+    padding 20px
+    background-color white
+    border-radius 4px
+    font-size 12px
+    font-weight 400
+    margin-top 15px
+    position relative
+  &__body
+    padding 48px pads 0
+    background-color #f2f2f2
+  &__form 
+    margin-top 17px
+  &__bubble-tail
+    fill white
+    position absolute
+    top -5px
+    left calc(50% - 7px)
+  .textarea
+    border 3px solid white
+    border-radius 4px
