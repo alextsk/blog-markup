@@ -14830,7 +14830,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   var head = (0, _jquery2.default)(".calendar__head");
   var footer = (0, _jquery2.default)(".calendar__footer");
   var calendar = (0, _jquery2.default)('.datepicker').datepicker({
-    prevText: '<svg width=16 height=25 transform="rotate(180)">' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
+    prevText: '<svg width=16 height=25 transform="rotate(180.1)">' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
     nextText: '<svg width=16 height=25>' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
     firstDay: 1,
     showOtherMonths: true,

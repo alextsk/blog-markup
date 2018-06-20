@@ -61,6 +61,11 @@
   padding: 0 16px;
   box-shadow: 0 2px 0 0 #28a290;
 }
+.button--filled {
+  background-color: var(--support-color);
+  color: #fff;
+  width: 100%;
+}
 .button--error {
   color: #e34a26;
   border-color: #e75735;
@@ -751,6 +756,81 @@
 .ui-datepicker-calendar td a:hover {
   background-color: var(--support-color);
   color: #fff;
+}
+.chat {
+  width: 288px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.chat__title {
+  line-height: 100%;
+  font-size: 34px;
+  color: #fff;
+  font-weight: 300;
+  height: 83px;
+  background-color: var(--support-color);
+}
+.chat__title-text {
+  padding-top: 22px;
+  letter-spacing: -1.5px;
+  text-align: center;
+}
+.chat__icons {
+  width: 100%;
+  height: 34px;
+  background-color: #46ab9d;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 28px;
+  vertical-align: bottom;
+}
+.chat__icons > * {
+  margin-bottom: -45px;
+}
+.chat__icon {
+  fill: var(--dark-grey);
+  cursor: pointer;
+}
+.chat__icon:hover {
+  fill: var(--main-color);
+}
+.chat__head-icon {
+  height: 93px;
+  width: 93px;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--light-grey);
+}
+.chat__incoming-message {
+  padding: 15px 20px 22px;
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 15px;
+  position: relative;
+}
+.chat__body {
+  padding: 48px 23px 26px;
+  background-color: #f2f2f2;
+}
+.chat__form {
+  margin-top: 17px;
+}
+.chat__button {
+  margin-top: 15px;
+}
+.chat__bubble-tail {
+  fill: #fff;
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 7px);
+}
+.chat .textarea {
+  border: 3px solid #fff;
+  border-radius: 4px;
 }
 img {
   max-width: 100%;
