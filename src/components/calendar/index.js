@@ -7,7 +7,7 @@ $(function() {
   const head = $(".calendar__head")
   const footer = $(".calendar__footer")
   var calendar = $('.datepicker').datepicker({
-    prevText: '<svg width=16 height=25 transform="rotate(180)">' + $(".arrow-icon").html() + "</svg>",
+    prevText: '<svg width=16 height=25 transform="rotate(180.1)">' + $(".arrow-icon").html() + "</svg>",
     nextText: '<svg width=16 height=25>' + $(".arrow-icon").html() + "</svg>",
     firstDay: 1,
     showOtherMonths: true,
