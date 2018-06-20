@@ -8,6 +8,7 @@ html(lang='en')
     title Document
     - var lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.";
     - var lorem1="Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
     include components/button/button.pug
     include components/arrow-button/arrow-button.pug
     include components/circlecharts/percentage.pug
@@ -26,6 +27,7 @@ html(lang='en')
     include components/location/location.pug
     include components/calendar/calendar.pug
     include components/messaging/messaging.pug
+    include components/video/video.pug
 
 
   body
@@ -129,5 +131,8 @@ html(lang='en')
       h1.section-header messaging
       section.messaging-section
         +messaging()
+      h1.section-header video
+      section.video-section
+        +video({src:"https://youtu.be/gfWQdQQtPmU"})
     script(src='app.js')
     

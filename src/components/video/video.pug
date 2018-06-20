@@ -1,0 +1,15 @@
+mixin video(opts)
+  .video
+    video(preload, controls=true).video__actual
+      source(src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4")
+
+    .video__controls
+      button#play-pause-button.play(title='play') >
+      .video__progress-bar.js-video__progress-bar()
+        .video__progress-position.js-video__progress-position
+      .video__fullscreen.js-video__fullscreen #
+      
+
+
+
+

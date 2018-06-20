@@ -6,6 +6,7 @@ import './components/stage'
 import './components/dropdown'
 import './components/location'
 import './components/calendar'
+import './components/video'
 
 
 $(document).ready(()=>{
