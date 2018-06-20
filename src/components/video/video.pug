@@ -1,13 +1,22 @@
 mixin video(opts)
+  svg(width=0 height=0 viewBox="0 0 11 11")
+    defs
+      path(d="M 4,5 l3,-3 l-2,-2 h 5 v 5 l-2,-2 l -3, 3 z" id="original-arrow")
   .video
-    video(preload, controls=true).video__actual
+    video(preload, controls=true poster="images/city.jpg").video__actual
       source(src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4")
 
     .video__controls
       button#play-pause-button.play(title='play') >
       .video__progress-bar.js-video__progress-bar()
         .video__progress-position.js-video__progress-position
-      .video__fullscreen.js-video__fullscreen #
+      .video__fullscreen.js-video__fullscreen 
+        svg(width='22', height='22').video__fullscreen-icon
+          use(href="#original-arrow" x=12 y=0 )
+          use(href="#original-arrow" x=12 y=0 transform="rotate(90,11,11)" )
+          use(href="#original-arrow" x=12 y=0 transform="rotate(180,11,11)" )
+          use(href="#original-arrow" x=12 y=0 transform="rotate(270,11,11)" )
+
       
 
 
