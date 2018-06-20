@@ -37,7 +37,7 @@ var gulp = require('gulp'),
 
 function html() {
   return gulp.src('src/*.pug')
-    .pipe(pug())
+    .pipe(pug({basedir: __dirname + '/src/components'}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
