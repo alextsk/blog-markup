@@ -7,13 +7,18 @@ mixin messaging()
       .chat__title-text Sarah Brown
     .chat__icons
       span.chat__icon
-        svg(width=20 height=20)
-          rect(x=0, y=0, width=20 height=20, rx=4, ry=4)
+        svg(width=20, height=20 )
+          g
+            rect(x=0, y=0, width=20, height=15, rx=4, ry=4)
+            path(d="M 8, 15 l 7,5 l 0 -5")
       span.chat__head-icon
         img(src="images/userpic-2.jpg")
       span.chat__icon
-        svg(width=20 height=20)
-          circle(cx=10 cy=10 r=10)
+        svg(width=24 height=20)
+          g
+            rect(x=0, y=3, width=24, height=16, rx=2, ry=2)
+            rect(x=6, y=0, width=12, height=4, rx=2, ry=2)
+            circle(cx=12, cy=11, r=4, stroke-width=2, stroke="#fff", fill="none")
     .chat__body
       .chat__messages
         .chat__incoming-message
@@ -23,5 +28,6 @@ mixin messaging()
         .chat__outgoing-message
         .chat__form
           form
-            +textarea({lines:2})
-            +button("reply", {theme:'filled'})
+            +textarea({lines:3})
+            .chat__button
+              +button("reply", {theme:'filled'})

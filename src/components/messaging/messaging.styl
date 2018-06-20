@@ -1,4 +1,4 @@
-pads = 30px
+pads = 23px
 
 .chat
   width 288px
@@ -13,7 +13,8 @@ pads = 30px
     background-color var(--support-color)
 
   &__title-text
-    letter-spacing -1.7px
+    padding-top 22px
+    letter-spacing -1.5px
     text-align center
       
   &__icons
@@ -23,10 +24,16 @@ pads = 30px
     display flex
     justify-content space-between
     align-items flex-end
-    padding 0 pads
+    padding 0 28px
     vertical-align bottom
     & > *
       margin-bottom -45px
+  &__icon
+    fill var(--dark-grey)
+    cursor pointer
+    &:hover
+      fill var(--main-color)
+      
   &__head-icon
     height 93px
     width: 93px
@@ -35,7 +42,7 @@ pads = 30px
     overflow hidden
     border 5px solid var(--light-grey)
   &__incoming-message
-    padding 20px
+    padding 15px 20px 22px
     background-color white
     border-radius 4px
     font-size 12px
@@ -43,10 +50,12 @@ pads = 30px
     margin-top 15px
     position relative
   &__body
-    padding 48px pads 0
+    padding 48px pads 26px
     background-color #f2f2f2
   &__form 
     margin-top 17px
+  &__button
+    margin-top 15px
   &__bubble-tail
     fill white
     position absolute
