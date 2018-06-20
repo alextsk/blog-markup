@@ -8,7 +8,8 @@ $(() => {
   var progressBar = $('.js-video__progress-bar');
   var progressPosition = $('.js-video__progress-position');
   var fullscreenButton = $('.js-video__fullscreen');
-  var playButton = $("#play-pause-button")
+  var playButton = $(".js-video__play-pause-button")
+  var icons = $(".js-video__pp-icon")
   mediaPlayer.controls = false;
   playButton.click(togglePlayPause)
   progressBar.click(setVideoTime)
@@ -27,12 +28,11 @@ $(() => {
   }
   
   function togglePlayPause() {
+    icons.toggleClass('hidden');
     if (mediaPlayer.paused || mediaPlayer.ended) {
-      playButton.html('||');
       mediaPlayer.play();
     }
     else {
-      playButton.html('>');
       mediaPlayer.pause();
     }
   }
