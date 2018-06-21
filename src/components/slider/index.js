@@ -23,14 +23,12 @@ sliders.each((i, el) => {
 	if (parts) {
 		var pips = el.querySelectorAll('.noUi-value');
 		function clickOnPip ( ) {
-		    var value = Number(this.getAttribute('data-value'));
-		    el.noUiSlider.set(value);
+	    var value = Number(this.getAttribute('data-value'));
+	    el.noUiSlider.set(value);
 		}
 
 		for ( var i = 0; i < pips.length; i++ ) {
-		    // For this example. Do this in CSS!
-		    pips[i].style.cursor = 'pointer';
-		    pips[i].addEventListener('click', clickOnPip);
+	    pips[i].addEventListener('click', clickOnPip);
 		}
 	}
 	
