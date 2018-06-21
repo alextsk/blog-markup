@@ -10834,11 +10834,6 @@ __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jquery2.default)(document).ready(function () {
-  var str = 'window location is ' + window.location;
-  console.log(str);
-});
-
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -12130,8 +12125,6 @@ sliders.each(function (i, el) {
 
 
 		for (var i = 0; i < pips.length; i++) {
-			// For this example. Do this in CSS!
-			pips[i].style.cursor = 'pointer';
 			pips[i].addEventListener('click', clickOnPip);
 		}
 	}
@@ -16978,13 +16971,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _jquery2.default)(function () {
   var $mediaPlayer = (0, _jquery2.default)('.video__actual');
   var mediaPlayer = $mediaPlayer[0];
-  $mediaPlayer.on('timeupdate', updateProgressBar);
   var progressBar = (0, _jquery2.default)('.js-video__progress-bar');
   var progressPosition = (0, _jquery2.default)('.js-video__progress-position');
   var fullscreenButton = (0, _jquery2.default)('.js-video__fullscreen');
   var playButton = (0, _jquery2.default)(".js-video__play-pause-button");
   var icons = (0, _jquery2.default)(".js-video__pp-icon");
   mediaPlayer.controls = false;
+
+  $mediaPlayer.on('timeupdate', updateProgressBar);
   playButton.click(togglePlayPause);
   progressBar.click(setVideoTime);
   fullscreenButton.click(function () {
