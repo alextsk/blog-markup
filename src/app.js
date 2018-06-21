@@ -8,8 +8,3 @@ import './components/location'
 import './components/calendar'
 import './components/video'
 
-
-$(document).ready(()=>{
-  let str = `window location is ${window.location}`;
-  console.log(str);
-});
