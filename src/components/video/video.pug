@@ -3,14 +3,14 @@ mixin video(opts)
     svg(width=0 height=0 viewBox="0 0 11 11")
       defs
         path(d="M 4,5 l3,-3 l-2,-2 h 5 v 5 l-2,-2 l -3, 3 z" id="original-arrow")
-    video(preload, controls=true poster="images/city.jpg").video__actual
+    video(preload, controls=true poster=opts.poster).video__actual
       source(src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4")
 
     .video__controls
       .video__play-pause-button.js-video__play-pause-button(title='play')
-        svg()(width='9', height='14').video__play-icon.js-video__pp-icon
+        svg(width='9', height='14').video__play-icon.js-video__pp-icon
           path(d="M 0,0 l 9,7 l -9, 7 z")
-        svg()(width='9', height='14').video__pause-icon.js-video__pp-icon.hidden 
+        svg(width='9', height='14').video__pause-icon.js-video__pp-icon.hidden 
           g()
             rect(x="0", y="0", width="3", height="14")
             rect(x="6", y="0", width="3", height="14")

@@ -1,0 +1,51 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel="stylesheet", href="../styles.css")
+    link(rel="stylesheet", href="./styles.css")
+
+    title Renovation 
+    include /src/components/video/video.pug
+body
+  header
+    .logo частный мастер
+    .phone +7 (903) 913-03-61
+    .time Ежедневно с 9.00 до 22.00
+
+  menu
+    ul
+      li 
+        a(href=".") Главная
+      li Виды услуг
+      li 
+        a(href="./photos.html") Фото работ
+      li Цены
+      li Акции
+      li О нас
+      li Отзывы
+      li Контакты
+
+
+  main
+    h1 Ремонт квартир в Томске - фото 
+    h2 Фото и видео наших работ по ремонту и отделке квартир в Томске
+    .video_container
+      .video_env
+        +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
+      .video_env
+        +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
+      .video_env
+        +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
+
+
+
+
+
+  footer.
+          Copyright ©2004-2018
+          Томск
+          8 (903) 913-03-61
+  script(src='./app.js')

@@ -1,17 +1,16 @@
 .video
-  width 595px
-  height 337px
+  width 100%
+  height 100%
+  background black
   &__actual 
     width 100%
     height 100%
     
   &__controls
-    
     display grid
     grid-template-columns max-content 1fr max-content
     width 100%
-    background  linear-gradient(rgba(255,255,255,.0) 0%, rgba(33,33,44,.6), rgba(255,255,255,.0));
-
+    background   rgba(0,0,12,.5);
     height 48px
     margin-top -52px
     z-index 999
@@ -21,12 +20,12 @@
     height 5px
     width calc(100% - 22px)
     border-radius 4px
-    background-color var(--light-grey)
+    background-color var(--light-grey, grey)
   &__progress-position
     content ""
     display block
     border-radius 4px
-    background-color var(--main-color)
+    background-color var(--main-color, red)
     height 100%
   &__play-pause-button
     
@@ -36,10 +35,12 @@
     display flex
     align-items center
     justify-content center
-    background-color var(--main-color)
+    background-color var(--main-color, red)
     fill white
     &:hover
-      fill var(--support-color)
+      fill var(--support-color, green)
       
   &__play-pause-button
     background-color transparent
+.hidden
+  display none
