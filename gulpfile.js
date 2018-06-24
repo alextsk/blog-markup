@@ -9,9 +9,34 @@ var gulp = require('gulp'),
   var browserSync = require('browser-sync').create();
   var del = require('del');
 
+const 
+  sitePath= 'src/demo',
+  uiKitPath= 'src/ui-kit'
 
- function scripts () {
-  return gulp.src('./src/app.js')
+function scriptsUi () {
+  return gulp.src(`src/ui-kit/app.js`)
+    .pipe(webpackStream({
+      output: {
+        filename: 'app.js',
+      },
+      module: {
+        rules: [
+          {
+            test: /\.(js)$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader',
+            query: {
+              presets: ['env']
+            }
+          }
+        ]
+      }
+    }))
+    .pipe(gulp.dest('./dist/ui/'))
+};
+
+function scripts () {
+  return gulp.src(`src/demo/app.js`)
     .pipe(webpackStream({
       output: {
         filename: 'app.js',
@@ -31,22 +56,42 @@ var gulp = require('gulp'),
     }))
     .pipe(gulp.dest('./dist/'))
     //.pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./dist/'));
+   // .pipe(rename({ suffix: '.min' }))
+   // .pipe(gulp.dest('./dist/'));
 };
 
+function htmlUi() {
+  //return gulp.src(`${uiKitPath}/index.pug`)
+  return gulp.src('src/ui-kit/index.pug')
+    .pipe(pug({basedir: __dirname}))
+    .pipe(gulp.dest('./dist/ui'))
+    .pipe(browserSync.stream());
+}
+
 function html() {
-  return gulp.src('src/*.pug')
-    .pipe(pug({basedir: __dirname + '/src/components'}))
+  //return gulp.src(`${sitePath}/index.pug`)
+  return gulp.src('src/demo/*.pug')
+    .pipe(pug({basedir: __dirname}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
 
-function css() {
-  return gulp.src('src/styles.styl')
+function cssUi() {
+  return gulp.src(`${uiKitPath}/styles.styl`)
     .pipe(stylus({
       'include css': true,
-       include: 'node_modules'
+       include: ['node_modules', __dirname]
+    }))
+//    .pipe(minifyCSS())
+    .pipe(gulp.dest('./dist/ui'))
+    .pipe(browserSync.stream());
+}
+
+function css() {
+  return gulp.src(`${sitePath}/styles.styl`)
+    .pipe(stylus({
+      'include css': true,
+       include: ['node_modules', __dirname]
     }))
 //    .pipe(minifyCSS())
     .pipe(gulp.dest('./dist/'))
@@ -67,7 +112,7 @@ function fonts(){
     .pipe(gulp.dest('dist/fonts'))
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, scripts, img, fonts));
+const build = gulp.series(clean, gulp.parallel(html, htmlUi, css, cssUi, scripts,scriptsUi, img, fonts));
 
 const deploy = gulp.series(build, function () {
   return gulp.src("./dist/**/*")
@@ -75,23 +120,25 @@ const deploy = gulp.series(build, function () {
 });
 
 const browser = function() {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
+  browserSync.init({
+    server: {
+        baseDir: "./"
+    }
+  });
 };
 
 const serve = gulp.series(build, function() {
 
-    browserSync.init({
-        server: "./dist"
-    });
+  browserSync.init({
+      server: "./dist"
+  });
 
-    gulp.watch("src/**/*.styl", css);
-    gulp.watch("src/**/*.pug", html)
-    gulp.watch("src/**/*.js", scripts)
-    gulp.watch("dist/**/*.*").on('change', browserSync.reload);
+  gulp.watch("src/**/*.styl", gulp.parallel(css, cssUi));
+  gulp.watch("src/**/*.pug", gulp.parallel(html, htmlUi))
+  gulp.watch("src/**/*.js", gulp.parallel(scripts, scriptsUi))
+  gulp.watch("images/*.*", img)
+  gulp.watch("dist/**/*.*").on('change', browserSync.reload);
+
 });
 
 gulp.task('deploy', deploy)
