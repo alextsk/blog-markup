@@ -1,12 +1,41 @@
 @require '/src/components/video/video.styl'
+@require '/src/components/arrow-button/arrow-button.styl'
+@require '@glidejs/glide/dist/css/glide.core.min.css';
+@require 'slick-carousel/slick/slick.css';
 
+*
+  margin 0
+  padding 0
+ul
+  list-style none
+  
 body > * 
   margin 0 auto
   max-width: 1100px
-
+img
+  max-height 100%
+  max-width: 100%;
 .video_container
   display grid
   grid-template-columns 1fr 1fr 1fr
   grid-template-rows 300px
   grid-gap 20px
-
+  
+.glide__arrow
+  display inline-block
+  position absolute
+  top 50%
+  transform translateY(-50%)
+  &--left
+    left -20px
+  &--right 
+    right -20px
+.glide__slide
+   border-radius 40px
+   overflow hidden
+.slick-slide > div 
+  margin-right 10px
+  overflow hidden
+  border-radius 40px
+  
+  

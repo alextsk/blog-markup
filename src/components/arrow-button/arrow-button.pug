@@ -1,6 +1,6 @@
 mixin arrow-button(direction, enabled)
 
-  - var clas = [enabled ? 'arrow-button--enabled' : '', direction == 'left'? 'arrow-button--left' : '' ];
+  - var clas = [enabled ? 'arrow-button--enabled' : '', direction == 'left'? 'arrow-button--left' : 'arrow-button--right' ];
   div.arrow-button(class=clas)
     svg(width="54px", height="54")
       circle(cx='25' cy='25' r='23' fill='transparent' stroke='#000' stroke-width="4px")

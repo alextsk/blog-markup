@@ -22,11 +22,13 @@
     "webpack-stream": "^4.0.3"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.1.0",
     "@material/ripple": "^0.36.0",
     "circle-chart": "^1.0.0",
     "create-svg-doughnut": "^1.0.1",
     "google-maps": "^3.3.0",
     "jquery-datepicker": "^1.12.3",
-    "nouislider": "^11.1.0"
+    "nouislider": "^11.1.0",
+    "slick-carousel": "^1.8.1"
   }
 }
