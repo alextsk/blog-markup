@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import Glide from '@glidejs/glide'
 import slick from 'slick-carousel'
-import '../components/video'
+import '../components/components.js'
 
  new Glide('.glide', {
   type: 'carousel',

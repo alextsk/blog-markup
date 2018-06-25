@@ -1,0 +1,18 @@
+extends layout.pug
+
+block includes
+  title Contacts 
+  include /src/components/location/location.pug
+  include /src/components/button/button.pug
+  include /src/components/form-elements/textarea.pug
+  include /src/components/form-elements/input.pug
+block content
+  div.
+    Адрес: 634009, Россия, Томск, Пер. Дербышевский - 15
+    Телефон:
+    +7 (903) 913-03-61
+    Часы работы:
+    ежедневно с 9:00 до 22:00
+  div 
+    +location()
+

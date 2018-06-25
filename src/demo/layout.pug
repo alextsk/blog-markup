@@ -1,0 +1,41 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+
+    link(rel="stylesheet", href="./styles.css")
+    block includes
+
+
+  body
+    header
+      .logo частный мастер
+      .phone +7 (903) 913-03-61
+      .time Ежедневно с 9.00 до 22.00
+
+    menu
+      ul
+        li 
+          a(href=".") Главная
+        li 
+          a(href="./services.html") Виды услуг
+        li 
+          a(href="./photos.html") Фото работ
+        li 
+          a(href="./prices.html") Цены
+        li  
+          a(href="./aboutus.html") О нас
+        li 
+           a(href="./testimonials.html") Отзывы
+        li 
+           a(href="./contacts.html") Контакты
+    main 
+      block content
+
+    footer.
+        Copyright ©2004-2018
+        Томск
+        8 (903) 913-03-61
+    script(src='./app.js')

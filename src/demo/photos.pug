@@ -1,107 +1,71 @@
-doctype html
-html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    link(rel="stylesheet", href="../styles.css")
-    link(rel="stylesheet", href="./styles.css")
+extends layout.pug
 
-    title Renovation 
+block includes
+    title Photos 
     include /src/components/video/video.pug
     include /src/components/arrow-button/arrow-button.pug
-body
-  header
-    .logo частный мастер
-    .phone +7 (903) 913-03-61
-    .time Ежедневно с 9.00 до 22.00
+    
+block content
+  h1 Ремонт квартир в Томске - фото 
+  h2 Фото и видео наших работ по ремонту и отделке квартир в Томске
+  .video_container
+    .video_env
+      +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
+    .video_env
+      +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
+    .video_env
+      +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
 
-  menu
-    ul
-      li 
-        a(href=".") Главная
-      li Виды услуг
-      li 
-        a(href="./photos.html") Фото работ
-      li Цены
-      li Акции
-      li О нас
-      li Отзывы
-      li Контакты
+  h2 Ремонт черновой квартиры на Савиных
 
 
-  main
-    h1 Ремонт квартир в Томске - фото 
-    h2 Фото и видео наших работ по ремонту и отделке квартир в Томске
-    .video_container
-      .video_env
-        +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
-      .video_env
-        +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
-      .video_env
-        +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
-
-    h2 Ремонт черновой квартиры на Савиных
-
-
-    .glide
-      .glide__track(data-glide-el='track')
-        ul.glide__slides
-          li.glide__slide
-            img(src="/images/11.jpg", alt="")
-          li.glide__slide
-            img(src="/images/12.jpg", alt="")
-          li.glide__slide
-            img(src="/images/13.jpg", alt="")
-          li.glide__slide
-            img(src="/images/14.jpg", alt="")
-          li.glide__slide
-            img(src="/images/15.jpg", alt="")
-          li.glide__slide
-            img(src="/images/16.jpg", alt="")
-          li.glide__slide
-            img(src="/images/17.jpg", alt="")
-          li.glide__slide
-            img(src="/images/18.jpg", alt="")
-          li.glide__slide
-            img(src="/images/19.jpg", alt="")
-      .glide__arrows(data-glide-el='controls')
-        .glide__arrow.glide__arrow--left(data-glide-dir='<')
-          +arrow-button('left', true)
-        .glide__arrow.glide__arrow--right(data-glide-dir='>')
-          +arrow-button('right', true)
-
-    .carousel
-      ul.carousel__list.js-carousel__list
-        li.carousel__item
+  .glide
+    .glide__track(data-glide-el='track')
+      ul.glide__slides
+        li.glide__slide
           img(src="/images/11.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/12.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/13.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/14.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/15.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/16.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/17.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/18.jpg", alt="")
-        li.carousel__item
+        li.glide__slide
           img(src="/images/19.jpg", alt="")
-      .carousel__controls
-        +arrow-button('left', true)(class="arrrrr")
+    .glide__arrows(data-glide-el='controls')
+      .glide__arrow.glide__arrow--left(data-glide-dir='<')
+        +arrow-button('left', true)
+      .glide__arrow.glide__arrow--right(data-glide-dir='>')
         +arrow-button('right', true)
 
-
-
-
-
-
-  footer.
-          Copyright ©2004-2018
-          Томск
-          8 (903) 913-03-61
-  script(src='./app.js')
+  .carousel
+    ul.carousel__list.js-carousel__list
+      li.carousel__item
+        img(src="/images/11.jpg", alt="")
+      li.carousel__item
+        img(src="/images/12.jpg", alt="")
+      li.carousel__item
+        img(src="/images/13.jpg", alt="")
+      li.carousel__item
+        img(src="/images/14.jpg", alt="")
+      li.carousel__item
+        img(src="/images/15.jpg", alt="")
+      li.carousel__item
+        img(src="/images/16.jpg", alt="")
+      li.carousel__item
+        img(src="/images/17.jpg", alt="")
+      li.carousel__item
+        img(src="/images/18.jpg", alt="")
+      li.carousel__item
+        img(src="/images/19.jpg", alt="")
+    .carousel__controls
+      +arrow-button('left', true)(class="arrrrr")
+      +arrow-button('right', true)
