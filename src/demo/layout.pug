@@ -11,25 +11,27 @@ html(lang='en')
 
   body
     header
-      .logo частный мастер
-      .phone +7 (903) 913-03-61
-      .time Ежедневно с 9.00 до 22.00
+        .logo 
+          .logo__title Частный мастер
+          .logo__subtitle честные цены
+        .phone +7 (903) 913-03-61
+        .time Ежедневно с 9.00 до 22.00
 
-    menu
-      ul
-        li 
+    nav.menu
+      ul.menu__container
+        li.menu__item
           a(href=".") Главная
-        li 
+        li.menu__item 
           a(href="./services.html") Виды услуг
-        li 
+        li.menu__item 
           a(href="./photos.html") Фото работ
-        li 
+        li.menu__item 
           a(href="./prices.html") Цены
-        li  
+        li.menu__item  
           a(href="./aboutus.html") О нас
-        li 
+        li.menu__item 
            a(href="./testimonials.html") Отзывы
-        li 
+        li.menu__item 
            a(href="./contacts.html") Контакты
     main 
       block content
