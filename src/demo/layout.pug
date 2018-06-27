@@ -42,6 +42,20 @@ html(lang='en')
 
     footer.footer
       .footer__wrapper
+        div
+          +location({lat:"56.5034789", lng: "84.9392213"})
+        div.footer__contact-data
+          dl
+            .footer__contact-item
+              dt.footer__address Адрес:
+              dd 634009, Россия, Томск, Пер. Дербышевский - 15
+            .footer__contact-item
+              dt.footer__phone Телефон:
+              dd +7 (903) 913-03-61
+            .footer__contact-item
+              dt.footer__hours Часы работы:
+              dd ежедневно с 9:00 до 22:00
+
         div.footer__form
           form
             h2 Задать вопрос
@@ -59,19 +73,7 @@ html(lang='en')
                 +textarea()
             .footer__input-group
               +button("Отправить")
-        div.footer__contact-data
-          dl
-            .footer__contact-item
-              dt.footer__address Адрес:
-              dd 634009, Россия, Томск, Пер. Дербышевский - 15
-            .footer__contact-item
-              dt.footer__phone Телефон:
-              dd +7 (903) 913-03-61
-            .footer__contact-item
-              dt.footer__hours Часы работы:
-              dd ежедневно с 9:00 до 22:00
     
-        div
-          +location({lat:"56.5034789", lng: "84.9392213"})
+       
 
     script(src='./app.js')
