@@ -1,6 +1,6 @@
 mixin location(opts)
   .map
-    .map__actual.js-map(data-lat="59.332848" data-lng="18.053135")
+    .map__actual.js-map(data-lat=opts ? opts.lat : .28, data-lng=opts ? opts.lng : 110.24)
     //.map__actual.js-map(data-lat="56.49771" data-lng="84.97437")
     .map__bar
       .map__message Meet us!
