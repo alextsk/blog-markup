@@ -7,6 +7,33 @@ block includes
   include /src/components/form-elements/textarea.pug
     
 block content
-  div 
-    +button("отозвать")
+  div.testimonial-form
+    form
+      h2 Оставить отзыв
+      .form__input-group.testimonial-form__name
+        label имя
+          +input()
+      .form__input-group.testimonial-form__email
+        label e-mail
+          +input()
+      .form__input-group.testimonial-form__message
+        label сообщение
+          +textarea()
+      .form__input-group.testimonial-form__submit
+        +button("Отправить")
+  .testimonials-list
+    ul
+      li.testimonial
+          .testimonial__name  Виктор Николаевич
+          .testimonial__date  2017-01-17 02:33:35
+          .testimonial__rating 5/5
+          .testimonial__message Мне на днях закончили ремонт косметический в двухкомнатной хрущевке. Очень доволен качеством и сроками. Считаю что этих мастеров не стыдно и друзьям порекомендовать. К стати, согласно действующей акции ещё и стройматериал (шпаклёвочные смеси) в подарок предоставили!
+
+      li.testimonial
+          .testimonial__name Ларионов Дмитрий Борисович
+          .testimonial__date 2016-09-03 05:12:11
+          .testimonial__rating 5/5
+          .testimonial__message Вчера закончили ремонт моей квартиры. Уложились на 4 дня раньше срока по договору. Хочется поблагодарить мастеров и сказать только одно - профессионалы. Рекомендую обращаться к ним.
+
+
     
