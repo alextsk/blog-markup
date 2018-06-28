@@ -16969,40 +16969,56 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(function () {
-  var $mediaPlayer = (0, _jquery2.default)('.video__actual');
-  var mediaPlayer = $mediaPlayer[0];
-  var progressBar = (0, _jquery2.default)('.js-video__progress-bar');
-  var progressPosition = (0, _jquery2.default)('.js-video__progress-position');
-  var fullscreenButton = (0, _jquery2.default)('.js-video__fullscreen');
-  var playButton = (0, _jquery2.default)(".js-video__play-pause-button");
-  var icons = (0, _jquery2.default)(".js-video__pp-icon");
-  mediaPlayer.controls = false;
+  var uniq = function uniq() {
+    return Math.floor(Math.random() * 10000);
+  };
+  var videos = (0, _jquery2.default)('.video');
+  videos.each(function (ind, video) {
+    console.log(video);
+    var $mediaPlayer = (0, _jquery2.default)(video).find('.video__actual');
+    var mediaPlayer = $mediaPlayer[0];
+    var progressBar = (0, _jquery2.default)(video).find('.js-video__progress-bar');
+    var progressPosition = (0, _jquery2.default)(video).find('.js-video__progress-position');
+    var fullscreenButton = (0, _jquery2.default)(video).find('.js-video__fullscreen');
+    var playButton = (0, _jquery2.default)(video).find(".js-video__play-pause-button");
+    var icons = (0, _jquery2.default)(video).find(".js-video__pp-icon");
+    mediaPlayer.controls = false;
 
-  $mediaPlayer.on('timeupdate', updateProgressBar);
-  playButton.click(togglePlayPause);
-  progressBar.click(setVideoTime);
-  fullscreenButton.click(function () {
-    return setFullscreen(mediaPlayer);
+    $mediaPlayer.on('timeupdate', updateProgressBar(mediaPlayer, progressPosition));
+    playButton.click(togglePlayPause(icons, mediaPlayer));
+    progressBar.click(setVideoTime(mediaPlayer, progressBar, progressPosition));
+    fullscreenButton.click(function () {
+      return setFullscreen(mediaPlayer);
+    });
   });
 
-  function setVideoTime(evt) {
-    var ratio = evt.offsetX / progressBar.width();
-    mediaPlayer.currentTime = ratio * mediaPlayer.duration;
-    updateProgressBar();
+  function setVideoTime(mediaPlayer, progressBar, progressPosition) {
+    return function (evt) {
+      var ratio = evt.offsetX / progressBar.width();
+      mediaPlayer.currentTime = ratio * mediaPlayer.duration;
+      updateProgressBar(mediaPlayer, progressPosition)();
+    };
   }
 
-  function updateProgressBar() {
-    var percentage = Math.floor(100 / mediaPlayer.duration * mediaPlayer.currentTime);
-    progressPosition.css({ width: percentage + '%' });
+  function updateProgressBar(mediaPlayer, progressPosition) {
+    return function () {
+      var percentage = Math.floor(100 / mediaPlayer.duration * mediaPlayer.currentTime);
+      progressPosition.css({ width: percentage + '%' });
+    };
   }
 
-  function togglePlayPause() {
-    icons.toggleClass('hidden');
-    if (mediaPlayer.paused || mediaPlayer.ended) {
-      mediaPlayer.play();
-    } else {
-      mediaPlayer.pause();
-    }
+  function togglePlayPause(icons, mediaPlayer) {
+    return function () {
+
+      if (mediaPlayer.paused || mediaPlayer.ended) {
+        var playPromise = mediaPlayer.play().then(function () {
+          return icons.toggleClass('hidden');
+        });
+      } else {
+        mediaPlayer.pause();
+        icons.toggleClass('hidden');
+      }
+    };
   }
 
   function setFullscreen(elem) {
