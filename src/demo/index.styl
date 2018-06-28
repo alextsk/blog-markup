@@ -1,7 +1,13 @@
 
 
 
+
+.page-title
+  margin-top 2rem
 .index-page
+  display grid
+  grid-gap 20px
+  margin-top 1.5rem
   grid-template-columns 2fr 1fr
   &__sales-area
     grid-column span 2
@@ -10,8 +16,57 @@
       grid-template-columns 1fr 1fr
       grid-gap 20px
   &__prices-area
-    grid-column-start 1
+    grid-column 1 / span 2
   &__services-area
-    grid-column-start 1 
-  &__prices-area
-    grid-column-start 1
+    grid-column 1 / span 2
+   
+.advantages
+  margin-left 2rem
+  &__item
+    font-style italic
+    margin-bottom .6rem
+  &__list
+    list-style square
+.prices
+  margin-top: 4rem
+  &__title
+    font-size 1.5rem 
+  &__list
+    display grid
+    grid-template-columns .5fr .5fr 2fr
+    grid-template-rows auto auto auto
+    grid-gap 20px
+    margin-top: 2rem
+  &__item-title
+    text-align right
+  &__item-price
+    font-weight 300 
+    font-size 4rem
+    text-align right
+    color var(--main-color)
+    
+  
+.services
+  margin-top: 4rem
+  &__title
+    font-size 1.5rem
+
+  &__list
+    display grid
+    grid-gap 20px
+    margin-top 2rem
+    grid-template-columns repeat(auto-fit, minmax(300px, 1fr))
+  &__item
+    display flex
+    flex-direction column
+    justify-content space-between 
+    position relative
+  &__item-title
+    text-transform lowercase
+    font-size 1.17rem
+    font-weight 600
+    position: absolute;
+    top: 33%;
+    background: white;
+
+    

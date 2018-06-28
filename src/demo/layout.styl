@@ -3,6 +3,10 @@
   margin 0
   padding 0
   box-sizing border-box
+h1,h2
+  font-weight 300
+p
+  margin-bottom .6rem
 ul
   list-style none
 body
@@ -13,13 +17,14 @@ body > *
 img
   max-height 100%
   max-width: 100%;
+  object-fit cover
   
 .menu
   &__container
     display flex
     justify-content space-between
     grid-gap 10px
-    grid-template-columns repeat(7, 1fr)
+    grid-template-columns repeat(auto-fill, 1fr)
   &__item 
     display grid
     grid-template-rows 1fr 2px
@@ -72,12 +77,8 @@ header
   background-repeat no-repeat
   background-size cover
 
-.page-content
-  display grid
-  grid-gap 20px
-  margin-top 1.5rem
-.page-title
-  margin-top 2rem
+
+
   
 .footer
   background-color black
