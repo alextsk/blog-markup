@@ -16,56 +16,97 @@ block content
     .video_env
       +video({src:"https://youtu.be/KxJ79Y-TwiQ", poster: ""})
 
-  h2 Ремонт черновой квартиры на Савиных
-
-
-  .glide
-    .glide__track(data-glide-el='track')
-      ul.glide__slides
-        li.glide__slide
-          img(src="/images/11.jpg", alt="")
-        li.glide__slide
-          img(src="/images/12.jpg", alt="")
-        li.glide__slide
-          img(src="/images/13.jpg", alt="")
-        li.glide__slide
-          img(src="/images/14.jpg", alt="")
-        li.glide__slide
-          img(src="/images/15.jpg", alt="")
-        li.glide__slide
-          img(src="/images/16.jpg", alt="")
-        li.glide__slide
-          img(src="/images/17.jpg", alt="")
-        li.glide__slide
-          img(src="/images/18.jpg", alt="")
-        li.glide__slide
-          img(src="/images/19.jpg", alt="")
-    .glide__arrows(data-glide-el='controls')
-      .glide__arrow.glide__arrow--left(data-glide-dir='<')
-        +arrow-button('left', true)
-      .glide__arrow.glide__arrow--right(data-glide-dir='>')
-        +arrow-button('right', true)
-
-  .carousel
-    ul.carousel__list.js-carousel__list
-      li.carousel__item
+  .photos
+    .photos__grid.js-photos__grid
+      li.photos__item(data-image="images/11.jpg")
         img(src="/images/11.jpg", alt="")
-      li.carousel__item
+      li.photos__item(data-image="images/12.jpg")
         img(src="/images/12.jpg", alt="")
-      li.carousel__item
+      li.photos__item(data-image="images/13.jpg")
         img(src="/images/13.jpg", alt="")
-      li.carousel__item
+      li.photos__item(data-image="images/14.jpg")
         img(src="/images/14.jpg", alt="")
-      li.carousel__item
+      li.photos__item(data-image="images/15.jpg")
         img(src="/images/15.jpg", alt="")
-      li.carousel__item
-        img(src="/images/16.jpg", alt="")
-      li.carousel__item
-        img(src="/images/17.jpg", alt="")
-      li.carousel__item
-        img(src="/images/18.jpg", alt="")
-      li.carousel__item
-        img(src="/images/19.jpg", alt="")
-    .carousel__controls
-      +arrow-button('left', true)(class="arrrrr")
-      +arrow-button('right', true)
+      li.photos__item(data-image="images/11.jpg")
+        img(src="/images/11.jpg", alt="")
+      li.photos__item(data-image="images/12.jpg")
+        img(src="/images/12.jpg", alt="")
+      li.photos__item(data-image="images/13.jpg")
+        img(src="/images/13.jpg", alt="")
+      li.photos__item(data-image="images/14.jpg")
+        img(src="/images/14.jpg", alt="")
+      li.photos__item(data-image="images/15.jpg")
+        img(src="/images/15.jpg", alt="")
+      li.photos__item(data-image="images/11.jpg")
+        img(src="/images/11.jpg", alt="")
+      li.photos__item(data-image="images/12.jpg")
+        img(src="/images/12.jpg", alt="")
+      li.photos__item(data-image="images/13.jpg")
+        img(src="/images/13.jpg", alt="")
+      li.photos__item(data-image="images/14.jpg")
+        img(src="/images/14.jpg", alt="")
+      li.photos__item(data-image="images/15.jpg")
+        img(src="/images/15.jpg", alt="")
+      li.photos__item(data-image="images/11.jpg")
+        img(src="/images/11.jpg", alt="")
+      li.photos__item(data-image="images/12.jpg")
+        img(src="/images/12.jpg", alt="")
+
+    .big-image.js-big-image
+      img()
+      .controls
+        +arrow-button('left', true)(class="arrrrr")
+        +arrow-button('right', true)
+  //- .glide
+  //-   .glide__track(data-glide-el='track')
+  //-     ul.glide__slides
+  //-       li.glide__slide(href="/images/11.jpg")
+  //-         a(href="/images/11.jpg")
+  //-           img(src="/images/11.jpg", alt="")
+  //-       li.glide__slide(href="/images/11.jpg")
+  //-         img(src="/images/12.jpg", alt="")
+  //-       li.glide__slide(href="/images/11.jpg")
+  //-         img(src="/images/13.jpg", alt="")
+  //-       li.glide__slide(href="/images/11.jpg")
+  //-         img(src="/images/14.jpg", alt="")
+  //-       li.glide__slide
+  //-         img(src="/images/15.jpg", alt="")
+  //-       li.glide__slide
+  //-         img(src="/images/16.jpg", alt="")
+  //-       li.glide__slide
+  //-         img(src="/images/17.jpg", alt="")
+  //-       li.glide__slide
+  //-         img(src="/images/18.jpg", alt="")
+  //-       li.glide__slide
+  //-         img(src="/images/19.jpg", alt="")
+  //-   .glide__arrows(data-glide-el='controls')
+  //-     .glide__arrow.glide__arrow--left(data-glide-dir='<')
+  //-       +arrow-button('left', true)
+  //-     .glide__arrow.glide__arrow--right(data-glide-dir='>')
+  //-       +arrow-button('right', true)
+
+  //- .carousel
+  //-   ul.carousel__list.js-carousel__list
+  //-     li.carousel__item
+  //-       a(href="/images/11.jpg")
+  //-         img(src="/images/11.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/12.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/13.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/14.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/15.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/16.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/17.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/18.jpg", alt="")
+  //-     li.carousel__item
+  //-       img(src="/images/19.jpg", alt="")
+  //-   .carousel__controls
+  //-     +arrow-button('left', true)(class="arrrrr")
+  //-     +arrow-button('right', true)
