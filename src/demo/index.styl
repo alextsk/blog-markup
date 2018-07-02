@@ -1,23 +1,24 @@
 
-
-
-
-
 .index-page
   display grid
   grid-gap 20px
   margin-top 1.5rem
-  grid-template-columns 2fr 1fr
+  @media (min-width : $break)
+    grid-template-columns 2fr 1fr
   &__sales-area
-    grid-column span 2
+    @media (min-width : $break)
+      grid-column span 2
     &-body
       display grid
-      grid-template-columns 1fr 1fr
+      @media (min-width : $break)
+        grid-template-columns 1fr 1fr
       grid-gap 20px
   &__prices-area
-    grid-column 1 / span 2
+    @media (min-width : $break)
+      grid-column 1 / span 2
   &__services-area
-    grid-column 1 / span 2
+    @media (min-width : $break)
+      grid-column 1 / span 2
    
 .advantages
   margin-left 2rem
