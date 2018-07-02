@@ -27,14 +27,18 @@
     margin-bottom .6rem
   &__list
     list-style square
+    
+
 .prices
   margin-top: 4rem
   &__title
     font-size 1.5rem 
   &__list
     display grid
-    grid-template-columns .5fr .5fr 2fr
-    grid-template-rows auto auto auto
+    grid-template-columns 1fr 1fr
+    @media (min-width $break)
+      grid-template-columns .5fr .5fr 2fr
+      grid-auto-rows auto
     grid-gap 20px
     margin-top: 2rem
   &__item-title
@@ -44,6 +48,10 @@
     font-size 4rem
     text-align right
     color var(--main-color)
+  &__copy
+    grid-column 1 / span 2
+    @media (min-width $break)
+      grid-column auto
     
   
 .services
