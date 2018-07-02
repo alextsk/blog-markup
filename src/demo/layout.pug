@@ -14,12 +14,12 @@ html(lang='en')
 
 
   body
-    header
-        .logo 
+    header.header
+        .header__logo.logo 
           .logo__title Частный мастер
           .logo__subtitle честные цены
-        .phone +7 (903) 913-03-61
-        .time Ежедневно с 9.00 до 22.00
+        .header__time Ежедневно с 9.00 до 22.00
+        .header__phone +7 (903) 913-03-61
 
     nav.menu
       ul.menu__container
@@ -41,7 +41,7 @@ html(lang='en')
 
     footer.footer
       .footer__wrapper
-        div
+        div.footer__map
           +location({lat:"56.5034789", lng: "84.9392213"})
         div.footer__contact-data
           dl
