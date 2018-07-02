@@ -4,7 +4,7 @@ mixin video(opts)
       defs
         path(d="M 4,5 l3,-3 l-2,-2 h 5 v 5 l-2,-2 l -3, 3 z" id="original-arrow")
     video(preload, controls=true poster=opts.poster).video__actual
-      source(src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4")
+      source(src=opts.src)
 
     .video__controls
       .video__play-pause-button.js-video__play-pause-button(title='play')
