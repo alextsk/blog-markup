@@ -1312,6 +1312,16 @@ img {
 .service__list-container {
   order: 1;
 }
+.service__list-title {
+  font-weight: 600;
+}
+.service__item {
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+.service__list {
+  list-style: square;
+}
 .price-list-page__description {
   margin-top: 1.5rem;
   max-width: 500px;
