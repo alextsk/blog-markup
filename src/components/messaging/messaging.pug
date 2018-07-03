@@ -2,7 +2,7 @@ include /src/components/form-elements/textarea.pug
 include /src/components/button/button.pug
 
 mixin messaging(opts)
-  .chat
+  .chat(class=opts.inverse ? "chat--inverse" : "")
     .chat__title
       .chat__title-text Sarah Brown
     .chat__icons
@@ -30,4 +30,4 @@ mixin messaging(opts)
           form
             +textarea({lines:3})
             .chat__button
-              +button("reply", {theme:'filled'})
+              +button("reply", {theme: opts.inverse? "error": "", fill: "filled"})

@@ -1,26 +1,35 @@
 pads = 23px
 
 .chat
+  --color1 : var(--main-color)
+  --color2 : var(--support-color)
   width 288px
   border-radius 4px
   overflow hidden
+  &&--inverse
+    --color2 : var(--main-color)
+    --color1 : var(--support-color)
   &__title
     line-height 100%
     font-size 34px
     color white
     font-weight 300
-    height 83px
-    background-color var(--support-color)
+    height 118px
+    background-color var(--color2)
+      
+      
 
   &__title-text
     padding-top 22px
     letter-spacing -1.5px
     text-align center
+    
       
   &__icons
     width 100%
     height 34px
-    background-color #46ab9d
+    background-color rgba(0,0,0,.2)
+    margin-top: -35px;
     display flex
     justify-content space-between
     align-items flex-end
@@ -32,7 +41,7 @@ pads = 23px
     fill var(--dark-grey)
     cursor pointer
     &:hover
-      fill var(--main-color)
+      fill var(--color1)
       
   &__head-icon
     height 93px

@@ -8,6 +8,7 @@ dark-red = #bf3e1f
 text-red = #e34a26
 
 .button
+	--thecolor : medium-green
 	--mdc-theme-primary: white
 	box-sizing border-box
 	height 32px
@@ -20,18 +21,18 @@ text-red = #e34a26
 	font-size 12px
 	font-weight bold
 	text-transform uppercase
+	position relative
+	transition .2s
 	font-family sans-serif
-	border 1px solid medium-green
+	border 1px solid var(--thecolor)
 	color text-green
 	box-shadow 0 4px 0 0 dark-green
 	background-color transparent
-	position relative
-	transition .2s
 	&:hover
-		background-color medium-green
+		background-color var(--thecolor)
 		color white
 		box-shadow 0 3px 0 0 dark-green
-		border 1px solid medium-green
+		border 1px solid var(--thecolor)
 		
 	&--small
 		height 22px
@@ -41,20 +42,21 @@ text-red = #e34a26
 		box-shadow 0 2px 0 0 dark-green
 		
 	&--filled
-		background-color var(--support-color)
-		color white
+		background-color var(--thecolor)
+		color white !important
 		width 100%
 
 		
 	&--error
+		--thecolor : medium-red
 		color text-red
-		border-color medium-red
+		border-color var(--thecolor)
 		box-shadow 0 4px 0 0 dark-red
 		&:hover
-			background-color medium-red
+			background-color var(--thecolor)
 			color white
 			box-shadow 0 3px 0 0 dark-red
-			border 1px solid medium-red
+			border 1px solid var(--thecolor)
 		
 	&--small&--error
 		box-shadow 0 2px 0 0 dark-red
