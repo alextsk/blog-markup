@@ -35,6 +35,7 @@
   font-style: normal;
 }
 .button {
+  --thecolor: #4eb7a8;
   --mdc-theme-primary: #fff;
   box-sizing: border-box;
   height: 32px;
@@ -47,19 +48,19 @@
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
+  position: relative;
+  transition: 0.2s;
   font-family: sans-serif;
-  border: 1px solid #4eb7a8;
+  border: 1px solid var(--thecolor);
   color: #44ae9f;
   box-shadow: 0 4px 0 0 #28a290;
   background-color: transparent;
-  position: relative;
-  transition: 0.2s;
 }
 .button:hover {
-  background-color: #4eb7a8;
+  background-color: var(--thecolor);
   color: #fff;
   box-shadow: 0 3px 0 0 #28a290;
-  border: 1px solid #4eb7a8;
+  border: 1px solid var(--thecolor);
 }
 .button--small {
   height: 22px;
@@ -69,20 +70,21 @@
   box-shadow: 0 2px 0 0 #28a290;
 }
 .button--filled {
-  background-color: var(--support-color);
-  color: #fff;
+  background-color: var(--thecolor);
+  color: #fff !important;
   width: 100%;
 }
 .button--error {
+  --thecolor: #e75735;
   color: #e34a26;
-  border-color: #e75735;
+  border-color: var(--thecolor);
   box-shadow: 0 4px 0 0 #bf3e1f;
 }
 .button--error:hover {
-  background-color: #e75735;
+  background-color: var(--thecolor);
   color: #fff;
   box-shadow: 0 3px 0 0 #bf3e1f;
-  border: 1px solid #e75735;
+  border: 1px solid var(--thecolor);
 }
 .button--small.button--error {
   box-shadow: 0 2px 0 0 #bf3e1f;
@@ -416,6 +418,7 @@
 .dropdown {
   background-color: var(--light-grey);
   border-radius: 4px;
+  position: relative;
 }
 .dropdown__body {
   height: 28px;
@@ -451,6 +454,8 @@
 }
 .dropdown__list {
   display: none;
+  position: absolute;
+  width: 100%;
   background-color: var(--support-color);
   list-style: none;
   margin: 0;
@@ -773,17 +778,23 @@
   color: #fff;
 }
 .chat {
+  --color1: var(--main-color);
+  --color2: var(--support-color);
   width: 288px;
   border-radius: 4px;
   overflow: hidden;
+}
+.chat.chat--inverse {
+  --color2: var(--main-color);
+  --color1: var(--support-color);
 }
 .chat__title {
   line-height: 100%;
   font-size: 34px;
   color: #fff;
   font-weight: 300;
-  height: 83px;
-  background-color: var(--support-color);
+  height: 118px;
+  background-color: var(--color2);
 }
 .chat__title-text {
   padding-top: 22px;
@@ -793,7 +804,8 @@
 .chat__icons {
   width: 100%;
   height: 34px;
-  background-color: #46ab9d;
+  background-color: rgba(0,0,0,0.2);
+  margin-top: -35px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -808,7 +820,7 @@
   cursor: pointer;
 }
 .chat__icon:hover {
-  fill: var(--main-color);
+  fill: var(--color1);
 }
 .chat__head-icon {
   height: 93px;
@@ -826,6 +838,7 @@
   font-size: 12px;
   font-weight: 400;
   margin-top: 15px;
+  color: var(--text-dark);
   position: relative;
 }
 .chat__body {
@@ -1272,19 +1285,27 @@ img {
 .testimonials__rating {
   place-self: center center;
 }
-.testimonial-form {
-  max-width: 500px;
-  margin: 0 auto;
+.testimonial {
   margin-top: 4rem;
 }
-.testimonial-form__rating {
+.testimonial__form {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: start;
+}
+.testimonial__inputs {
+  max-width: 500px;
+  margin-left: 20px;
+}
+.testimonial__inputs__rating {
   margin-bottom: -1.5rem !important;
 }
-.testimonial-form__rating label {
+.testimonial__inputs__rating label {
   display: flex;
   align-items: flex-start;
 }
-.testimonial-form__rating label span {
+.testimonial__inputs__rating label span {
   flex: 1;
   margin: 0.4rem 0 0 1rem;
 }
@@ -1345,31 +1366,31 @@ img {
   padding: 0 1rem;
   display: inline-block;
 }
-table {
+.price-list__table {
   width: 100%;
   margin-top: 1.5rem;
 }
-th,
-td {
+.price-list__table th,
+.price-list__table td {
   padding: 0.5rem 0;
   vertical-align: baseline;
 }
-tr:hover td {
+.price-list__table tr:hover td {
   color: var(--main-color, #f00);
 }
-td:last-child {
+.price-list__table td:last-child {
   width: 4rem;
 }
-td:last-child:before {
+.price-list__table td:last-child:before {
   content: "за ";
 }
-td:nth-child(2) {
+.price-list__table td:nth-child(2) {
   width: 5rem;
   text-align: right;
   white-space: nowrap;
   font-weight: 600;
 }
-td:nth-child(2):after {
+.price-list__table td:nth-child(2):after {
   content: " р.";
 }
 :root {
