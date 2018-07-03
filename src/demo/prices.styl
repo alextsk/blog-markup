@@ -20,28 +20,28 @@
     padding: 0 1rem;
     display: inline-block;
 
-table
+.price-list__table
   width 100%
   margin-top: 1.5rem
   
-th, td {
-  padding: .5rem 0;
-  vertical-align baseline
-}
-tr:hover td{
-  color var(--main-color, red)
-}
-td:last-child
-  width 4rem
- 
-  &:before
-    content "за "
-    
+  th, td {
+    padding: .5rem 0;
+    vertical-align baseline
+  }
+  tr:hover td{
+    color var(--main-color, red)
+  }
+  td:last-child
+    width 4rem
+   
+    &:before
+      content "за "
+      
 
-td:nth-child(2)
-  width 5rem
-  text-align right 
-  white-space nowrap 
-  font-weight 600
-  &:after
-    content " р."
+  td:nth-child(2)
+    width 5rem
+    text-align right 
+    white-space nowrap 
+    font-weight 600
+    &:after
+      content " р."

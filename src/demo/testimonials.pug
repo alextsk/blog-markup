@@ -8,6 +8,7 @@ block includes
   include /src/components/form-elements/tickbox.pug
   include /src/components/circlecharts/percentage.pug
   include /src/components/slider/slider.pug
+  include /src/components/calendar/calendar.pug
     
 block content
  
@@ -40,27 +41,31 @@ block content
         .testimonials__rating 
           +percentage(12,15)
         .testimonials__message Хорошие ребята, ответственные, профессионалы. Сделали все отлично, хорошо сэкономил на материалах, полчив скидку. Заключают договор, дают гарантию. Советую!
-  div.testimonial-form
-    form
-      h2 Оставить отзыв
-      .form__input-group.testimonial-form__name
-        label имя
-          +input()
-      .form__input-group.testimonial-form__email
-        label e-mail
-          +input()
-      .form__input-group.testimonial-form__rating
-        label рейтинг
-          span 
-            +slider(5, {parts: 6, color: 2})
-      .form__input-group.testimonial-form__message
-        label сообщение
-          +textarea()
-      .form__input-group.testimonial-form__message
-        label 
-          +tickbox()
-          span.agreement Подтверждаю согласие на обработку персональных данных
-      .form__input-group.testimonial-form__submit
-        +button("Отправить")
+  div.testimonial
+    h2 Оставить отзыв
+    form.testimonial__form
+      .testimonial__calendar.form__input-group
+        label выбрать день публикации
+        +calendar()
+      div.testimonial__inputs
+        .form__input-group.testimonial-form__name
+          label имя
+            +input()
+        .form__input-group.testimonial-form__email
+          label e-mail
+            +input()
+        .form__input-group.testimonial-form__rating
+          label рейтинг
+            span 
+              +slider(5, {parts: 6, color: 2})
+        .form__input-group.testimonial-form__message
+          label сообщение
+            +textarea()
+        .form__input-group.testimonial-form__message
+          label 
+            +tickbox()
+            span.agreement Подтверждаю согласие на обработку персональных данных
+        .form__input-group.testimonial-form__submit
+          +button("Отправить")
 
     
