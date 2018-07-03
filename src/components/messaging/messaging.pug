@@ -4,7 +4,7 @@ include /src/components/button/button.pug
 mixin messaging(opts)
   .chat(class=opts.inverse ? "chat--inverse" : "")
     .chat__title
-      .chat__title-text Sarah Brown
+      .chat__title-text=opts.name || "Sarah Brown"
     .chat__icons
       span.chat__icon
         svg(width=20, height=20 )

@@ -10,6 +10,7 @@ html(lang='en')
     include /src/components/button/button.pug
     include /src/components/form-elements/textarea.pug
     include /src/components/form-elements/input.pug
+    include /src/components/messaging/messaging.pug
     block includes
 
 
@@ -56,22 +57,7 @@ html(lang='en')
               dd ежедневно с 9:00 до 22:00
 
         div.footer__form
-          form
-            h2 Задать вопрос
-            .footer__input-group
-              label имя
-                +input()
-            .footer__input-group
-              label телефон
-                +input()
-            .footer__input-group
-              label e-mail
-                +input()
-            .footer__input-group
-              label сообщение
-                +textarea()
-            .footer__input-group
-              +button("Отправить")
+          +messaging({userpic:"images/master.jpg", name:"Тимофей", inverse:true})
     
        
 
