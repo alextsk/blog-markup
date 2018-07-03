@@ -1,0 +1,38 @@
+extends layout.pug
+
+block includes
+  title Testimonials
+  include /src/components/arrow-button/arrow-button.pug
+  include /src/components/form-elements/input.pug
+  include /src/components/form-elements/textarea.pug
+  include /src/components/form-elements/tickbox.pug
+  include /src/components/form-elements/toggle.pug
+  include /src/components/dropdown/dropdown.pug
+  include /src/components/stage/stage.pug
+  include /src/components/slider/slider.pug
+
+    
+block content
+  h1 Регистрация 
+  div.registration
+    .registration__stage
+      +stage(3,3)
+    h2.registration__title Последний рывок!
+    form.registration__form
+      .form__input-group.toggle-group
+        label 
+          +toggle()
+          span.agreement Подтверждаю согласие работать без выходных
+      .form__input-group
+        label 
+          +tickbox()
+          span.agreement Подтверждаю согласие на обработку персональных данных
+      .form__input-group
+          +button("Готово")
+
+      .form__input-group.registration__arrows
+        a(href="./registration2.html")
+          +arrow-button('left', true)
+
+        +arrow-button('right', false)
+
