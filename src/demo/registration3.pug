@@ -20,19 +20,17 @@ block content
         h2.registration__title Последний рывок!
         form.registration__form
             .form__input-group.toggle-group
-                label 
+                label.toggle-group__wrapper
                     +toggle()
                     span.agreement Подтверждаю согласие работать без выходных
             .form__input-group
-                label 
+                label.toggle-group__wrapper 
                     +tickbox()
                     span.agreement Подтверждаю согласие на обработку персональных данных
             .form__input-group
                     +button("Готово")
-
             .form__input-group.registration__arrows
-                a(href="./registration2.html")
+                a(href="./registration2.html").registration__arrow-anchor
                     +arrow-button('left', true)
-
                 +arrow-button('right', false)
 

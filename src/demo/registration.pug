@@ -19,16 +19,14 @@ block content
         h2.registration__title Заполните заявку и станьте мастером!
         form.registration__form
             .form__input-group
-                label имя
+                label.form-group__wrapper имя
                     +input()
             .form__input-group
-                label e-mail
+                label.form-group__wrapper e-mail
                     +input()
-
             .form__input-group.registration__arrows
-         
                 +arrow-button('left', false)
-                a(href="./registration2.html")
+                a(href="./registration2.html").registration__arrow-anchor
                     +arrow-button('right', true)
 
 

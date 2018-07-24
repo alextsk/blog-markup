@@ -20,15 +20,14 @@ block content
         h2.registration__title Осталось всего два шага!
         form.registration__form
             .form__input-group
-                label ваша профессия
+                label.form-group__wrapper ваша профессия
                     +dropdown({items: ['сварщик', 'сантехник', 'отделочник', 'капитан второго ранга']})
             .form__input-group
-                label опыт(лет)
+                label.form-group__wrapper опыт(лет)
                     +slider(100, {color: 1})
-
             .form__input-group.registration__arrows
-                a(href="./registration.html")
+                a(href="./registration.html").registration__arrow-anchor
                     +arrow-button('left', true)
-                a(href="./registration3.html")
+                a(href="./registration3.html").registration__arrow-anchor
                     +arrow-button('right', true)
 

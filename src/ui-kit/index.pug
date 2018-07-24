@@ -17,13 +17,13 @@ html(lang='en')
             section.buttons-section
                 h1.buttons-section__header.section-header Standart buttons
                 .buttons-section__body
-                    div
+                    div.buttons-section__element-container
                         +button("Button!", {size:'small'})
-                    div
+                    div.buttons-section__element-container
                         +button("Button!")
-                    div
+                    div.buttons-section__element-container
                         +button("Button!", {theme: 'error'})
-                    div
+                    div.buttons-section__element-container
                         +button("Button!", {theme: 'error', size: 'small'})
             section.arrows-section
                 h1.arrows-section__header.section-header Arrow buttons
@@ -34,42 +34,42 @@ html(lang='en')
             section.piechart-section
                 h1.piechart-section__header.section-header percentages / donut chart
                 .piechart-section__body
-                    div
+                    div.piechart-section__element-container
                         +percentage(4, 5)
-                    div
+                    div.piechart-section__element-container
                         +percentage(38)
-                    div
+                    div.piechart-section__element-container
                         +percentage(62)
-                    div
+                    div.piechart-section__element-container
                         +percentage(100)
-                    div
+                    div.piechart-section__element-container
                         +donut([[100, "#747474"], [400, "#e75735"], [500, "#4eb7a8"], [400, "#e5e5e5"]])  
             section.sliders-section
                 h1.sliders-section__header.section-header Sliders
                 .sliders-section__body
-                    div
+                    div.sliders-section__element-container
                         +slider(200, {color: 1})   
-                    div
+                    div.sliders-section__element-container
                         +slider(100, {parts: 11, color: 2})
 
             section.stages-section
                 h1.stages-section__header.section-header Stages
                 .stages-section__body
-                    div
+                    div.stages-section__element-container
                         +stage(3, 5)
-                    div
+                    div.stages-section__element-container
                         +stage(4, 10)
             
             section.form-elements-section
                 h1.form-elements-section__header.section-header Form elements
-                form.form-elements-section__form
-                    div
+                form.form-elements-section__form.form
+                    div.form__input-container
                         +input()
-                    div
+                    div.form__input-container
                         +input('success')
-                    div
+                    div.form__input-container
                         +input('error')
-                    div
+                    div.form__input-container
                         +textarea()
 
                 div.form-elements-section__subsection
@@ -84,27 +84,27 @@ html(lang='en')
                         +tickbox(false)
             section.dropdown-section
                 h1.section-header dropdowns/search
-                div
+                div.dropdown-section__element-container
                     +search()
-                div
+                div.dropdown-section__element-container
                     +search('failed')
-                div
+                div.dropdown-section__element-container
                     +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})
 
             section.profile-section
 
                 h1.section-header profiles
-                div
+                div.profile-section__element-container
                     +profile({image: "/images/userpic-1.jpg", name: "John Smith", profession: "ux designer"})
-                div
+                div.profile-section__element-container
                     +profile({image: "/images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
 
             section.news-section
                 h1.section-header news & events
                 .news-section__body
-                    div
+                    div.news-section__element-container
                         +news({image:"/images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
-                    div
+                    div.news-section__element-container
                         +event({image:"/images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
             
             section.location-section

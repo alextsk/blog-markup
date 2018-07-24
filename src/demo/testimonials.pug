@@ -49,20 +49,20 @@ block content
                 +calendar()
             div.testimonial__inputs
                 .form__input-group.testimonial-form__name
-                    label имя
+                    label.testimonial-form__label имя
                         +input()
                 .form__input-group.testimonial-form__email
-                    label e-mail
+                    label.testimonial-form__label e-mail
                         +input()
                 .form__input-group.testimonial-form__rating
-                    label рейтинг
+                    label.testimonial-form__label рейтинг
                         span 
                             +slider(5, {parts: 6, color: 2})
                 .form__input-group.testimonial-form__message
-                    label сообщение
+                    label.testimonial-form__label сообщение
                         +textarea()
                 .form__input-group.testimonial-form__message
-                    label 
+                    label.testimonial-form__label 
                         +tickbox()
                         span.agreement Подтверждаю согласие на обработку персональных данных
                 .form__input-group.testimonial-form__submit
