@@ -1,64 +1,64 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
 
-    link(rel="stylesheet", href="./styles.css")
-    include /src/components/location/location.pug
-    include /src/components/button/button.pug
-    include /src/components/form-elements/textarea.pug
-    include /src/components/form-elements/input.pug
-    include /src/components/messaging/messaging.pug
-    block includes
+        link(rel="stylesheet", href="./styles.css")
+        include /src/components/location/location.pug
+        include /src/components/button/button.pug
+        include /src/components/form-elements/textarea.pug
+        include /src/components/form-elements/input.pug
+        include /src/components/messaging/messaging.pug
+        block includes
 
 
-  body
-    header.header
-        .header__logo.logo 
-          .logo__title Частный мастер
-          .logo__subtitle честные цены
-        .header__time Ежедневно с 9.00 до 22.00
-        .header__phone +7 (903) 913-03-61
+    body
+        header.header
+                .header__logo.logo 
+                    .logo__title Частный мастер
+                    .logo__subtitle честные цены
+                .header__time Ежедневно с 9.00 до 22.00
+                .header__phone +7 (903) 913-03-61
 
-    nav.menu
-      ul.menu__container
-        li.menu__item
-          a(href=".") Главная
-        li.menu__item 
-          a(href="./services.html") Виды услуг
-        li.menu__item 
-          a(href="./photos.html") Фото работ
-        li.menu__item 
-          a(href="./prices.html") Цены
-        li.menu__item  
-          a(href="./aboutus.html") О нас
-        li.menu__item 
-           a(href="./testimonials.html") Отзывы
+        nav.menu
+            ul.menu__container
+                li.menu__item
+                    a(href=".") Главная
+                li.menu__item 
+                    a(href="./services.html") Виды услуг
+                li.menu__item 
+                    a(href="./photos.html") Фото работ
+                li.menu__item 
+                    a(href="./prices.html") Цены
+                li.menu__item  
+                    a(href="./aboutus.html") О нас
+                li.menu__item 
+                     a(href="./testimonials.html") Отзывы
 
-    main.page-content 
-      block content
+        main.page-content 
+            block content
 
-    footer.footer
-      .footer__wrapper
-        div.footer__map
-          +location({lat:"56.5034789", lng: "84.9392213"})
-        div.footer__contact-data
-          dl
-            .footer__contact-item
-              dt.footer__address Адрес:
-              dd 634009, Россия, Томск, Пер. Дербышевский - 15
-            .footer__contact-item
-              dt.footer__phone Телефон:
-              dd +7 (903) 913-03-61
-            .footer__contact-item
-              dt.footer__hours Часы работы:
-              dd ежедневно с 9:00 до 22:00
+        footer.footer
+            .footer__wrapper
+                div.footer__map
+                    +location({lat:"56.5034789", lng: "84.9392213"})
+                div.footer__contact-data
+                    dl
+                        .footer__contact-item
+                            dt.footer__address Адрес:
+                            dd 634009, Россия, Томск, Пер. Дербышевский - 15
+                        .footer__contact-item
+                            dt.footer__phone Телефон:
+                            dd +7 (903) 913-03-61
+                        .footer__contact-item
+                            dt.footer__hours Часы работы:
+                            dd ежедневно с 9:00 до 22:00
 
-        div.footer__form
-          +messaging({userpic:"images/master.jpg", name:"Тимофей", inverse:true})
-    
-       
+                div.footer__form
+                    +messaging({userpic:"images/master.jpg", name:"Тимофей", inverse:true})
+        
+             
 
-    script(src='./app.js')
+        script(src='./app.js')

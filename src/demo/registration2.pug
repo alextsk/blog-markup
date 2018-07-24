@@ -1,34 +1,34 @@
 extends layout.pug
 
 block includes
-  title Testimonials
-  include /src/components/arrow-button/arrow-button.pug
-  include /src/components/form-elements/input.pug
-  include /src/components/form-elements/textarea.pug
-  include /src/components/form-elements/tickbox.pug
-  include /src/components/form-elements/toggle.pug
-  include /src/components/dropdown/dropdown.pug
-  include /src/components/stage/stage.pug
-  include /src/components/slider/slider.pug
+    title Testimonials
+    include /src/components/arrow-button/arrow-button.pug
+    include /src/components/form-elements/input.pug
+    include /src/components/form-elements/textarea.pug
+    include /src/components/form-elements/tickbox.pug
+    include /src/components/form-elements/toggle.pug
+    include /src/components/dropdown/dropdown.pug
+    include /src/components/stage/stage.pug
+    include /src/components/slider/slider.pug
 
-    
+        
 block content
-  h1 Регистрация 
-  div.registration
-    .registration__stage
-      +stage(2,3)
-    h2.registration__title Осталось всего два шага!
-    form.registration__form
-      .form__input-group
-        label ваша профессия
-          +dropdown({items: ['сварщик', 'сантехник', 'отделочник', 'капитан второго ранга']})
-      .form__input-group
-        label опыт(лет)
-          +slider(100, {color: 1})
+    h1 Регистрация 
+    div.registration
+        .registration__stage
+            +stage(2,3)
+        h2.registration__title Осталось всего два шага!
+        form.registration__form
+            .form__input-group
+                label ваша профессия
+                    +dropdown({items: ['сварщик', 'сантехник', 'отделочник', 'капитан второго ранга']})
+            .form__input-group
+                label опыт(лет)
+                    +slider(100, {color: 1})
 
-      .form__input-group.registration__arrows
-        a(href="./registration.html")
-          +arrow-button('left', true)
-        a(href="./registration3.html")
-          +arrow-button('right', true)
+            .form__input-group.registration__arrows
+                a(href="./registration.html")
+                    +arrow-button('left', true)
+                a(href="./registration3.html")
+                    +arrow-button('right', true)
 

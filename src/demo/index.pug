@@ -1,78 +1,78 @@
 extends layout.pug
 
 block includes
-    title Main
-    include /src/components/news/news.pug 
-    include /src/components/event/event.pug 
-    - var sale1 = "Закажите поклейку обоев прямо сейчас и получите скидку 35%.";
-    - var sale2 = "При заказе косметического ремонта под ключ Вы получаете профессиональные шпатлёвочные смеси в подарок!";
+        title Main
+        include /src/components/news/news.pug 
+        include /src/components/event/event.pug 
+        - var sale1 = "Закажите поклейку обоев прямо сейчас и получите скидку 35%.";
+        - var sale2 = "При заказе косметического ремонта под ключ Вы получаете профессиональные шпатлёвочные смеси в подарок!";
 block content
-  h1.page-title Ремонт квартир в Томске 
-  .index-page
+    h1.page-title Ремонт квартир в Томске 
+    .index-page
 
-    .index-page__description-area
-      p Предлагаем профессиональный ремонт квартир в Томске.
+        .index-page__description-area
+            p Предлагаем профессиональный ремонт квартир в Томске.
 
-      p В нашей слаженной бригаде "Дом и Мастер" - только порядочные и квалифицированные отделочники по всем видам ремонтных работ.
-      p Успех нашей команды держится на профессионализме и стремлении не запятнать репутацию ответсвенных и надёжных мастеров.
+            p В нашей слаженной бригаде "Дом и Мастер" - только порядочные и квалифицированные отделочники по всем видам ремонтных работ.
+            p Успех нашей команды держится на профессионализме и стремлении не запятнать репутацию ответсвенных и надёжных мастеров.
 
-      p На протяжении многолетних трудов мы ни разу не отступали от своих принципиальных позиций - выполнять все работы по ремонту квартир качественно и в срок!
+            p На протяжении многолетних трудов мы ни разу не отступали от своих принципиальных позиций - выполнять все работы по ремонту квартир качественно и в срок!
 
-      p Нашими потенциальными клиентами являются как деловые люди, так и заказчики бюджетной категории, желающие получить качественные услуги, при этом не переплачивая посредникам.
-    .index-page__footnote-area.advantages
-      ul.advantages__list
-        li.advantages__item  Работаем сами;
-        li.advantages__item  Без предоплаты;
-        li.advantages__item  Личный опыт - 20 лет;
-        li.advantages__item  Коллектив не курящий;
-        li.advantages__item  Скидки на строительные материалы до 20%;
-        li.advantages__item  Даём гарантию на весь ремонт.
-    .index-page__sales-area
-      .index-page__sales-area-body
-        .offer 
-           +news({image:"images/sale1.png", title: "Специальное предложение", date: "до 26 июля 2018", copy: sale1})
-        .offer 
-           +news({image:"images/sale2.jpg", title: "Шпатлёвочные смеси в подарок", date: "до 1 июля 2018 года", copy: sale2})
+            p Нашими потенциальными клиентами являются как деловые люди, так и заказчики бюджетной категории, желающие получить качественные услуги, при этом не переплачивая посредникам.
+        .index-page__footnote-area.advantages
+            ul.advantages__list
+                li.advantages__item  Работаем сами;
+                li.advantages__item  Без предоплаты;
+                li.advantages__item  Личный опыт - 20 лет;
+                li.advantages__item  Коллектив не курящий;
+                li.advantages__item  Скидки на строительные материалы до 20%;
+                li.advantages__item  Даём гарантию на весь ремонт.
+        .index-page__sales-area
+            .index-page__sales-area-body
+                .offer 
+                     +news({image:"images/sale1.png", title: "Специальное предложение", date: "до 26 июля 2018", copy: sale1})
+                .offer 
+                     +news({image:"images/sale2.jpg", title: "Шпатлёвочные смеси в подарок", date: "до 1 июля 2018 года", copy: sale2})
 
-    .index-page__prices-area.prices
-        h2.prices__title Цены ремонта квартир под ключ
-        .prices__list
-          div
-            h3.prices__item-title косметический ремонт
-            .prices__item-price  900
-          img(src='images/3.png').price__image
-          p.prices__copy.
-            Стоимость - от 900 руб.за м2 по полу. В работу входит замена настенных и напольных покрытий с частичным исправлением дефектов поверхностей, замена плитки в санузлах, шпаклевание потолка с последующей окраской.
-          div
-            h3.prices__item-title капитальный ремонт
-            .prices__item-price  2500
-          img(src='images/1.png').price__image
-          p.prices__copy.
-            Цены начинаются от 2500 руб./м. кв. В квартире производится частичная перепланировка, ремонт электрики, разводки водоснабжения и канализации - сантехнические работы, монтаж многоуровневых потолков и элементов декора.
-          div
-            h3.prices__item-title евроремонт (элитный)
-            .prices__item-price  5000
-          img(src='images/2.jpg').price__image
-          p.prices__copy.
-            Цены уже от 5000 руб./м. кв. Отделка проводится следуя утвержденному проекту, с применением эксклюзивных материалов. Весь комплекс ремонтных работ, включая демонтаж перегододок с перепланировкой помещений.
-    .index-page__services-area.services
-      h2.services__title Мы готовы выполнить любые ремонтно-отделочные услуги:
-      ul.services__list 
-        li.services__item
-          .services__item-title ШТУКАТУРКА, ШПАКЛЕВКА, ПОКРАСКА
-          img(src='images/shtukaturnye-maljarnye-raboty.jpg')
-        li.services__item
-          .services__item-title МОНТАЖ КОСТРУКЦИЙ ИЗ ГИПСОКАРТОНА
-          img(src='images/montazh_gipsokartona.jpg')
-        li.services__item
-          .services__item-title ПЛИТОЧНЫЕ РАБОТЫ, РЕМОНТ ВАННОЙ
-          img(src='images/remont-vannoj.jpg')
-        li.services__item
-          .services__item-title ПОКЛЕЙКА ОБОЕВ
-          img(src='images/poklejka-oboev.jpg')
-        li.services__item
-          .services__item-title УКЛАДКА ЛАМИНАТА
-          img(src='images/ukladka-laminata.jpg')
-        li.services__item
-          .services__item-title ЭЛЕКТРОМОНТАЖ
-          img(src='images/jelektro-montazhnye-raboty.jpg')
+        .index-page__prices-area.prices
+                h2.prices__title Цены ремонта квартир под ключ
+                .prices__list
+                    div
+                        h3.prices__item-title косметический ремонт
+                        .prices__item-price  900
+                    img(src='images/3.png').price__image
+                    p.prices__copy.
+                        Стоимость - от 900 руб.за м2 по полу. В работу входит замена настенных и напольных покрытий с частичным исправлением дефектов поверхностей, замена плитки в санузлах, шпаклевание потолка с последующей окраской.
+                    div
+                        h3.prices__item-title капитальный ремонт
+                        .prices__item-price  2500
+                    img(src='images/1.png').price__image
+                    p.prices__copy.
+                        Цены начинаются от 2500 руб./м. кв. В квартире производится частичная перепланировка, ремонт электрики, разводки водоснабжения и канализации - сантехнические работы, монтаж многоуровневых потолков и элементов декора.
+                    div
+                        h3.prices__item-title евроремонт (элитный)
+                        .prices__item-price  5000
+                    img(src='images/2.jpg').price__image
+                    p.prices__copy.
+                        Цены уже от 5000 руб./м. кв. Отделка проводится следуя утвержденному проекту, с применением эксклюзивных материалов. Весь комплекс ремонтных работ, включая демонтаж перегододок с перепланировкой помещений.
+        .index-page__services-area.services
+            h2.services__title Мы готовы выполнить любые ремонтно-отделочные услуги:
+            ul.services__list 
+                li.services__item
+                    .services__item-title ШТУКАТУРКА, ШПАКЛЕВКА, ПОКРАСКА
+                    img(src='images/shtukaturnye-maljarnye-raboty.jpg')
+                li.services__item
+                    .services__item-title МОНТАЖ КОСТРУКЦИЙ ИЗ ГИПСОКАРТОНА
+                    img(src='images/montazh_gipsokartona.jpg')
+                li.services__item
+                    .services__item-title ПЛИТОЧНЫЕ РАБОТЫ, РЕМОНТ ВАННОЙ
+                    img(src='images/remont-vannoj.jpg')
+                li.services__item
+                    .services__item-title ПОКЛЕЙКА ОБОЕВ
+                    img(src='images/poklejka-oboev.jpg')
+                li.services__item
+                    .services__item-title УКЛАДКА ЛАМИНАТА
+                    img(src='images/ukladka-laminata.jpg')
+                li.services__item
+                    .services__item-title ЭЛЕКТРОМОНТАЖ
+                    img(src='images/jelektro-montazhnye-raboty.jpg')

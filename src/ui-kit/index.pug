@@ -1,124 +1,124 @@
 doctype html
 html(lang='en')
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible', content='ie=edge')
-    link(rel="stylesheet", href="styles.css")
-    title Document
-    - var lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.";
-    - var lorem1="Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-    
-    include components.pug
-    
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(http-equiv='X-UA-Compatible', content='ie=edge')
+        link(rel="stylesheet", href="styles.css")
+        title Document
+        - var lorem="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.";
+        - var lorem1="Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+        
+        include components.pug
+        
 
-  body
-    .wrapper
-      section.buttons-section
-        h1.buttons-section__header.section-header Standart buttons
-        .buttons-section__body
-          div
-            +button("Button!", {size:'small'})
-          div
-            +button("Button!")
-          div
-            +button("Button!", {theme: 'error'})
-          div
-            +button("Button!", {theme: 'error', size: 'small'})
-      section.arrows-section
-        h1.arrows-section__header.section-header Arrow buttons
-        .arrows-section__body
-          div
-            +arrow-button('left', true)
-            +arrow-button('right')
-      section.piechart-section
-        h1.piechart-section__header.section-header percentages / donut chart
-        .piechart-section__body
-          div
-            +percentage(4, 5)
-          div
-            +percentage(38)
-          div
-            +percentage(62)
-          div
-            +percentage(100)
-          div
-            +donut([[100, "#747474"], [400, "#e75735"], [500, "#4eb7a8"], [400, "#e5e5e5"]])  
-      section.sliders-section
-        h1.sliders-section__header.section-header Sliders
-        .sliders-section__body
-          div
-            +slider(200, {color: 1})   
-          div
-            +slider(100, {parts: 11, color: 2})
+    body
+        .wrapper
+            section.buttons-section
+                h1.buttons-section__header.section-header Standart buttons
+                .buttons-section__body
+                    div
+                        +button("Button!", {size:'small'})
+                    div
+                        +button("Button!")
+                    div
+                        +button("Button!", {theme: 'error'})
+                    div
+                        +button("Button!", {theme: 'error', size: 'small'})
+            section.arrows-section
+                h1.arrows-section__header.section-header Arrow buttons
+                .arrows-section__body
+                    div
+                        +arrow-button('left', true)
+                        +arrow-button('right')
+            section.piechart-section
+                h1.piechart-section__header.section-header percentages / donut chart
+                .piechart-section__body
+                    div
+                        +percentage(4, 5)
+                    div
+                        +percentage(38)
+                    div
+                        +percentage(62)
+                    div
+                        +percentage(100)
+                    div
+                        +donut([[100, "#747474"], [400, "#e75735"], [500, "#4eb7a8"], [400, "#e5e5e5"]])  
+            section.sliders-section
+                h1.sliders-section__header.section-header Sliders
+                .sliders-section__body
+                    div
+                        +slider(200, {color: 1})   
+                    div
+                        +slider(100, {parts: 11, color: 2})
 
-      section.stages-section
-        h1.stages-section__header.section-header Stages
-        .stages-section__body
-          div
-            +stage(3, 5)
-          div
-            +stage(4, 10)
-      
-      section.form-elements-section
-        h1.form-elements-section__header.section-header Form elements
-        form.form-elements-section__form
-          div
-            +input()
-          div
-            +input('success')
-          div
-            +input('error')
-          div
-            +textarea()
+            section.stages-section
+                h1.stages-section__header.section-header Stages
+                .stages-section__body
+                    div
+                        +stage(3, 5)
+                    div
+                        +stage(4, 10)
+            
+            section.form-elements-section
+                h1.form-elements-section__header.section-header Form elements
+                form.form-elements-section__form
+                    div
+                        +input()
+                    div
+                        +input('success')
+                    div
+                        +input('error')
+                    div
+                        +textarea()
 
-        div.form-elements-section__subsection
-          h1.section-header.section-header--small toggles
-          .form-elements-section__subsection-body
-            +toggle(true)
-            +toggle(false)
-        div.form-elements-section__subsection
-          h1.section-header.section-header--small tickboxes
-          .form-elements-section__subsection-body
-            +tickbox(true)
-            +tickbox(false)
-      section.dropdown-section
-        h1.section-header dropdowns/search
-        div
-          +search()
-        div
-          +search('failed')
-        div
-          +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})
+                div.form-elements-section__subsection
+                    h1.section-header.section-header--small toggles
+                    .form-elements-section__subsection-body
+                        +toggle(true)
+                        +toggle(false)
+                div.form-elements-section__subsection
+                    h1.section-header.section-header--small tickboxes
+                    .form-elements-section__subsection-body
+                        +tickbox(true)
+                        +tickbox(false)
+            section.dropdown-section
+                h1.section-header dropdowns/search
+                div
+                    +search()
+                div
+                    +search('failed')
+                div
+                    +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})
 
-      section.profile-section
+            section.profile-section
 
-        h1.section-header profiles
-        div
-          +profile({image: "/images/userpic-1.jpg", name: "John Smith", profession: "ux designer"})
-        div
-          +profile({image: "/images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
+                h1.section-header profiles
+                div
+                    +profile({image: "/images/userpic-1.jpg", name: "John Smith", profession: "ux designer"})
+                div
+                    +profile({image: "/images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
 
-      section.news-section
-        h1.section-header news & events
-        .news-section__body
-          div
-            +news({image:"/images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
-          div
-            +event({image:"/images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
-      
-      section.location-section
-        h1.section-header location
-        +location()
-      section.calendar-section
-        h1.section-header calendar
-        +calendar()
-      section.messaging-section
-        h1.section-header messaging
-        +messaging({userpic:"/images/userpic-2.jpg"} )
-      section.video-section
-        h1.section-header video
-        .video-section__body
-          +video({src:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4", poster:"/images/city.jpg"})
-    script(src='./app.js')
-    
+            section.news-section
+                h1.section-header news & events
+                .news-section__body
+                    div
+                        +news({image:"/images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
+                    div
+                        +event({image:"/images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
+            
+            section.location-section
+                h1.section-header location
+                +location()
+            section.calendar-section
+                h1.section-header calendar
+                +calendar()
+            section.messaging-section
+                h1.section-header messaging
+                +messaging({userpic:"/images/userpic-2.jpg"} )
+            section.video-section
+                h1.section-header video
+                .video-section__body
+                    +video({src:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4", poster:"/images/city.jpg"})
+        script(src='./app.js')
+        
