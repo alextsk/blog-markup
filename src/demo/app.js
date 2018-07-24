@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import '../components/components.js'
 
-const img = $(".js-big-image > img")
+const img = $(".js-big-image__actual")
 var prevTarget = null
 var target = null
 
