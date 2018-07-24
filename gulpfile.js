@@ -2,6 +2,7 @@ var gulp = require('gulp'),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify'),
   webpack = require('webpack'),
+  imagemin = require('gulp-imagemin'),
   webpackStream = require('webpack-stream');
   var pug = require('gulp-pug');
   var stylus = require('gulp-stylus');
@@ -100,6 +101,7 @@ function css() {
 
 function img() {
   return gulp.src('images/*.*')
+    .pipe(imagemin({verbose: true}))
     .pipe(gulp.dest('./dist/images/'))
 }
  
