@@ -5,7 +5,6 @@ $(() => {
   const uniq = () => Math.floor(Math.random() * 10000)
   const videos = $('.video')
   videos.each((ind, video) => {
-    console.log(video);
     const $mediaPlayer = $(video).find('.video__actual');
     const mediaPlayer = $mediaPlayer[0]
     const progressBar = $(video).find('.js-video__progress-bar');
@@ -24,7 +23,7 @@ $(() => {
 
 
   function setVideoTime(mediaPlayer, progressBar, progressPosition) {
-    return function (evt) {
+    return function(evt) {
       const ratio = evt.offsetX / progressBar.width()
       mediaPlayer.currentTime = ratio * mediaPlayer.duration
       updateProgressBar(mediaPlayer, progressPosition)()
@@ -32,7 +31,7 @@ $(() => {
   }
 
   function updateProgressBar(mediaPlayer, progressPosition) {
-    return function(){
+    return function() {
       const percentage = Math.floor((100 / mediaPlayer.duration) * mediaPlayer.currentTime);
       progressPosition.css({width: percentage + '%'});
     }
@@ -42,7 +41,8 @@ $(() => {
     return function() {
 
       if (mediaPlayer.paused || mediaPlayer.ended) {
-        var playPromise = mediaPlayer.play().then(() => icons.toggleClass('hidden'));
+        var playPromise = mediaPlayer.play()
+        .then(() => icons.toggleClass('hidden'));
       }
       else {
         mediaPlayer.pause()
