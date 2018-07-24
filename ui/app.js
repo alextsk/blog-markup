@@ -16974,7 +16974,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   };
   var videos = (0, _jquery2.default)('.video');
   videos.each(function (ind, video) {
-    console.log(video);
     var $mediaPlayer = (0, _jquery2.default)(video).find('.video__actual');
     var mediaPlayer = $mediaPlayer[0];
     var progressBar = (0, _jquery2.default)(video).find('.js-video__progress-bar');
