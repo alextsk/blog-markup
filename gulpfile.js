@@ -105,8 +105,13 @@ function img() {
     .pipe(gulp.dest('./dist/images/'))
 }
  
-function clean () {
+function clean() {
   return del([ 'dist/**/*.*' ]);
+}
+
+function favicon() {
+  return gulp.src('favicon.ico')
+  .pipe(gulp.dest('./dist'))
 }
 
 function fonts(){
@@ -114,7 +119,7 @@ function fonts(){
     .pipe(gulp.dest('dist/fonts'))
 }
 
-const build = gulp.series(clean, gulp.parallel(html, htmlUi, css, cssUi, scripts,scriptsUi, img, fonts));
+const build = gulp.series(clean, gulp.parallel(html, favicon, htmlUi, css, cssUi, scripts,scriptsUi, img, fonts));
 
 const deploy = gulp.series(build, function () {
   return gulp.src("./dist/**/*")
