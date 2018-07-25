@@ -35,12 +35,16 @@
     font-size 1.5rem 
   &__list
     display grid
-    grid-template-columns 1fr 1fr
-    @media (min-width $break)
-      grid-template-columns .5fr .5fr 2fr
-      grid-auto-rows auto
+    grid-auto-rows auto
     grid-gap 20px
     margin-top: 2rem
+  &__list-item 
+    display grid
+    @media (min-width $break)
+      grid-template-columns 150px 150px auto
+    grid-gap 20px
+  &__item-image
+    max-height inherit
   &__item-title
     text-align right
   &__item-price
