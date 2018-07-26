@@ -2,14 +2,12 @@ import $ from "jquery";
 import createSVGDoughnut from './vendor/create-svg-doughnut/src/createSVGDoughnut';
 
 function createSvgNode(n, v) {
-  n = document.createElementNS("http://www.w3.org/2000/svg", n);
-  for (var p in v)
-    n.setAttributeNS(null, p, v[p]);
-  return n
+  let node = document.createElementNS("http://www.w3.org/2000/svg", n);
+  Object.keys(v).forEach((p) => node.setAttributeNS(null, p, v[p]))
+  return node
 }
 
 function createChart(el) {
-    const max = $(el).data('chart-max');
     const segments = $(el).data('chart-segments');
     const innerRadius = +$(el).data('chart-inner-radius');
     const outerRadius = +$(el).data('chart-outer-radius');
