@@ -1,9 +1,12 @@
 import $ from "jquery"
 import noUiSlider from "nouislider"
 
-console.log(noUiSlider)
-
 var sliders = $('.slider');
+
+function clickOnPip (el) {
+  var value = Number(this.getAttribute('data-value'));
+  el.noUiSlider.set(value);
+}
 
 sliders.each((i, el) => { 
   const maxValue = $(el).data('max-value');
@@ -22,13 +25,8 @@ sliders.each((i, el) => {
 
   if (parts) {
     var pips = el.querySelectorAll('.noUi-value');
-    function clickOnPip ( ) {
-      var value = Number(this.getAttribute('data-value'));
-      el.noUiSlider.set(value);
-    }
-
-    for ( var i = 0; i < pips.length; i++ ) {
-      pips[i].addEventListener('click', clickOnPip);
+    for ( var j = 0; j < pips.length; j += 1 ) {
+      pips[i].addEventListener('click', () => clickOnPip(el));
     }
   }
   

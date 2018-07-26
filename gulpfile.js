@@ -8,7 +8,7 @@ var gulp = require('gulp'),
   var browserSync = require('browser-sync').create();
   var del = require('del');
   var eslint = require('gulp-eslint');
-const jshint = require('gulp-jshint');
+
 const 
   sitePath= 'src/demo',
   uiKitPath= 'src/ui-kit'
