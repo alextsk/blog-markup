@@ -10820,7 +10820,7 @@ __webpack_require__(6);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var img = (0, _jquery2.default)(".js-big-image > img");
+var img = (0, _jquery2.default)(".js-big-image__actual");
 var prevTarget = null;
 var target = null;
 
