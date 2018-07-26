@@ -1,6 +1,8 @@
 import $ from 'jquery'
 import '../components/components'
 
+const img = $(".js-big-image__actual")
+let prevTarget = null
 function activate(target) {
   img.attr('src', target.data("image"))
   if (prevTarget) prevTarget.removeClass("active") 
@@ -8,8 +10,6 @@ function activate(target) {
   prevTarget = target
 }
 
-const img = $(".js-big-image__actual")
-var prevTarget = null
 
 $(".photos__item")
 .click( evt => {
