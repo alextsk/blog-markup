@@ -2,8 +2,48 @@ import $ from 'jquery'
 
 
 $(() => {
-  const uniq = () => Math.floor(Math.random() * 10000)
   const videos = $('.video')
+
+  function updateProgressBar(mediaPlayer, progressPosition) {
+    return function handler() {
+      const percentage = Math.floor((100 / mediaPlayer.duration) * mediaPlayer.currentTime);
+      progressPosition.css({width: percentage + '%'});
+    }
+  }
+
+  function setVideoTime(mediaPlayer, progressBar, progressPosition) {
+    return function handler(evt) {
+      const ratio = evt.offsetX / progressBar.width()
+      const mPlayer = mediaPlayer;
+      mPlayer.currentTime = ratio * mediaPlayer.duration
+      updateProgressBar(mediaPlayer, progressPosition)()
+    }
+  }
+  
+  function togglePlayPause(icons, mediaPlayer) {
+    return function handler() {
+
+      if (mediaPlayer.paused || mediaPlayer.ended) {
+        mediaPlayer.play()
+        .then(() => icons.toggleClass('hidden'));
+      }
+      else {
+        mediaPlayer.pause()
+        icons.toggleClass('hidden');
+      }
+    }
+  }
+
+  function setFullscreen(elem) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
+  }
+
   videos.each((ind, video) => {
     const $mediaPlayer = $(video).find('.video__actual');
     const mediaPlayer = $mediaPlayer[0]
@@ -18,49 +58,6 @@ $(() => {
     playButton.click(togglePlayPause(icons, mediaPlayer))
     progressBar.click(setVideoTime(mediaPlayer,progressBar, progressPosition))
     fullscreenButton.click(() => setFullscreen(mediaPlayer))
-
   })
-
-
-  function setVideoTime(mediaPlayer, progressBar, progressPosition) {
-    return function(evt) {
-      const ratio = evt.offsetX / progressBar.width()
-      mediaPlayer.currentTime = ratio * mediaPlayer.duration
-      updateProgressBar(mediaPlayer, progressPosition)()
-    }
-  }
-
-  function updateProgressBar(mediaPlayer, progressPosition) {
-    return function() {
-      const percentage = Math.floor((100 / mediaPlayer.duration) * mediaPlayer.currentTime);
-      progressPosition.css({width: percentage + '%'});
-    }
-  }
-  
-  function togglePlayPause(icons, mediaPlayer) {
-    return function() {
-
-      if (mediaPlayer.paused || mediaPlayer.ended) {
-        var playPromise = mediaPlayer.play()
-        .then(() => icons.toggleClass('hidden'));
-      }
-      else {
-        mediaPlayer.pause()
-        icons.toggleClass('hidden');
-      }
-    }
-
-  }
-
-  function setFullscreen(elem) {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
-    }
-  }
-   
 })
 
