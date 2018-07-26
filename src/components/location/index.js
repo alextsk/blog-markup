@@ -8,7 +8,7 @@ const lng = $(el).data("lng")
 maps.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w"
 maps.LANGUAGE = "en" 
 maps.load(function(google) {
-  new google.maps.Map(el, {
+  new google.maps.Map(el, { // eslint-disable-line no-new
     center: {lat: lat, lng: lng},
     zoom: 12,
     disableDefaultUI: true

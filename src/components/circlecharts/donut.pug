@@ -1,10 +1,10 @@
 mixin donut(segs)
-  - var rest = num !== 100 ? 100 - num : 1;
-  - var colorRest = num !== 100 ? 'transparent' : '#ff0000';
+    - var rest = num !== 100 ? 100 - num : 1;
+    - var colorRest = num !== 100 ? 'transparent' : '#ff0000';
  
-  div(
-  chart-type="donut",
-  data-chart-inner-radius="33",
-  data-chart-outer-radius="50",
-  data-chart-segments=segments=segs
-  ).donut
+    div(
+    chart-type="donut",
+    data-chart-inner-radius="33",
+    data-chart-outer-radius="50",
+    data-chart-segments=segments=segs
+    ).donut

@@ -1,7 +1,7 @@
 mixin tickbox(enabled)
-  - var id = Math.floor(Math.random() * 10000 + '')
-  .tickbox
-    input(type='checkbox', id=id, checked=enabled).hidden
-    label.tickbox__label(for=id)
-      svg(width="23", height="23")
-        path(d="m5,11 l5, 5 l8, -8" stroke="#666" fill='transparent' stroke-width='2px').tickbox__mark
+    - var id = Math.floor(Math.random() * 10000 + '')
+    .tickbox
+        input(type='checkbox', id=id, checked=enabled).hidden
+        label.tickbox__label(for=id)
+            svg(width="23", height="23")
+                path(d="m5,11 l5, 5 l8, -8" stroke="#666" fill='transparent' stroke-width='2px').tickbox__mark

@@ -1,30 +1,30 @@
 mixin video(opts)
-  .video
-    if(opts.first)
-      svg(width=0 height=0 viewBox="0 0 11 11")
-        defs
-          path(d="M 4,5 l3,-3 l-2,-2 h 5 v 5 l-2,-2 l -3, 3 z" id="original-arrow")
-    video(preload, controls=true poster=opts.poster).video__actual
-      source(src=opts.src)
+    .video
+        if(opts.first)
+            svg(width=0 height=0 viewBox="0 0 11 11")
+                defs
+                    path(d="M 4,5 l3,-3 l-2,-2 h 5 v 5 l-2,-2 l -3, 3 z" id="original-arrow")
+        video(preload, controls=true poster=opts.poster).video__actual
+            source(src=opts.src)
 
-    .video__controls
-      .video__play-pause-button.js-video__play-pause-button(title='play')
-        svg(width='9', height='14').video__play-icon.js-video__pp-icon
-          path(d="M 0,0 l 9,7 l -9, 7 z")
-        svg(width='9', height='14').video__pause-icon.js-video__pp-icon.hidden 
-          g()
-            rect(x="0", y="0", width="3", height="14")
-            rect(x="6", y="0", width="3", height="14")
-      .video__progress-bar.js-video__progress-bar()
-        .video__progress-position.js-video__progress-position
-      .video__fullscreen.js-video__fullscreen 
-        svg(width='22', height='22').video__fullscreen-icon
-          use(href="#original-arrow" x=12 y=0 )
-          use(href="#original-arrow" x=12 y=0 transform="rotate(90,11,11)" )
-          use(href="#original-arrow" x=12 y=0 transform="rotate(180,11,11)" )
-          use(href="#original-arrow" x=12 y=0 transform="rotate(270,11,11)" )
+        .video__controls
+            .video__play-pause-button.js-video__play-pause-button(title='play')
+                svg(width='9', height='14').video__play-icon.js-video__pp-icon
+                    path(d="M 0,0 l 9,7 l -9, 7 z")
+                svg(width='9', height='14').video__pause-icon.js-video__pp-icon.hidden 
+                    g()
+                        rect(x="0", y="0", width="3", height="14")
+                        rect(x="6", y="0", width="3", height="14")
+            .video__progress-bar.js-video__progress-bar()
+                .video__progress-position.js-video__progress-position
+            .video__fullscreen.js-video__fullscreen 
+                svg(width='22', height='22').video__fullscreen-icon
+                    use(href="#original-arrow" x=12 y=0 )
+                    use(href="#original-arrow" x=12 y=0 transform="rotate(90,11,11)" )
+                    use(href="#original-arrow" x=12 y=0 transform="rotate(180,11,11)" )
+                    use(href="#original-arrow" x=12 y=0 transform="rotate(270,11,11)" )
 
-      
+            
 
 
 

@@ -1,16 +1,16 @@
 mixin percentage(num, of)
 
-  if of
-    - var perc=  num / of * 100;
-  else 
-    - var perc= num;
-  - var rest = perc !== 100 ? 100 - perc : 1;
-  - var colorRest = perc !== 100 ? 'transparent' : '#e75735';
-  div(
-  chart-type="donut",
-  data-chart-inner-radius="45"
-  data-chart-outer-radius="50",
-  data-chart-text= of ? num + '/' + of : (perc.toString()),
-  data-chart-segments='[ [' + perc + ',"#e75735"], [' + (rest) + ',"' + (colorRest) + '"] ]'
-  ).percentage
-    
+    if of
+        - var perc=  num / of * 100;
+    else 
+        - var perc= num;
+    - var rest = perc !== 100 ? 100 - perc : 1;
+    - var colorRest = perc !== 100 ? 'transparent' : '#e75735';
+    div(
+    chart-type="donut",
+    data-chart-inner-radius="45"
+    data-chart-outer-radius="50",
+    data-chart-text= of ? num + '/' + of : (perc.toString()),
+    data-chart-segments='[ [' + perc + ',"#e75735"], [' + (rest) + ',"' + (colorRest) + '"] ]'
+    ).percentage
+        

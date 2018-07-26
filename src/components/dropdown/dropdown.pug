@@ -1,12 +1,12 @@
 mixin dropdown({items})
-  .dropdown(class= state==="failed" ? "dropdown--failed" : "")
-    .dropdown__body  
-      input.dropdown__actual(disabled=true)
-      .dropdown__button
-        svg(viewBox="0 0 14 10").dropdown__icon
-            path(d="M1,1 l6,6 l6,-6" stroke="#fff" stroke-width="2px" fill="none")
-    
-    ul.dropdown__list
-      - for (var i = 0; i < items.length; i++)
-        li.dropdown__item=items[i] 
+    .dropdown(class= state==="failed" ? "dropdown--failed" : "")
+        .dropdown__body  
+            input.dropdown__actual(disabled=true)
+            .dropdown__button
+                svg(viewBox="0 0 14 10").dropdown__icon
+                        path(d="M1,1 l6,6 l6,-6" stroke="#fff" stroke-width="2px" fill="none")
+        
+        ul.dropdown__list
+            - for (var i = 0; i < items.length; i++)
+                li.dropdown__item=items[i] 
 
