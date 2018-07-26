@@ -1,4 +1,4 @@
-import $ from 'jquery'
+
 import './button/button'
 import './circlecharts'
 import './slider'

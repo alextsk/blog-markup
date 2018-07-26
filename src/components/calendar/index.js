@@ -4,6 +4,7 @@ import datepickerFactory from 'jquery-datepicker';
 datepickerFactory($);
 
 $(function() {
+  let currentDate = null
   const head = $(".calendar__head")
   const footer = $(".calendar__footer")
   var calendar = $('.datepicker').datepicker({
@@ -12,13 +13,12 @@ $(function() {
     firstDay: 1,
     showOtherMonths: true,
     onSelect: function(date) { // date === "mm/dd/yyyy"
-      //var currentDate = calendar.datepicker( "getDate" ).getDate();
-      var currentDate = date.split('/')[1]
+      [ ,currentDate, ] = date.split('/')
       head.html(currentDate)
     }
   });
   calendar.prepend(head)
   calendar.append(footer)
-  var currentDate = calendar.datepicker( "getDate" );
+  currentDate = calendar.datepicker( "getDate" );
 });
 
