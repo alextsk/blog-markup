@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import './button/button.js'
+import './button/button'
 import './circlecharts'
 import './slider'
 import './dropdown'

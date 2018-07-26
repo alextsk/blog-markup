@@ -1,16 +1,5 @@
 import $ from 'jquery'
-import '../components/components.js'
-
-const img = $(".js-big-image__actual")
-var prevTarget = null
-var target = null
-
-$(".photos__item")
-.click( evt => {
-  activate($(evt.currentTarget), prevTarget)
-})
-
-activate($($(".photos__item")[0]))
+import '../components/components'
 
 function activate(target) {
   img.attr('src', target.data("image"))
@@ -18,6 +7,16 @@ function activate(target) {
   target.addClass("active")
   prevTarget = target
 }
+
+const img = $(".js-big-image__actual")
+var prevTarget = null
+
+$(".photos__item")
+.click( evt => {
+  activate($(evt.currentTarget), prevTarget)
+})
+
+activate($($(".photos__item")[0]))
 
 $(".arrow-button--left")
 .click(() => {

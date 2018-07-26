@@ -1,8 +1,5 @@
 import $ from "jquery";
-import CircleChart from "circle-chart"
 import createSVGDoughnut from './vendor/create-svg-doughnut/src/createSVGDoughnut';
-
-
 
 function createSvgNode(n, v) {
   n = document.createElementNS("http://www.w3.org/2000/svg", n);
@@ -27,7 +24,6 @@ function createChart(el) {
     doughnut.appendChild(svgText);
     el.appendChild(doughnut)
 }
-
 
 $(document).ready(() => {
     $(".percentage").each((i, element) => createChart(element));
