@@ -23,20 +23,21 @@ html(lang='en')
                 a(href="tel:+79039130361").header__phone
                     | +7 (903) 913-03-61
 
-        nav.menu
-            ul.menu__container
-                li.menu__item
-                    a(href=".") Главная
-                li.menu__item 
-                    a(href="./services.html") Виды услуг
-                li.menu__item 
-                    a(href="./photos.html") Фото работ
-                li.menu__item 
-                    a(href="./prices.html") Цены
-                li.menu__item  
-                    a(href="./aboutus.html") О нас
-                li.menu__item 
-                     a(href="./testimonials.html") Отзывы
+        .menu-parent
+            nav.menu
+                ul.menu__container
+                    li.menu__item
+                        a(href=".") Главная
+                    li.menu__item 
+                        a(href="./services.html") Виды услуг
+                    li.menu__item 
+                        a(href="./photos.html") Фото работ
+                    li.menu__item 
+                        a(href="./prices.html") Цены
+                    li.menu__item  
+                        a(href="./aboutus.html") О нас
+                    li.menu__item 
+                         a(href="./testimonials.html") Отзывы
 
         main.page-content 
             block content
