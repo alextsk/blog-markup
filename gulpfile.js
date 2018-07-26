@@ -119,7 +119,7 @@ function lint() {
     .pipe(eslint.format());
 }
 
-const build = gulp.series(clean, gulp.parallel(html, lint, favicon, htmlUi, css, cssUi, scripts,scriptsUi, /*img,*/ fonts));
+const build = gulp.series(clean, gulp.parallel(html, lint, favicon, htmlUi, css, cssUi, scripts,scriptsUi, img, fonts));
 
 const deploy = gulp.series(build, function () {
   return gulp.src(["./dist/**/*"] )
