@@ -950,8 +950,12 @@ img {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.menu-parent {
+  width: 100%;
+}
 .menu {
   margin-top: 2rem;
+  width: 100%;
 }
 .menu__container {
   display: grid;

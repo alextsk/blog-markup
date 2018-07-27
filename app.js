@@ -10822,20 +10822,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var img = (0, _jquery2.default)(".js-big-image__actual");
 var prevTarget = null;
-var target = null;
-
-(0, _jquery2.default)(".photos__item").click(function (evt) {
-  activate((0, _jquery2.default)(evt.currentTarget), prevTarget);
-});
-
-activate((0, _jquery2.default)((0, _jquery2.default)(".photos__item")[0]));
-
 function activate(target) {
   img.attr('src', target.data("image"));
   if (prevTarget) prevTarget.removeClass("active");
   target.addClass("active");
   prevTarget = target;
 }
+
+(0, _jquery2.default)(".photos__item").click(function (evt) {
+  activate((0, _jquery2.default)(evt.currentTarget), prevTarget);
+});
+
+activate((0, _jquery2.default)((0, _jquery2.default)(".photos__item")[0]));
 
 (0, _jquery2.default)(".arrow-button--left").click(function () {
   activate(prevTarget.prev().length ? prevTarget.prev() : (0, _jquery2.default)(".photos__item").last());
@@ -10852,27 +10850,19 @@ function activate(target) {
 "use strict";
 
 
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
 __webpack_require__(7);
 
 __webpack_require__(12);
 
-__webpack_require__(19);
+__webpack_require__(18);
+
+__webpack_require__(20);
 
 __webpack_require__(21);
-
-__webpack_require__(22);
 
 __webpack_require__(23);
 
 __webpack_require__(25);
-
-__webpack_require__(27);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
 /* 7 */
@@ -11856,61 +11846,51 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _circleChart = __webpack_require__(13);
-
-var _circleChart2 = _interopRequireDefault(_circleChart);
-
-var _createSVGDoughnut = __webpack_require__(14);
+var _createSVGDoughnut = __webpack_require__(13);
 
 var _createSVGDoughnut2 = _interopRequireDefault(_createSVGDoughnut);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function createSvgNode(n, v) {
-    n = document.createElementNS("http://www.w3.org/2000/svg", n);
-    for (var p in v) {
-        n.setAttributeNS(null, p, v[p]);
-    }return n;
+  var node = document.createElementNS("http://www.w3.org/2000/svg", n);
+  Object.keys(v).forEach(function (p) {
+    return node.setAttributeNS(null, p, v[p]);
+  });
+  return node;
 }
 
 function createChart(el) {
-    var max = (0, _jquery2.default)(el).data('chart-max');
-    var segments = (0, _jquery2.default)(el).data('chart-segments');
-    var innerRadius = +(0, _jquery2.default)(el).data('chart-inner-radius');
-    var outerRadius = +(0, _jquery2.default)(el).data('chart-outer-radius');
-    var chartText = (0, _jquery2.default)(el).data('chart-text') !== undefined ? (0, _jquery2.default)(el).data('chart-text').toString() : '';
-    var vals = segments.map(function (seg) {
-        return +seg[0];
-    });
-    var pals = segments.map(function (seg) {
-        return seg[1];
-    });
-    var doughnut = (0, _createSVGDoughnut2.default)(vals, outerRadius, innerRadius, pals);
-    var svgText = createSvgNode('text', { x: 50, y: 60, class: "big", 'text-anchor': "middle" });
-    var textNode = document.createTextNode(chartText);
+  var segments = (0, _jquery2.default)(el).data('chart-segments');
+  var innerRadius = +(0, _jquery2.default)(el).data('chart-inner-radius');
+  var outerRadius = +(0, _jquery2.default)(el).data('chart-outer-radius');
+  var chartText = (0, _jquery2.default)(el).data('chart-text') !== undefined ? (0, _jquery2.default)(el).data('chart-text').toString() : '';
+  var vals = segments.map(function (seg) {
+    return +seg[0];
+  });
+  var pals = segments.map(function (seg) {
+    return seg[1];
+  });
+  var doughnut = (0, _createSVGDoughnut2.default)(vals, outerRadius, innerRadius, pals);
+  var svgText = createSvgNode('text', { x: 50, y: 60, class: "big", 'text-anchor': "middle" });
+  var textNode = document.createTextNode(chartText);
 
-    svgText.appendChild(textNode);
-    doughnut.appendChild(svgText);
-    el.appendChild(doughnut);
+  svgText.appendChild(textNode);
+  doughnut.appendChild(svgText);
+  el.appendChild(doughnut);
 }
 
 (0, _jquery2.default)(document).ready(function () {
-    (0, _jquery2.default)(".percentage").each(function (i, element) {
-        return createChart(element);
-    });
-    (0, _jquery2.default)(".donut").each(function (i, element) {
-        return createChart(element);
-    });
+  (0, _jquery2.default)(".percentage").each(function (i, element) {
+    return createChart(element);
+  });
+  (0, _jquery2.default)(".donut").each(function (i, element) {
+    return createChart(element);
+  });
 });
 
 /***/ }),
 /* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(t,e){"use strict"; true?module.exports=e:"function"==typeof define&&define.amd?define(e):t.CircleChart=e}(this,function(){var t="http://www.w3.org/2000/svg",e=function(e){function n(){c(),a(),T("onUpdateStart"),D===!0?i():(l(),T("onUpdateEnd"))}function i(){var t=-Y/2,n=e.definition,i=n.length,l=0;o(t,i,l)}function o(t,n,i){var l,c=e.definition[i],a=0,u=0,s=function(){C(c)&&(a+=k(c,a),u=r(c.$path,t,a)),a<c.percent?l=setTimeout(s,X):n-1>i?(i+=1,u+=t,a=0,o(u,n,i)):T("onUpdateEnd")};l=setTimeout(s,X)}function l(){var t=-Y/2;p(function(e){C(e)&&(t+=r(e.$path,t,e.percent))})}function r(t,e,n){var i=n/100*(2*Y),o=e+i,l=(o-e)%(2*Y)>Y?1:0,r=j+Z(e)*j,c=j+q(e)*j,a=j+Z(o)*j,u=j+q(o)*j,s=["M",r,c,"A",j,j,0,l,1,a,u,"L",j,j,"Z"];return t.setAttribute("d",s.join(" ")),i}function c(){I!==!0&&(O=0,p(function(t){t.value=Number(t.value||0),O+=t.value}))}function a(){W=0,0!==O&&p(function(t,e){t.percent=Math.round(100*t.value/O),W+=t.percent,w(e)&&I===!1&&(t.percent+=100-W)})}function u(){p(s)}function s(t){var e=A("path");x(t.cls)&&e.setAttributeNS(null,"class",t.cls),(x(t.color)||G)&&e.setAttributeNS(null,"style",(x(t.color)?"fill: "+t.color+";":"")+" "+(G===!0?"cursor: pointer;":"")),G&&e.addEventListener("click",f.bind(t)),L.appendChild(e),t.$path=e}function f(t){var n,i=this;G&&(n=E(),P.textContent=i.label+" : "+i.value,P.style.left=t.x+n.left-P.offsetWidth/2+"px",P.style.top=t.y+n.top-20+"px",e.tooltipClass?P.classList.toggle("circle-chart-tooltip-is-visible"):(P.style.visibility="visible",P.style.opacity="1",P.style["z-index"]="auto",P.style.transition="visibility 0s .6s, z-index 0s .6s, opacity .6s ease;",P.style.position="absolute")),T("onPathClick",t)}function d(){m()}function p(t){for(var n=0,i=e.definition,o=i.length;o>n;n+=1)t.call(M,i[n],n)}function v(){L=A("svg:svg"),L.setAttribute("width",U),L.setAttribute("height",U),L.setAttribute("viewBox","0 0 "+U+" "+U)}function h(){var t=g(j,j);x(e.background)?t.setAttributeNS(null,"style","fill: "+e.background):t.setAttributeNS(null,"class","circle-chart-background"),L.appendChild(t)}function b(){if(!!e.isPie==!1){var t=g(j,U*B);x(e.middleCircleColor)?t.setAttributeNS(null,"style","fill: "+e.middleCircleColor):t.setAttributeNS(null,"class","circle-chart-background-empty"),L.appendChild(t)}}function y(){P=document.createElement("div"),e.tooltipClass&&(P.className=e.tooltipClass),m(),z.appendChild(P),document.body.addEventListener("click",$)}function m(){P.style.cssText="position: fixed; visibility: hidden; opacity: 0; z-index: -1; color: #fff; padding: 10px; background-color: rgba(0,0,0,0.6); transition: opacity .6s ease;"}function g(t,e){var n=A("circle");return n.setAttributeNS(null,"cx",t),n.setAttributeNS(null,"cy",t),n.setAttributeNS(null,"r",e),n}function A(e){return document.createElementNS(t,e)}function C(t){return t.value>0&&t.percent>0}function x(t){return"undefined"!=typeof t}function N(t,e){x(e)&&(t.value=parseInt(e))}function S(t){t.removeAttribute("d")}function w(t){return t+1===e.definition.length}function k(t,e){var n=t.percent,i=R;return e+R>n&&(i=n-e),e+i===100&&(i-=1e-4),i}function T(t,n){var i=e[t];"function"==typeof i&&i.call(M,{$chart:L,chart:M,total:O,event:n,$tooltip:P})}function $(t){var e=t.target;z.contains(e)===!1&&d()}function E(){var t=document.documentElement;return{left:(window.pageXOffset||t.scrollLeft)-(t.clientLeft||0),top:(window.pageYOffset||t.scrollTop)-(t.clientTop||0)}}var L,P,M=this,z=e.$container,U=e.size||z.offsetWidth,j=U/2,I=x(e.staticTotal)?e.staticTotal:!1,O=I?e.total||0:0,W=0,B=e.ringProportion||.35,R=e.speed||1,X=e.durration||10,Y=Math.PI,Z=Math.cos,q=Math.sin,D=x(e.animated)?e.animated:!0,F=x(e.drawAtStart)?e.drawAtStart:!0,G=x(e.tooltips)?!!e.tooltips:!1,H=x(e.tooltips)?e.addPiePathsAtLast:!1;v(),h(),H?(b(),u()):(u(),b()),G&&y(),e.$container.appendChild(L),T("onAfterRender"),F&&n(),M.update=function(t){p(function(e){N(e,t[e.name]),S(e.$path)}),n()},M.setTotal=function(t){O=Number(t)}};return e}());
-
-/***/ }),
-/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11920,7 +11900,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _createSvgPie = __webpack_require__(15);
+var _createSvgPie = __webpack_require__(14);
 
 var _createSvgPie2 = _interopRequireDefault(_createSvgPie);
 
@@ -11964,7 +11944,7 @@ function createSVGDoughnut(data, outerRadius) {
 exports.default = createSVGDoughnut;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11979,7 +11959,7 @@ var _createSVGElementJs = __webpack_require__(4);
 
 var _createSVGElementJs2 = _interopRequireDefault(_createSVGElementJs);
 
-var _drawArcsJs = __webpack_require__(16);
+var _drawArcsJs = __webpack_require__(15);
 
 var _drawArcsJs2 = _interopRequireDefault(_drawArcsJs);
 
@@ -12005,7 +11985,7 @@ exports['default'] = createSVGPie;
 module.exports = exports['default'];
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12017,7 +11997,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _createArcPathJs = __webpack_require__(17);
+var _createArcPathJs = __webpack_require__(16);
 
 var _createArcPathJs2 = _interopRequireDefault(_createArcPathJs);
 
@@ -12055,7 +12035,7 @@ exports['default'] = drawArcs;
 module.exports = exports['default'];
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12073,7 +12053,7 @@ var _createSVGElementJs = __webpack_require__(4);
 
 var _createSVGElementJs2 = _interopRequireDefault(_createSVGElementJs);
 
-var _polarToCartesianJs = __webpack_require__(18);
+var _polarToCartesianJs = __webpack_require__(17);
 
 var _polarToCartesianJs2 = _interopRequireDefault(_polarToCartesianJs);
 
@@ -12101,7 +12081,7 @@ exports['default'] = createArcPath;
 module.exports = exports['default'];
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12120,7 +12100,7 @@ exports["default"] = polarToCartesian;
 module.exports = exports["default"];
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12130,48 +12110,46 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _nouislider = __webpack_require__(20);
+var _nouislider = __webpack_require__(19);
 
 var _nouislider2 = _interopRequireDefault(_nouislider);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_nouislider2.default);
-
 var sliders = (0, _jquery2.default)('.slider');
 
+function clickOnPip(el) {
+  var value = Number(this.getAttribute('data-value'));
+  el.noUiSlider.set(value);
+}
+
 sliders.each(function (i, el) {
-	var maxValue = (0, _jquery2.default)(el).data('max-value');
-	var parts = (0, _jquery2.default)(el).data('parts');
+  var maxValue = (0, _jquery2.default)(el).data('max-value');
+  var parts = (0, _jquery2.default)(el).data('parts');
 
-	_nouislider2.default.create(el, {
-		range: {
-			min: 0,
-			max: maxValue
-		},
-		tooltips: [true],
-		start: [Math.floor(maxValue / 2)],
-		step: parts ? Math.floor(maxValue / (parts - 1)) : undefined,
-		pips: parts > 2 ? { mode: 'count', values: parts } : undefined
-	});
+  _nouislider2.default.create(el, {
+    range: {
+      min: 0,
+      max: maxValue
+    },
+    tooltips: [true],
+    start: [Math.floor(maxValue / 2)],
+    step: parts ? Math.floor(maxValue / (parts - 1)) : undefined,
+    pips: parts > 2 ? { mode: 'count', values: parts } : undefined
+  });
 
-	if (parts) {
-		var clickOnPip = function clickOnPip() {
-			var value = Number(this.getAttribute('data-value'));
-			el.noUiSlider.set(value);
-		};
-
-		var pips = el.querySelectorAll('.noUi-value');
-
-
-		for (var i = 0; i < pips.length; i++) {
-			pips[i].addEventListener('click', clickOnPip);
-		}
-	}
+  if (parts) {
+    var pips = el.querySelectorAll('.noUi-value');
+    for (var j = 0; j < pips.length; j += 1) {
+      pips[i].addEventListener('click', function () {
+        return clickOnPip(el);
+      });
+    }
+  }
 });
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! nouislider - 11.1.0 - 2018-04-02 11:18:13 */
@@ -14526,14 +14504,7 @@ function scope ( target, options, originalOptions ){
 }));
 
 /***/ }),
-/* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14558,29 +14529,31 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 });
 
 /***/ }),
-/* 23 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _googleMaps = __webpack_require__(24);
+var _googleMaps = __webpack_require__(22);
 
 var _googleMaps2 = _interopRequireDefault(_googleMaps);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var el = document.querySelector(".js-map");
+var el = (0, _jquery2.default)(".js-map")[0];
 var lat = (0, _jquery2.default)(el).data("lat");
 var lng = (0, _jquery2.default)(el).data("lng");
 _googleMaps2.default.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w";
 _googleMaps2.default.LANGUAGE = "en";
 _googleMaps2.default.load(function (google) {
-  var place = new google.maps.Map(el, {
+  new google.maps.Map(el, { // eslint-disable-line no-new
     center: { lat: lat, lng: lng },
     zoom: 12,
     disableDefaultUI: true
@@ -14589,12 +14562,17 @@ _googleMaps2.default.load(function (google) {
   var geocoder = new google.maps.Geocoder();
   var geolocate = new google.maps.LatLng(lat, lng);
   geocoder.geocode({ 'latLng': geolocate }, function (results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
+    if (status === google.maps.GeocoderStatus.OK) {
       var result;
+
+      var _results = _slicedToArray(results, 2),
+          res1 = _results[0],
+          res2 = _results[1];
+
       if (results.length > 1) {
-        result = results[1];
+        result = res1;
       } else {
-        result = results[0];
+        result = res2;
       }
       (0, _jquery2.default)(".js-address1").html(result.address_components[0].long_name + ", ");
       (0, _jquery2.default)(".js-address2").html(result.address_components[1].long_name + ' ');
@@ -14602,15 +14580,10 @@ _googleMaps2.default.load(function (google) {
       (0, _jquery2.default)(".js-address4").html(result.address_components[3].short_name + ' ');
     }
   });
-  console.log("place", place);
-});
-
-_googleMaps2.default.onLoad(function (google) {
-  console.log('I just loaded google maps api');
 });
 
 /***/ }),
-/* 24 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -14843,17 +14816,19 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root
 
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _jqueryDatepicker = __webpack_require__(26);
+var _jqueryDatepicker = __webpack_require__(24);
 
 var _jqueryDatepicker2 = _interopRequireDefault(_jqueryDatepicker);
 
@@ -14862,6 +14837,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _jqueryDatepicker2.default)(_jquery2.default);
 
 (0, _jquery2.default)(function () {
+  var currentDate = null;
   var head = (0, _jquery2.default)(".calendar__head");
   var footer = (0, _jquery2.default)(".calendar__footer");
   var calendar = (0, _jquery2.default)('.datepicker').datepicker({
@@ -14870,19 +14846,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     firstDay: 1,
     showOtherMonths: true,
     onSelect: function onSelect(date) {
-      // date === "mm/dd/yyyy"
-      //var currentDate = calendar.datepicker( "getDate" ).getDate();
-      var currentDate = date.split('/')[1];
+      var _date$split = date.split('/'); // date === "mm/dd/yyyy"
+
+
+      var _date$split2 = _slicedToArray(_date$split, 2);
+
+      currentDate = _date$split2[1];
+
       head.html(currentDate);
     }
   });
   calendar.prepend(head);
   calendar.append(footer);
-  var currentDate = calendar.datepicker("getDate");
+  currentDate = calendar.datepicker("getDate");
 });
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
@@ -16996,7 +16976,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17009,48 +16989,29 @@ var _jquery2 = _interopRequireDefault(_jquery);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(function () {
-  var uniq = function uniq() {
-    return Math.floor(Math.random() * 10000);
-  };
   var videos = (0, _jquery2.default)('.video');
-  videos.each(function (ind, video) {
-    var $mediaPlayer = (0, _jquery2.default)(video).find('.video__actual');
-    var mediaPlayer = $mediaPlayer[0];
-    var progressBar = (0, _jquery2.default)(video).find('.js-video__progress-bar');
-    var progressPosition = (0, _jquery2.default)(video).find('.js-video__progress-position');
-    var fullscreenButton = (0, _jquery2.default)(video).find('.js-video__fullscreen');
-    var playButton = (0, _jquery2.default)(video).find(".js-video__play-pause-button");
-    var icons = (0, _jquery2.default)(video).find(".js-video__pp-icon");
-    mediaPlayer.controls = false;
-
-    $mediaPlayer.on('timeupdate', updateProgressBar(mediaPlayer, progressPosition));
-    playButton.click(togglePlayPause(icons, mediaPlayer));
-    progressBar.click(setVideoTime(mediaPlayer, progressBar, progressPosition));
-    fullscreenButton.click(function () {
-      return setFullscreen(mediaPlayer);
-    });
-  });
-
-  function setVideoTime(mediaPlayer, progressBar, progressPosition) {
-    return function (evt) {
-      var ratio = evt.offsetX / progressBar.width();
-      mediaPlayer.currentTime = ratio * mediaPlayer.duration;
-      updateProgressBar(mediaPlayer, progressPosition)();
-    };
-  }
 
   function updateProgressBar(mediaPlayer, progressPosition) {
-    return function () {
+    return function handler() {
       var percentage = Math.floor(100 / mediaPlayer.duration * mediaPlayer.currentTime);
       progressPosition.css({ width: percentage + '%' });
     };
   }
 
+  function setVideoTime(mediaPlayer, progressBar, progressPosition) {
+    return function handler(evt) {
+      var ratio = evt.offsetX / progressBar.width();
+      var mPlayer = mediaPlayer;
+      mPlayer.currentTime = ratio * mediaPlayer.duration;
+      updateProgressBar(mediaPlayer, progressPosition)();
+    };
+  }
+
   function togglePlayPause(icons, mediaPlayer) {
-    return function () {
+    return function handler() {
 
       if (mediaPlayer.paused || mediaPlayer.ended) {
-        var playPromise = mediaPlayer.play().then(function () {
+        mediaPlayer.play().then(function () {
           return icons.toggleClass('hidden');
         });
       } else {
@@ -17069,6 +17030,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       elem.webkitRequestFullscreen();
     }
   }
+
+  videos.each(function (ind, video) {
+    var $mediaPlayer = (0, _jquery2.default)(video).find('.video__actual');
+    var mediaPlayer = $mediaPlayer[0];
+    var progressBar = (0, _jquery2.default)(video).find('.js-video__progress-bar');
+    var progressPosition = (0, _jquery2.default)(video).find('.js-video__progress-position');
+    var fullscreenButton = (0, _jquery2.default)(video).find('.js-video__fullscreen');
+    var playButton = (0, _jquery2.default)(video).find(".js-video__play-pause-button");
+    var icons = (0, _jquery2.default)(video).find(".js-video__pp-icon");
+    mediaPlayer.controls = false;
+
+    $mediaPlayer.on('timeupdate', updateProgressBar(mediaPlayer, progressPosition));
+    playButton.click(togglePlayPause(icons, mediaPlayer));
+    progressBar.click(setVideoTime(mediaPlayer, progressBar, progressPosition));
+    fullscreenButton.click(function () {
+      return setFullscreen(mediaPlayer);
+    });
+  });
 });
 
 /***/ })
