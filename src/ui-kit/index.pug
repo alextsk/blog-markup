@@ -95,17 +95,17 @@ html(lang='en')
 
                 h1.section-header profiles
                 div.profile-section__element-container
-                    +profile({image: "images/userpic-1.jpg", name: "John Smith", profession: "ux designer"})
+                    +profile({image: "../images/userpic-1.jpg", name: "John Smith", profession: "ux designer"})
                 div.profile-section__element-container
-                    +profile({image: "images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
+                    +profile({image: "../images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
 
             section.news-section
                 h1.section-header news & events
                 .news-section__body
                     div.news-section__element-container
-                        +news({image:"images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
+                        +news({image:"../images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
                     div.news-section__element-container
-                        +event({image:"images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
+                        +event({image:"../images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
             
             section.location-section
                 h1.section-header location
@@ -115,10 +115,10 @@ html(lang='en')
                 +calendar()
             section.messaging-section
                 h1.section-header messaging
-                +messaging({userpic:"images/userpic-2.jpg"} )
+                +messaging({userpic:"../images/userpic-2.jpg"} )
             section.video-section
                 h1.section-header video
                 .video-section__body
-                    +video({src:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4", poster:"images/city.jpg", first:true})
+                    +video({src:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4", poster:"../images/city.jpg", first:true})
         script(src='./app.js')
         
