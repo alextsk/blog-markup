@@ -8,6 +8,7 @@
 mobile-break = 480px
 
 @require 'components.styl'
+@require 'buttons-section/buttons-section.styl'
 
 img
   max-width 100%
@@ -22,26 +23,21 @@ h1,h2
 
   
 .wrapper 
-  margin 0 auto
-  max-width: 800px
+  margin 4.25rem auto 0
+  max-width 45rem
   
 .section-header
   text-align: center
-  margin 40px 0 
   text-transform uppercase
   color #4f4f4f
+  font-size 1.2rem
   width 100%
+  letter-spacing .4px
   
 .section-header--small
   margin 20px 0
   
-.buttons-section__body
-  
-  display grid
-  @media (min-width: mobile-break)
-    grid-template-columns 1fr 1.5fr 1.5fr 1fr
-  grid-gap 20px 50px
-  place-items  end center
+
   
 .arrows-section__body
   text-align center

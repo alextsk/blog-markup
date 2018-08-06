@@ -14,17 +14,7 @@ html(lang='en')
 
     body
         .wrapper
-            section.buttons-section
-                h1.buttons-section__header.section-header Standart buttons
-                .buttons-section__body
-                    div.buttons-section__element-container
-                        +button("Button!", {size:'small'})
-                    div.buttons-section__element-container
-                        +button("Button!")
-                    div.buttons-section__element-container
-                        +button("Button!", {theme: 'error'})
-                    div.buttons-section__element-container
-                        +button("Button!", {theme: 'error', size: 'small'})
+            include buttons-section/buttons-section.pug
             section.arrows-section
                 h1.arrows-section__header.section-header Arrow buttons
                 .arrows-section__body
