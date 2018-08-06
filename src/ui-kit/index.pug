@@ -14,13 +14,10 @@ html(lang='en')
 
     body
         .wrapper
-            include buttons-section/buttons-section.pug
-            section.arrows-section
-                h1.arrows-section__header.section-header Arrow buttons
-                .arrows-section__body
-                    div
-                        +arrow-button('left', true)
-                        +arrow-button('right')
+            .wrapper__buttons
+                include buttons-section/buttons-section.pug
+            .wrapper__arrows
+                include arrows-section/arrows-section.pug
             section.piechart-section
                 h1.piechart-section__header.section-header percentages / donut chart
                 .piechart-section__body
