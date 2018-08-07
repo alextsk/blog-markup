@@ -10,6 +10,7 @@ mobile-break = 480px
 @require 'components.styl'
 @require 'buttons-section/buttons-section.styl'
 @require 'arrows-section/arrows-section.styl'
+@require 'piecharts-section/piecharts-section.styl'
 
 img
   max-width 100%
@@ -28,6 +29,9 @@ h1,h2
   max-width 45rem
   &__arrows
     padding-top 43px
+  &__piecharts
+    padding-top 32px
+    
 .section-header
   text-align: center
   text-transform uppercase
@@ -41,13 +45,7 @@ h1,h2
   
 
   
-.piechart-section__body
-  display flex
-  flex-direction column
-  align-items center
-  @media (min-width: mobile-break)
-    flex-direction row
-  justify-content space-between
+
   
 .sliders-section__body
 .stages-section__body

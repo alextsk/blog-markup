@@ -15,7 +15,7 @@ function createChart(el) {
   const vals = segments.map( seg => +seg[0] )
   const pals = segments.map( seg => seg[1] )
   const doughnut = createSVGDoughnut(vals, outerRadius, innerRadius, pals);
-  const svgText = createSvgNode('text', { x: 50, y: 60, class: "big", 'text-anchor':"middle" });
+  const svgText = createSvgNode('text', { x: 47, y: 60, class: "text-in-circle", 'text-anchor':"middle" });
   const textNode = document.createTextNode(chartText);
   
   svgText.appendChild(textNode);
