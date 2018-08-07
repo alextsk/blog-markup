@@ -20,13 +20,9 @@ html(lang='en')
                 include arrows-section/arrows-section.pug
             .wrapper__piecharts 
                 include piecharts-section/piecharts-section.pug
-            section.sliders-section
-                h1.sliders-section__header.section-header Sliders
-                .sliders-section__body
-                    div.sliders-section__element-container
-                        +slider(200, {color: 1})   
-                    div.sliders-section__element-container
-                        +slider(100, {parts: 11, color: 2})
+            .wrapper__sliders
+                include sliders-section/sliders-section.pug
+            
 
             section.stages-section
                 h1.stages-section__header.section-header Stages
