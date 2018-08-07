@@ -12,6 +12,7 @@ mobile-break = 480px
 @require 'arrows-section/arrows-section.styl'
 @require 'piecharts-section/piecharts-section.styl'
 @require 'sliders-section/sliders-section.styl'
+@require 'stages-section/stages-section.styl'
 
 img
   max-width 100%
@@ -34,6 +35,8 @@ h1,h2
     padding-top 32px
   &__sliders
     padding-top .9375rem
+  &__stages
+    padding-top 43px
     
 .section-header
   text-align: center
@@ -45,13 +48,7 @@ h1,h2
   
 .section-header--small
   margin 20px 0
-  
 
-.stages-section__body
-  display grid
-  grid-gap 20px
-  @media (min-width: mobile-break)
-    grid-template-columns 1fr 1fr
   
 form.elements
   &>div
