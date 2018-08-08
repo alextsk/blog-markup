@@ -26,25 +26,11 @@ html(lang='en')
                 include stages-section/stages-section.pug    
             .wrapper__form-elements
                 include form-elements-section/form-elements-section.pug 
-            
-
+            .wrapper__dropdowns
+                include dropdowns-section/dropdowns-section.pug
+            .wrapper__profile
+                include profiles-section/profiles-section.pug
                 
-            section.dropdown-section
-                h1.section-header dropdowns/search
-                div.dropdown-section__element-container
-                    +search()
-                div.dropdown-section__element-container
-                    +search('failed')
-                div.dropdown-section__element-container
-                    +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})
-
-            section.profile-section
-
-                h1.section-header profiles
-                div.profile-section__element-container
-                    +profile({image: "../images/userpic-1.jpg", name: "John Smith", profession: "ux designer"})
-                div.profile-section__element-container
-                    +profile({image: "../images/userpic-2.jpg", name: "Sarah Brown", profession: "developer"})
 
             section.news-section
                 h1.section-header news & events

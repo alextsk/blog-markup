@@ -14,6 +14,8 @@ mobile-break = 480px
 @require 'sliders-section/sliders-section.styl'
 @require 'stages-section/stages-section.styl'
 @require 'form-elements-section/form-elements-section.styl'
+@require 'dropdowns-section/dropdowns-section.styl'
+@require 'profiles-section/profiles-section.styl'
 
 img
   max-width 100%
@@ -42,6 +44,19 @@ h1,h2
     padding-top 2.5rem
     width 83%
     margin 0 auto
+  &__dropdowns
+    padding-top 2.5rem
+    padding-left 3.82rem
+    width 100%
+    display inline-block
+    vertical-align top
+    @media (min-width: mobile-break)
+      width 21.85rem
+  &__profile
+    display inline-block
+    padding-top: 3.1rem;
+    padding-left: 2.25rem;
+    width: 21.85rem;
 .section-header
   text-align: center
   text-transform uppercase
@@ -54,25 +69,6 @@ h1,h2
   margin 1.25rem 0
 
 
-  
-.dropdown-section
-  width 100%
-  @media (min-width: mobile-break)
-    width calc(50% - 10px)
-  display inline-block
-  & > div
-    margin-bottom 15px
-
-.profile-section
-  @media (min-width: mobile-break)
-    width calc(50% - 20px)
-  margin-left 20px
-  display inline-block
-  vertical-align top
-  &>div 
-    display flex
-    margin-bottom 27px
-    justify-content center
 
 .news-section__body
   display grid
