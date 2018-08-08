@@ -24,29 +24,11 @@ html(lang='en')
                 include sliders-section/sliders-section.pug
             .wrapper__stages
                 include stages-section/stages-section.pug    
+            .wrapper__form-elements
+                include form-elements-section/form-elements-section.pug 
+            
 
-            section.form-elements-section
-                h1.form-elements-section__header.section-header Form elements
-                form.form-elements-section__form.form
-                    div.form__input-container
-                        +input()
-                    div.form__input-container
-                        +input('success')
-                    div.form__input-container
-                        +input('error')
-                    div.form__input-container
-                        +textarea()
-
-                div.form-elements-section__subsection
-                    h1.section-header.section-header--small toggles
-                    .form-elements-section__subsection-body
-                        +toggle(true)
-                        +toggle(false)
-                div.form-elements-section__subsection
-                    h1.section-header.section-header--small tickboxes
-                    .form-elements-section__subsection-body
-                        +tickbox(true)
-                        +tickbox(false)
+                
             section.dropdown-section
                 h1.section-header dropdowns/search
                 div.dropdown-section__element-container

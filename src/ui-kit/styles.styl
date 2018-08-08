@@ -13,6 +13,7 @@ mobile-break = 480px
 @require 'piecharts-section/piecharts-section.styl'
 @require 'sliders-section/sliders-section.styl'
 @require 'stages-section/stages-section.styl'
+@require 'form-elements-section/form-elements-section.styl'
 
 img
   max-width 100%
@@ -30,14 +31,17 @@ h1,h2
   margin 4.25rem auto 0
   max-width 45rem
   &__arrows
-    padding-top 43px
+    padding-top 2.6875rem
   &__piecharts
-    padding-top 32px
+    padding-top 2rem
   &__sliders
     padding-top .9375rem
   &__stages
-    padding-top 43px
-    
+    padding-top 2.6875rem
+  &__form-elements
+    padding-top 2.5rem
+    width 83%
+    margin 0 auto
 .section-header
   text-align: center
   text-transform uppercase
@@ -47,32 +51,8 @@ h1,h2
   letter-spacing .4px
   
 .section-header--small
-  margin 20px 0
+  margin 1.25rem 0
 
-  
-form.elements
-  &>div
-    margin-bottom 15px
-
-.form-elements-section
-  
-  @media (min-width: mobile-break)
-    display grid
-    grid-gap 20px
-    grid-template-columns 1fr
-    grid-template-columns 1fr 1fr
-    grid-template-rows 100px auto
-
-  &__header
-    grid-column-end:  span 2
-  &__form
-    grid-row-end span 2
-    & > * 
-      margin-bottom 15px
-  &__subsection-body
-    display flex
-    justify-content center
-    
 
   
 .dropdown-section
