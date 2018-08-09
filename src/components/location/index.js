@@ -2,7 +2,7 @@ import $ from "jquery"
 import maps from "google-maps"
 
 
-const el = $(".js-map")[0]
+const el = $(".js-location")[0]
 const lat = $(el).data("lat")
 const lng = $(el).data("lng")
 maps.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w"
@@ -25,10 +25,10 @@ maps.load(function(google) {
       } else {
        result = res2;
       }
-      $(".js-address1").html(result.address_components[0].long_name + ", ")
-      $(".js-address2").html(result.address_components[1].long_name + ' ')
-      $(".js-address3").html(result.address_components[2].long_name + ', ')
-      $(".js-address4").html(result.address_components[3].short_name + ' ')
+      $(".js-location__address1").html(result.address_components[0].long_name + ", ")
+      $(".js-location__address2").html(result.address_components[1].long_name + ' ')
+      $(".js-location__address3").html(result.address_components[2].long_name + ', ')
+      $(".js-location__address4").html(result.address_components[3].short_name + ' ')
      }  
   });    
 });

@@ -1,24 +1,23 @@
-mixin location(opts)
-    .map
-        .map__actual.js-map(data-lat=opts ? opts.lat : .28, data-lng=opts ? opts.lng : 110.24)
-        //.map__actual.js-map(data-lat="56.49771" data-lng="84.97437")
-        .map__bar
-            .map__message Meet us!
-            .map__address
+mixin location({ lat=.28, lng=110.24 })
+    .location
+        .location__actual.js-location( data-lat=lat, data-lng=lng )
+        .location__bar
+            .location__message Meet us!
+            .location__address
                 div
-                    span.js-address1
-                    span.js-address2
+                    span.js-location__address1
+                    span.js-location__address2
                 div
-                    span.js-address3
-                    span.js-address4
-            .map__controls
-                .map__icon
+                    span.js-location__address3
+                    span.js-location__address4
+            .location__controls
+                .location__icon
                     svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 270 270')
                         g(fill="none" stroke="#fff" stroke-width='20' )
                             circle(cx=135 cy=135 r=95  )
                             path(d="M 0, 135 h 100 M 135, 0 v 100 M 175, 135 h 100 M 135, 175 v 100")
 
-                .map__icon
+                .location__icon
                     svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 180 240' height="100%")
                         g(fill="#fff")
                             mask(id="circle-mask")

@@ -32,9 +32,8 @@ html(lang='en')
                 include profiles-section/profiles-section.pug
             .wrapper__news
                 include news-section/news-section.pug
-            section.location-section
-                h1.section-header location
-                +location()
+            .wrapper__location
+                include location-section/location-section.pug
             section.calendar-section
                 h1.section-header calendar
                 +calendar()
