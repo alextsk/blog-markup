@@ -21,7 +21,7 @@ $(function() {
   calendar.prepend(head)
   calendar.append(footer)
   currentDate = calendar.datepicker( "getDate" );
-  today.click(() => console.log(calendar.datepicker( "setDate", "10/12/2018" )))
+  today.click(() => console.log(calendar.datepicker( "setDate", new Date() )))
 
 });
 
