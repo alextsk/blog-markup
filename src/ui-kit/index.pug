@@ -30,16 +30,8 @@ html(lang='en')
                 include dropdowns-section/dropdowns-section.pug
             .wrapper__profile
                 include profiles-section/profiles-section.pug
-                
-
-            section.news-section
-                h1.section-header news & events
-                .news-section__body
-                    div.news-section__element-container
-                        +news({image:"../images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
-                    div.news-section__element-container
-                        +event({image:"../images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
-            
+            .wrapper__news
+                include news-section/news-section.pug
             section.location-section
                 h1.section-header location
                 +location()

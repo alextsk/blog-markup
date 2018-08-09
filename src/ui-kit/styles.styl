@@ -16,6 +16,7 @@ mobile-break = 480px
 @require 'form-elements-section/form-elements-section.styl'
 @require 'dropdowns-section/dropdowns-section.styl'
 @require 'profiles-section/profiles-section.styl'
+@require 'news-section/news-section.styl'
 
 img
   max-width 100%
@@ -57,6 +58,8 @@ h1,h2
     padding-top: 3.1rem;
     padding-left: 2.25rem;
     width: 21.85rem;
+  &__news
+    padding-top 4.8rem
 .section-header
   text-align: center
   text-transform uppercase
@@ -70,12 +73,7 @@ h1,h2
 
 
 
-.news-section__body
-  display grid
-  grid-gap 20px
-  justify-content: center;  
-  @media (min-width: mobile-break)
-    grid-template-columns 288px 288px
+
   
 .location-section
   width 100%
