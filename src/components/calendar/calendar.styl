@@ -1,30 +1,36 @@
-.datepicker
+.calendar
   width 280px
   display: flex
   flex-direction column
   justify-content center
   align-items center
   
-.calendar__head
-  height 109px
-  width 100%
-  display flex
-  align-items center
-  justify-content center
-  font-size 80px
-  color white
-  background-color var(--main-color)
-.calendar__footer
-  height 49px
-  width 100%
-  font-size 13px
-  text-transform uppercase
-  color var(--text-dark)
-  display flex
-  align-items center
-  color #868686
-  padding-left 20px
-  background-color var(--light-grey)
+  &__head
+    height 114px
+    width 100%
+    display flex
+    font-weight 300
+    align-items center
+    justify-content center
+    font-size 80px
+    color white
+    background-color var(--main-color)
+    padding-top: 8px;
+    
+  &__footer
+    height 49px
+    width 100%
+    font-size 13px
+    text-transform uppercase
+    color var(--text-dark)
+    display flex
+    align-items center
+    color #868686
+    padding-left 20px
+    background-color var(--light-grey)
+    padding-top: 5px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
 
 
 .ui-datepicker-inline
@@ -33,7 +39,7 @@
   background-color #d54c2c
   position relative
   height 43px
-  padding-top 20px
+  padding-top 17px
   font-weight 300
   font-size 24px
   color white
@@ -51,10 +57,14 @@
     stroke var(--support-color)
   
 .ui-datepicker-prev
-  left 16px  
-
+  left 6px  
+  height 18px
+  width 18px
 .ui-datepicker-next
-   right 16px
+  right 8px
+  top 12px
+  height 18px
+  width 18px
 .ui-datepicker-year
   display none
   
@@ -65,6 +75,10 @@
   th
     background-color var(--main-color)
     color white
+    text-transform uppercase
+    font-size .6rem
+    padding-top: 4px;
+    padding-bottom: 6px;
   td
     width: 40px
     height 40px
