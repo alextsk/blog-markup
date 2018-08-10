@@ -34,12 +34,10 @@ html(lang='en')
                 include news-section/news-section.pug
             .wrapper__location
                 include location-section/location-section.pug
-            section.calendar-section
-                h1.section-header calendar
-                +calendar()
-            section.messaging-section
-                h1.section-header messaging
-                +messaging({userpic:"../images/userpic-2.jpg"} )
+            .wrapper__calendar
+                include calendar-section/calendar-section.pug
+            .wrapper__messaging
+                include messaging-section/messaging-section.pug
             section.video-section
                 h1.section-header video
                 .video-section__body

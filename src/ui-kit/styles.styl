@@ -18,6 +18,8 @@ mobile-break = 480px
 @require 'profiles-section/profiles-section.styl'
 @require 'news-section/news-section.styl'
 @require 'location-section/location-section.styl'
+@require 'calendar-section/calendar-section.styl'
+@require 'messaging-section/messaging-section.styl'
 
 img
   max-width 100%
@@ -64,6 +66,17 @@ h1,h2
     padding-top 2rem
     width 82%
     margin 0 auto
+  &__calendar
+    display inline-block
+    vertical-align top
+    padding-top 2.2rem
+    padding-left 4rem
+  &__messaging
+    display inline-block
+    vertical-align top
+    padding-top 2.2rem
+    padding-left 1.6rem
+
 .section-header
   text-align: center
   text-transform uppercase
@@ -71,16 +84,6 @@ h1,h2
   font-size 1.2rem
   width 100%
   letter-spacing .4px
-
-.calendar-section
-.messaging-section
-  display inline-block
-  vertical-align top
-  margin-top 4rem
-  @media (min-width: mobile-break)
-    width 50%
-  > div
-    margin 0 auto
 
 .video-section__body
   height 400px
