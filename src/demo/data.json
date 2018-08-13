@@ -1,0 +1,31 @@
+"site": {
+  "index-page": {},
+  "testimonialsPage": {
+    "reviewsList" : [
+      {
+        "name":"",
+        "date":"",
+        "rating": "",
+        "message": ""
+      },
+      {
+        "name":"",
+        "date":"",
+        "rating": "",
+        "message": ""
+      },
+      {
+        "name":"",
+        "date":"",
+        "rating": "",
+        "message": ""
+      },
+      {
+        "name":"",
+        "date":"",
+        "rating": "",
+        "message": ""
+      },
+    ] 
+  }
+}

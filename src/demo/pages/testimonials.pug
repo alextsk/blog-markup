@@ -1,0 +1,19 @@
+extends layout.pug
+
+block includes
+    title Testimonials
+
+
+    include /src/demo/site.blocks/review-list/review-list.pug
+    include /src/demo/site.blocks/review-form/review-form.pug
+            
+block content
+    .testimonials
+        .testimonials__list
+            +review-list()
+        .testimonials__form
+            +review-form()
+
+        
+
+        

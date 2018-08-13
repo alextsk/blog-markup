@@ -1,0 +1,31 @@
+include /src/components/circlecharts/percentage.pug
+
+mixin review-list() 
+    ul.review-list
+        li.review-list__item
+            .review-list__name  Виктор Николаевич
+            .review-list__date  2017-01-17 02:33:35
+            .review-list__rating 
+                +percentage(5,5)
+            .review-list__message Мне на днях закончили ремонт косметический в двухкомнатной хрущевке. Очень доволен качеством и сроками. Считаю что этих мастеров не стыдно и друзьям порекомендовать. К стати, согласно действующей акции ещё и стройматериал (шпаклёвочные смеси) в подарок предоставили!
+
+        li.review-list__item
+            .review-list__name Ларионов Дмитрий Борисович
+            .review-list__date 2016-09-03 05:12:11
+            .review-list__rating 
+                +percentage(4,5)
+            .review-list__message Вчера закончили ремонт моей квартиры. Уложились на 4 дня раньше срока по договору. Хочется поблагодарить мастеров и сказать только одно - профессионалы. Рекомендую обращаться к ним.
+
+        li.review-list__item
+            .review-list__name  Наталья Анатольевна
+            .review-list__date  2016-07-04 14:55:20
+            .review-list__rating 
+                +percentage(7,10)
+            .review-list__message Ребята ответственные,доброжелательные и главное все в срок! По качеству работы нареканий нет,только положительные эмоции,так что мой отзыв +5!!!
+
+        li.review-list__item
+            .review-list__name Николай Степанович - мой отзыв
+            .review-list__date 2016-05-19 03:11:15
+            .review-list__rating 
+                +percentage(80)
+            .review-list__message Хорошие ребята, ответственные, профессионалы. Сделали все отлично, хорошо сэкономил на материалах, полчив скидку. Заключают договор, дают гарантию. Советую!

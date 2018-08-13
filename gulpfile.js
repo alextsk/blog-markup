@@ -66,7 +66,7 @@ function htmlUi() {
 }
 
 function html() {
-  return gulp.src('src/demo/*.pug')
+  return gulp.src('src/demo/pages/*.pug')
     .pipe(pug({basedir: __dirname}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());

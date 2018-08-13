@@ -1,7 +1,7 @@
 extends layout.pug
 
 block includes
-    title Testimonials
+    title Registration
     include /src/components/arrow-button/arrow-button.pug
     include /src/components/form-elements/input.pug
     include /src/components/form-elements/textarea.pug
@@ -9,25 +9,26 @@ block includes
     include /src/components/form-elements/toggle.pug
     include /src/components/dropdown/dropdown.pug
     include /src/components/stage/stage.pug
-    include /src/components/slider/slider.pug
 
         
 block content
     h1 Регистрация 
     div.registration
         .registration__stage
-            +stage(2,3)
-        h2.registration__title Осталось всего два шага!
+            +stage(1,3)
+        h2.registration__title Заполните заявку и станьте мастером!
         form.registration__form
             .form__input-group
-                label.form-group__wrapper ваша профессия
-                    +dropdown({items: ['сварщик', 'сантехник', 'отделочник', 'капитан второго ранга']})
+                label.form-group__wrapper имя
+                    +input()
             .form__input-group
-                label.form-group__wrapper опыт(лет)
-                    +slider(100, {color: 1})
+                label.form-group__wrapper e-mail
+                    +input()
             .form__input-group.registration__arrows
-                a(href="./registration.html").registration__arrow-anchor
-                    +arrow-button('left', true)
-                a(href="./registration3.html").registration__arrow-anchor
+                +arrow-button('left', false)
+                a(href="./registration2.html").registration__arrow-anchor
                     +arrow-button('right', true)
 
+
+
+        
