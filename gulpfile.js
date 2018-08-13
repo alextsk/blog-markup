@@ -8,6 +8,7 @@ var gulp = require('gulp'),
   var browserSync = require('browser-sync').create();
   var del = require('del');
   var eslint = require('gulp-eslint');
+  var data = require('gulp-data');
 
 const 
   sitePath= 'src/demo',
@@ -67,6 +68,7 @@ function htmlUi() {
 
 function html() {
   return gulp.src('src/demo/pages/*.pug')
+    .pipe(data(() => ({require:require})))
     .pipe(pug({basedir: __dirname}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
@@ -94,7 +96,7 @@ function css() {
 
 function img() {
   return gulp.src('images/*.*')
-    .pipe(imagemin({verbose: true}))
+    //.pipe(imagemin({verbose: true}))
     .pipe(gulp.dest('./dist/images/'))
 }
  
@@ -119,7 +121,7 @@ function lint() {
     .pipe(eslint.format());
 }
 
-const build = gulp.series(clean, gulp.parallel(html, lint, favicon, htmlUi, css, cssUi, scripts,scriptsUi, img, fonts));
+const build = gulp.series(clean, gulp.parallel(html, lint, favicon, htmlUi, css, cssUi, scripts, scriptsUi, img, fonts));
 
 const deploy = gulp.series(build, function () {
   return gulp.src(["./dist/**/*"] )
