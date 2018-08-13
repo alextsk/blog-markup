@@ -1,32 +1,24 @@
 extends layout.pug
 
+
+
 block includes
-        title Main
+        title Main 
         include /src/components/news/news.pug 
         include /src/components/event/event.pug 
+        include /src/demo/site.blocks/text-and-list/text-and-list.pug 
         - var sale1 = "Закажите поклейку обоев прямо сейчас и получите скидку 35%.";
         - var sale2 = "При заказе косметического ремонта под ключ Вы получаете профессиональные шпатлёвочные смеси в подарок!";
+        -
+            let fs = require('fs');
+            let {indexPage} = JSON.parse(fs.readFileSync('./src/demo/data.json'));
+
 block content
     h1.page-title Ремонт квартир в Томске 
     .index-page
-
-        .index-page__description-area
-            p.index-page__paragraph Предлагаем профессиональный ремонт квартир в Томске.
-
-            p.index-page__paragraph В нашей слаженной бригаде "Дом и Мастер" - только порядочные и квалифицированные отделочники по всем видам ремонтных работ.
-            p.index-page__paragraph Успех нашей команды держится на профессионализме и стремлении не запятнать репутацию ответсвенных и надёжных мастеров.
-
-            p.index-page__paragraph На протяжении многолетних трудов мы ни разу не отступали от своих принципиальных позиций - выполнять все работы по ремонту квартир качественно и в срок!
-
-            p.index-page__paragraph Нашими потенциальными клиентами являются как деловые люди, так и заказчики бюджетной категории, желающие получить качественные услуги, при этом не переплачивая посредникам.
-        .index-page__footnote-area.advantages
-            ul.advantages__list
-                li.advantages__item  Работаем сами;
-                li.advantages__item  Без предоплаты;
-                li.advantages__item  Личный опыт - 20 лет;
-                li.advantages__item  Коллектив не курящий;
-                li.advantages__item  Скидки на строительные материалы до 20%;
-                li.advantages__item  Даём гарантию на весь ремонт.
+        
+        .index-page__introduction
+            +text-and-list(indexPage.introductionText, indexPage.introductionList)
         .index-page__sales-area
             .index-page__sales-area-body
                 .offer 

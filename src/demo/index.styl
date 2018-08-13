@@ -13,6 +13,8 @@
       @media (min-width : $break)
         grid-template-columns 1fr 1fr
       grid-gap 20px
+  &__introduction
+    grid-column span 2
   &__prices-area
     @media (min-width : $break)
       grid-column 1 / span 2
@@ -20,14 +22,6 @@
     @media (min-width : $break)
       grid-column 1 / span 2
    
-.advantages
-  margin-left 2rem
-  &__item
-    font-style italic
-    margin-bottom .6rem
-  &__list
-    list-style square
-    
 
 .prices
   margin-top: 4rem

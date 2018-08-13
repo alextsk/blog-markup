@@ -1,0 +1,8 @@
+mixin text-and-list(text, list)
+    .text-and-list
+        .text-and-list__text
+            each paragraph in text
+                p.text-and-list__text-paragraph=paragraph
+        ul.text-and-list__list
+            each item in list
+                li.text-and-list__list-item=item
