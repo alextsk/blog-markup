@@ -22,7 +22,7 @@
       {"title": "капитальный ремонт", "price": 2500, "image": "images/1.png", "copy": "Цены начинаются от 2500 руб./м. кв. В квартире производится частичная перепланировка, ремонт электрики, разводки водоснабжения и канализации - сантехнические работы, монтаж многоуровневых потолков и элементов декора." },
       {"title": "евроремонт (элитный)", "price": 5000, "image": "images/2.png", "copy": "Цены уже от 5000 руб./м. кв. Отделка проводится следуя утвержденному проекту, с применением эксклюзивных материалов. Весь комплекс ремонтных работ, включая демонтаж перегододок с перепланировкой помещений." }
     ],
-    "advertisedServices": [
+    "advertisedServices" : [
       {
         "title": "ШТУКАТУРКА, ШПАКЛЕВКА, ПОКРАСКА",
         "image" : "images/shtukaturnye-maljarnye-raboty.jpg",
@@ -52,6 +52,60 @@
         "title": "ЭЛЕКТРОМОНТАЖ",
         "image" : "images/jelektro-montazhnye-raboty.jpg",
         "imageAlt" : "jelektro-montazhnye-raboty"
+      }
+    ]
+  },
+  "photoPage" : {
+    "photoList" : [
+      {
+        "image" : "images/11.jpg",
+        "imageThumbnail" : "images/11.jpg",
+        "imageAlt" : "image number 11"
+      },
+      {
+        "image" : "images/12.jpg",
+        "imageThumbnail" : "images/12.jpg",
+        "imageAlt" : "image number 12"
+      },
+      {
+        "image" : "images/13.jpg",
+        "imageThumbnail" : "images/13.jpg",
+        "imageAlt" : "image number 13"
+      },
+      {
+        "image" : "images/14.jpg",
+        "imageThumbnail" : "images/14.jpg",
+        "imageAlt" : "image number 14"
+      },
+      {
+        "image" : "images/15.jpg",
+        "imageThumbnail" : "images/15.jpg",
+        "imageAlt" : "image number 15"
+      },
+            {
+        "image" : "images/11.jpg",
+        "imageThumbnail" : "images/11.jpg",
+        "imageAlt" : "image number 11"
+      },
+      {
+        "image" : "images/12.jpg",
+        "imageThumbnail" : "images/12.jpg",
+        "imageAlt" : "image number 12"
+      },
+      {
+        "image" : "images/13.jpg",
+        "imageThumbnail" : "images/13.jpg",
+        "imageAlt" : "image number 13"
+      },
+      {
+        "image" : "images/14.jpg",
+        "imageThumbnail" : "images/14.jpg",
+        "imageAlt" : "image number 14"
+      },
+      {
+        "image" : "images/15.jpg",
+        "imageThumbnail" : "images/15.jpg",
+        "imageAlt" : "image number 15"
       }
     ]
   },

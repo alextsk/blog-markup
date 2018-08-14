@@ -4,7 +4,10 @@ block includes
         title Photos 
         include /src/components/video/video.pug
         include /src/components/arrow-button/arrow-button.pug
-        
+        include /src/demo/site.blocks/photo-grid/photo-grid.pug
+        - 
+            let { photoPage: {photoList} } = loadJson('./src/demo/data.json');
+
 block content
     h1 Ремонт квартир в Томске - фото 
     h2 Фото и видео наших работ по ремонту и отделке квартир в Томске
@@ -17,45 +20,5 @@ block content
             +video({src:"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4", poster: "images/13.jpg"})
 
     .photos
-        ul.photos__grid.js-photos__grid
-            li.photos__item(data-image="images/11.jpg")
-                img(src="images/11.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/12.jpg")
-                img(src="images/12.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/13.jpg")
-                img(src="images/13.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/14.jpg")
-                img(src="images/14.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/15.jpg")
-                img(src="images/15.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/11.jpg")
-                img(src="images/11.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/12.jpg")
-                img(src="images/12.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/13.jpg")
-                img(src="images/13.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/14.jpg")
-                img(src="images/14.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/15.jpg")
-                img(src="images/15.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/11.jpg")
-                img(src="images/11.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/12.jpg")
-                img(src="images/12.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/13.jpg")
-                img(src="images/13.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/14.jpg")
-                img(src="images/14.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/15.jpg")
-                img(src="images/15.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/11.jpg")
-                img(src="images/11.jpg", alt="repairs example thumbnail")
-            li.photos__item(data-image="images/12.jpg")
-                img(src="images/12.jpg", alt="repairs example thumbnail")
-
-        .big-image.js-big-image
-            img(src="/images/1.jpg" alt="repairs example").js-big-image__actual
-            .controls
-                +arrow-button('left', true)(class="arrrrr")
-                +arrow-button('right', true)
+        +photo-grid(photoList)
     

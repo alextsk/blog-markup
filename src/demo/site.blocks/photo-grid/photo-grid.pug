@@ -1,0 +1,11 @@
+mixin photo-grid(photoList)
+    .photo-grid
+        ul.photo-grid__list.js-photo-grid__list
+            each item in photoList
+                li.photo-grid__item(data-image=item.image)
+                    img(src=item.imageThumbnail, alt=item.imageAlt)
+        .photo-grid__big-image
+            img(src=photoList[0].image, alt=photoList[0].imageAlt).js-photo-grid__image-actual.photo-grid__image-actual
+            .photo-grid__controls
+                +arrow-button('left', true)
+                +arrow-button('right', true)
