@@ -1,0 +1,6 @@
+mixin advertised-services(servicesList)
+   ul.advertised-services
+      each service in servicesList
+          li.advertised-services__item
+              .advertised-services__item-title=service.title
+              img(src=service.image, alt=service.imageAlt).advertised-services__item-image

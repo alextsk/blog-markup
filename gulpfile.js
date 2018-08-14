@@ -2,6 +2,7 @@ var gulp = require('gulp'),
   webpack = require('webpack'),
   imagemin = require('gulp-imagemin'),
   webpackStream = require('webpack-stream');
+  var fs = require("fs");
   var pug = require('gulp-pug');
   var stylus = require('gulp-stylus');
   var gulpDeploy = require('gulp-gh-pages');
@@ -68,7 +69,14 @@ function htmlUi() {
 
 function html() {
   return gulp.src('src/demo/pages/*.pug')
-    .pipe(data(() => ({require:require})))
+    .pipe(
+      data( function() {
+        return { 
+          loadJson: 
+            function(pathFromRoot) { return JSON.parse(fs.readFileSync(pathFromRoot)) } 
+          }
+      } 
+    ))
     .pipe(pug({basedir: __dirname}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());

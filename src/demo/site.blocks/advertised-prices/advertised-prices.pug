@@ -1,0 +1,12 @@
+mixin advertised-prices(priceList)
+    .advertised-prices
+        .advertised-prices__list
+            each item in priceList
+                .advertised-prices__list-item
+                    .advertised-prices__item-title 
+                        h3.advertised-prices__item-title-text=item.title
+                        .advertised-prices__item-price=item.price
+                    img(src="images/3.png" alt="cosmetic repairs").advertised-prices__item-image
+                    p.advertised-prices__copy=item.copy
+
+                    

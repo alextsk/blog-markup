@@ -7,67 +7,35 @@ block includes
         include /src/components/news/news.pug 
         include /src/components/event/event.pug 
         include /src/demo/site.blocks/text-and-list/text-and-list.pug 
-        - var sale1 = "Закажите поклейку обоев прямо сейчас и получите скидку 35%.";
-        - var sale2 = "При заказе косметического ремонта под ключ Вы получаете профессиональные шпатлёвочные смеси в подарок!";
-        -
-            let fs = require('fs');
-            let {indexPage} = JSON.parse(fs.readFileSync('./src/demo/data.json'));
+        include /src/demo/site.blocks/advertised-prices/advertised-prices.pug 
+        include /src/demo/site.blocks/advertised-services/advertised-services.pug 
+        - 
+            let {indexPage: {
+                    introductionText, 
+                    introductionList, 
+                    salesOffers, 
+                    advertisedPrices,
+                    advertisedServices}
+                } = loadJson('./src/demo/data.json');
 
 block content
-    h1.page-title Ремонт квартир в Томске 
     .index-page
-        
+        h1.index-page__title Ремонт квартир в Томске 
         .index-page__introduction
-            +text-and-list(indexPage.introductionText, indexPage.introductionList)
+            +text-and-list(introductionText, introductionList)
         .index-page__sales-area
-            .index-page__sales-area-body
-                .offer 
-                     +news({image:"images/sale1.png", title: "Специальное предложение", date: "до 26 июля 2018", copy: sale1})
-                .offer 
-                     +news({image:"images/sale2.jpg", title: "Шпатлёвочные смеси в подарок", date: "до 1 июля 2018 года", copy: sale2})
+            .index-page__sales-offer 
+                 +news({image:salesOffers[0].image, title: salesOffers[0].title, date: salesOffers[0].date, copy: salesOffers[0].copy})
+            .index-page__sales-offer
+                 +news({image:salesOffers[1].image, title: salesOffers[1].title, date: salesOffers[1].date, copy: salesOffers[1].copy})
 
-        .index-page__prices-area.prices
-                h2.prices__title Цены ремонта квартир под ключ
-                .prices__list
-                    .prices__list-item
-                        .prices__item-title 
-                            h3.prices__item-title-text косметический ремонт
-                            .prices__item-price  900
-                        img(src="images/3.png" alt="cosmetic repairs").prices__item-image
-                        p.prices__copy.
-                            Стоимость - от 900 руб.за м2 по полу. В работу входит замена настенных и напольных покрытий с частичным исправлением дефектов поверхностей, замена плитки в санузлах, шпаклевание потолка с последующей окраской.
-                    .prices__list-item
-                        .prices__item-title 
-                            h3.prices__item-title-text капитальный ремонт
-                            .prices__item-price  2500
-                        img(src="images/1.png" alt="capital repairs").prices__item-image
-                        p.prices__copy.
-                            Цены начинаются от 2500 руб./м. кв. В квартире производится частичная перепланировка, ремонт электрики, разводки водоснабжения и канализации - сантехнические работы, монтаж многоуровневых потолков и элементов декора.
-                    .prices__list-item
-                        .prices__item-title 
-                            h3.prices__item-title-text евроремонт (элитный)
-                            .prices__item-price  5000
-                        img(src="images/2.jpg" alt="elite repairs").prices__item-image
-                        p.prices__copy.
-                            Цены уже от 5000 руб./м. кв. Отделка проводится следуя утвержденному проекту, с применением эксклюзивных материалов. Весь комплекс ремонтных работ, включая демонтаж перегододок с перепланировкой помещений.
-        .index-page__services-area.services
-            h2.services__title Мы готовы выполнить любые ремонтно-отделочные услуги:
-            ul.services__list 
-                li.services__item
-                    .services__item-title ШТУКАТУРКА, ШПАКЛЕВКА, ПОКРАСКА
-                    img(src="images/shtukaturnye-maljarnye-raboty.jpg" alt="shtukaturnye-maljarnye-raboty")
-                li.services__item
-                    .services__item-title МОНТАЖ КОСТРУКЦИЙ ИЗ ГИПСОКАРТОНА
-                    img(src="images/montazh_gipsokartona.jpg" alt="montazh_gipsokartona")
-                li.services__item
-                    .services__item-title ПЛИТОЧНЫЕ РАБОТЫ, РЕМОНТ ВАННОЙ
-                    img(src="images/remont-vannoj.jpg" alt="remont-vannoj")
-                li.services__item
-                    .services__item-title ПОКЛЕЙКА ОБОЕВ
-                    img(src="images/poklejka-oboev.jpg" alt="poklejka-oboev")
-                li.services__item
-                    .services__item-title УКЛАДКА ЛАМИНАТА
-                    img(src="images/ukladka-laminata.jpg" alt="ukladka-laminata")
-                li.services__item
-                    .services__item-title ЭЛЕКТРОМОНТАЖ
-                    img(src="images/jelektro-montazhnye-raboty.jpg" alt="jelektro-montazhnye-raboty")
+        .index-page__prices-area
+            h2.index-page__prices-title Цены ремонта квартир под ключ
+            .index-page__prices-body
+                +advertised-prices(advertisedPrices)
+
+        .index-page__services-area
+            h2.index-page__services-area-title Мы готовы выполнить любые ремонтно-отделочные услуги:
+            .index-page__services-area-body
+                +advertised-services(advertisedServices)
+            

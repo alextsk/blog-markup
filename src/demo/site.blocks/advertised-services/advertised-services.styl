@@ -1,0 +1,19 @@
+.advertised-services
+  display grid
+  grid-gap 20px
+  margin-top 2rem
+  grid-template-columns repeat(auto-fit, minmax(300px, 1fr))
+  &__title
+    font-size 1.5rem
+  &__item
+    display flex
+    flex-direction column
+    justify-content space-between 
+    position relative
+  &__item-title
+    text-transform lowercase
+    font-size 1.17rem
+    font-weight 600
+    position: absolute;
+    top: 33%;
+    background: white;
