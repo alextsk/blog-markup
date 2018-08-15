@@ -4,11 +4,12 @@ block includes
     title Testimonials
     include /src/demo/site.blocks/review-list/review-list.pug
     include /src/demo/site.blocks/review-form/review-form.pug
-            
+    - 
+            let { testimonialsPage: {reviewsList} } = loadJson('./src/demo/data.json');
 block content
     .testimonials
         .testimonials__list
-            +review-list()
+            +review-list(reviewsList)
         .testimonials__form
             +review-form()
 
