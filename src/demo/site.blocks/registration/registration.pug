@@ -15,23 +15,23 @@ mixin registration(stage, title)
         h2.registration__title=title
         form.registration__form
             .registration__input-group.registration__input-group--stage-1
-                label.form-group__wrapper имя
+                label.registration__input-group-wrapper имя
                     +input()
             .registration__input-group.registration__input-group--stage-1
-                label.form-group__wrapper e-mail
+                label.registration__input-group-wrapper e-mail
                     +input()
             .registration__input-group.registration__input-group--stage-1
-                label.form-group__wrapper ваша профессия
+                label.registration__input-group-wrapper ваша профессия
                     +dropdown({items: ['сварщик', 'сантехник', 'отделочник', 'капитан второго ранга']})
             .registration__input-group.registration__input-group--stage-2
-                label.form-group__wrapper опыт(лет)
+                label.registration__input-group-wrapper опыт(лет)
                     +slider(100, {color: 1})
-            .registration__input-group.toggle-group.registration__input-group--stage-2
-                label.toggle-group__wrapper
+            .registration__input-group.registration__input-group--toggle.registration__input-group--stage-2
+                label.registration__input-group-wrapper
                     +toggle()
                     span.agreement Подтверждаю согласие работать без выходных
             .registration__input-group.registration__input-group--stage-3
-                label.toggle-group__wrapper 
+                label.registration__input-group-wrapper
                     +tickbox()
                     span.agreement Подтверждаю согласие на обработку персональных данных
             .registration__input-group.registration__input-group--stage-3
