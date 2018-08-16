@@ -1,0 +1,29 @@
+.registration
+  max-width 31.25rem
+  &__stage 
+    margin 2rem 0
+  &__form
+  &__title
+    margin 0 auto
+  &__input-group
+    margin-top 1rem
+  &__arrows
+    padding-top 1rem
+    display flex
+    justify-content space-between
+  &__arrow-anchor-disabled
+    pointer-events: none;
+    cursor: default;
+.registration--stage-1
+  .registration__input-group:not(.registration__input-group--stage-1)
+    display none
+.registration--stage-2
+  .registration__input-group:not(.registration__input-group--stage-2)
+    display none
+.registration--stage-3
+  .registration__input-group:not(.registration__input-group--stage-3)
+    display none
+
+.toggle-group label
+  display flex
+  align-items center

@@ -1,0 +1,43 @@
+include /src/components/arrow-button/arrow-button.pug
+include /src/components/form-elements/input.pug
+include /src/components/form-elements/textarea.pug
+include /src/components/form-elements/tickbox.pug
+include /src/components/form-elements/toggle.pug
+include /src/components/dropdown/dropdown.pug
+include /src/components/stage/stage.pug
+include /src/components/slider/slider.pug
+
+
+mixin registration(stage, title)
+    .registration(class=`registration--stage-${stage}`)
+        .registration__stage
+            +stage(stage, 3)
+        h2.registration__title=title
+        form.registration__form
+            .registration__input-group.registration__input-group--stage-1
+                label.form-group__wrapper имя
+                    +input()
+            .registration__input-group.registration__input-group--stage-1
+                label.form-group__wrapper e-mail
+                    +input()
+            .registration__input-group.registration__input-group--stage-1
+                label.form-group__wrapper ваша профессия
+                    +dropdown({items: ['сварщик', 'сантехник', 'отделочник', 'капитан второго ранга']})
+            .registration__input-group.registration__input-group--stage-2
+                label.form-group__wrapper опыт(лет)
+                    +slider(100, {color: 1})
+            .registration__input-group.toggle-group.registration__input-group--stage-2
+                label.toggle-group__wrapper
+                    +toggle()
+                    span.agreement Подтверждаю согласие работать без выходных
+            .registration__input-group.registration__input-group--stage-3
+                label.toggle-group__wrapper 
+                    +tickbox()
+                    span.agreement Подтверждаю согласие на обработку персональных данных
+            .registration__input-group.registration__input-group--stage-3
+                    +button("Готово")
+            .registration__arrows
+                a.registration__arrow-anchor(href=`./registration${stage===1?3:stage-1}.html`, class= stage===1 ? "registration__arrow-anchor-disabled" : '')
+                    +arrow-button('left', stage!==1)
+                a(href=`./registration${stage===3?1:stage+1}.html`, , class= stage===3 ? "registration__arrow-anchor-disabled" : '').registration__arrow-anchor
+                    +arrow-button('right', stage!==3)
