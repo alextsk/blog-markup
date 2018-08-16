@@ -3,23 +3,24 @@
   display flex
   align-items center
   justify-content space-around
-.line
-  height 4px
-  flex 1
-  background-color var(--light-grey)
-  &.active 
-    background-color var(--main-color)
-.point
-  display: inline-block
-  width: 30px
-  height 30px
-  border-radius 50%
-  background-color var(--light-grey)
-  text-align center
-  color var(--text-dark)
-  padding-top 5px
-
-  &.active 
-    background-color var(--main-color)
-    color white
+  &__line
+    height 4px
+    flex 1
+    background-color var(--light-grey)
+    &--active 
+      background-color var(--main-color)
+  &__point
+    display: inline-flex
+    justify-content center
+    align-items center
+    width: 30px
+    height 30px
+    border-radius 50%
+    background-color var(--light-grey)
+    text-align center
+    color var(--text-dark)
+    
+    &--active 
+      background-color var(--main-color)
+      color white
   
