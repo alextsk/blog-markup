@@ -14,39 +14,24 @@ html(lang='en')
 
         include /src/demo/site.blocks/main-menu/main-menu.pug 
         include /src/demo/site.blocks/site-head/site-head.pug 
+        include /src/demo/site.blocks/footer/footer.pug 
 
         - 
             let { layout: {pagesList} } = loadJson('./src/demo/data.json')
         block includes
 
 
-    body
-        header
+    body.page
+        header.page__header
             +site-head()
-        .menu-parent
+        .page__menu
             +main-menu(pagesList)
 
-        main.page-content 
+        main.page__content 
             block content
         
-        footer.footer
-            .footer__wrapper
-                div.footer__map
-                    +location({lat:"56.5034789", lng: "84.9392213"})
-                div.footer__contact-data
-                    dl.footer__description-list
-                        .footer__contact-item
-                            dt.footer__address Адрес:
-                            dd 634009, Россия, Томск, Пер. Дербышевский - 15
-                        .footer__contact-item
-                            dt.footer__phone Телефон:
-                            dd +7 (903) 913-03-61
-                        .footer__contact-item
-                            dt.footer__hours Часы работы:
-                            dd ежедневно с 9:00 до 22:00
-
-                div.footer__form
-                    +messaging({userpic:"images/master.jpg", name:"Тимофей", inverse:true})
+        footer.page__footer
+            +footer()
         
              
 

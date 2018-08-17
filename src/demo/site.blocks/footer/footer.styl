@@ -1,0 +1,29 @@
+
+.footer
+  display grid
+  grid-auto-rows minmax(300px, auto)
+  grid-template-columns 1fr 1fr
+  @media (min-width: $break)
+    grid-template-columns 2fr 1fr 1fr
+  grid-gap 20px
+  color white
+  max-width 1100px
+  margin 0 auto
+  padding 4rem 0 8rem
+  &__map
+    grid-column span 2
+    @media (min-width: $break)
+      grid-column span 1
+  &__input-group
+    margin-top 10px
+    label
+      line-height 133%
+  &__contact-data
+    line-height 160%
+    font-size 14px
+  &__contact-item
+    margin-bottom 2rem
+    dt
+      font-weight 600
+    dd 
+      font-size 1rem

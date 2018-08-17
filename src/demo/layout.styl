@@ -21,10 +21,10 @@ img
   max-width: 100%
   object-fit cover
   
-.page-content
+.page__content
     margin-top 2rem
     margin-bottom 2rem
-.menu-parent
+.page__menu
   width 100%
 
       
@@ -33,37 +33,9 @@ img
 
 
   
-.footer
+.page__footer
   background-color black
   width 100% !important
   max-width 100%
   align-self end
 
-.footer__wrapper
-  display grid
-  grid-auto-rows minmax(300px, auto)
-  grid-template-columns 1fr 1fr
-  @media (min-width: $break)
-    grid-template-columns 2fr 1fr 1fr
-  grid-gap 20px
-  color white
-  max-width 1100px
-  margin 0 auto
-  padding 4rem 0 8rem
-.footer__map
-  grid-column span 2
-  @media (min-width: $break)
-    grid-column span 1
-.footer__input-group
-  margin-top 10px
-  label
-    line-height 133%
-.footer__contact-data
-  line-height 160%
-  font-size 14px
-.footer__contact-item
-  margin-bottom 2rem
-  dt
-    font-weight 600
-  dd 
-    font-size 1rem
