@@ -6,33 +6,11 @@ html(lang='en')
         meta(http-equiv='X-UA-Compatible', content='ie=edge')
         link(rel="shortcut icon", type="image/x-icon", href="favicon.ico")
         link(rel="stylesheet", href="./styles.css")
-        include /src/components/location/location.pug
-        include /src/components/button/button.pug
-        include /src/components/form-elements/textarea.pug
-        include /src/components/form-elements/input.pug
-        include /src/components/messaging/messaging.pug
+        include /src/demo/site.blocks/page/page.pug 
 
-        include /src/demo/site.blocks/main-menu/main-menu.pug 
-        include /src/demo/site.blocks/site-head/site-head.pug 
-        include /src/demo/site.blocks/footer/footer.pug 
-
-        - 
-            let { layout: {pagesList} } = loadJson('./src/demo/data.json')
         block includes
 
-
-    body.page
-        header.page__header
-            +site-head()
-        .page__menu
-            +main-menu(pagesList)
-
-        main.page__content 
-            block content
+    body
+        +page()
         
-        footer.page__footer
-            +footer()
-        
-             
-
         script(src='./app.js')

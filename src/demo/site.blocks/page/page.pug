@@ -1,0 +1,20 @@
+
+include /src/demo/site.blocks/main-menu/main-menu.pug 
+include /src/demo/site.blocks/site-head/site-head.pug 
+include /src/demo/site.blocks/footer/footer.pug 
+
+- 
+    let { layout: {pagesList} } = loadJson('./src/demo/data.json')
+
+mixin page()
+    .page
+        header.page__header
+            +site-head()
+        .page__menu
+            +main-menu(pagesList)
+
+        main.page__content 
+            block content
+        
+        footer.page__footer
+            +footer()

@@ -10,6 +10,7 @@ var gulp = require('gulp'),
   var del = require('del');
   var eslint = require('gulp-eslint');
   var data = require('gulp-data');
+  var rename = require('gulp-rename');
 
 const 
   sitePath= 'src/demo',
@@ -68,7 +69,7 @@ function htmlUi() {
 }
 
 function html() {
-  return gulp.src('src/demo/pages/*.pug')
+  return gulp.src('src/demo/pages/**/*.pug')
     .pipe(
       data( function() {
         return { 
@@ -78,6 +79,7 @@ function html() {
       } 
     ))
     .pipe(pug({basedir: __dirname}))
+    .pipe(rename({dirname: ''}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
