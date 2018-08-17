@@ -1,10 +1,15 @@
+@require '/src/demo/site.blocks/registration-stage-1/registration-stage-1.styl';
+@require '/src/demo/site.blocks/registration-stage-2/registration-stage-2.styl';
+@require '/src/demo/site.blocks/registration-stage-3/registration-stage-3.styl';
+
 .registration
-  max-width 31.25rem
+  width 30rem
   &__stage 
     margin 2rem 0
   &__form
-  &__title
     margin 0 auto
+  &__title
+    font-size: 1.3rem
   &__input-group
     margin-top 1rem
   &__arrows
@@ -14,17 +19,8 @@
   &__arrow-anchor-disabled
     pointer-events: none;
     cursor: default;
-    
-    
-.registration--stage-1
-  .registration__input-group:not(.registration__input-group--stage-1)
-    display none
-.registration--stage-2
-  .registration__input-group:not(.registration__input-group--stage-2)
-    display none
-.registration--stage-3
-  .registration__input-group:not(.registration__input-group--stage-3)
-    display none
+  &__form-body
+    border none
 
 .toggle-group label
   display flex

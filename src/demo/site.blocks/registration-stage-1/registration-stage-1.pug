@@ -1,0 +1,11 @@
+mixin registration-stage-1()
+    .registration-stage-1
+        .registration-stage-1__input-group
+            label.registration-stage-1__input-group-wrapper имя
+                +input()
+        .registration-stage-1__input-group
+            label.registration-stage-1__input-group-wrapper e-mail
+                +input()
+        .registration-stage-1__input-group
+            label.registration-stage-1__input-group-wrapper ваша профессия
+                +dropdown({items: ['сварщик', 'сантехник', 'отделочник', 'капитан второго ранга']})

@@ -1,0 +1,9 @@
+mixin registration-stage-2()
+    .registration-stage-2
+        .registration-stage-2__input-group
+            label.registration-stage-2__input-group-wrapper опыт(лет)
+                +slider(100, {color: 1})
+        .registration-stage-2__input-group.registration__input-group--toggle
+            label.registration-stage-2__input-group-wrapper
+                +toggle()
+                span.agreement Подтверждаю согласие работать без выходных
