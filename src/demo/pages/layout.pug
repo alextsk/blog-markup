@@ -11,6 +11,11 @@ html(lang='en')
         include /src/components/form-elements/textarea.pug
         include /src/components/form-elements/input.pug
         include /src/components/messaging/messaging.pug
+
+        include /src/demo/site.blocks/main-menu/main-menu.pug 
+
+        - 
+            let { layout: {pagesList} } = loadJson('./src/demo/data.json')
         block includes
 
 
@@ -24,22 +29,11 @@ html(lang='en')
                     | +7 (903) 913-03-61
 
         .menu-parent
-            nav.menu
-                ul.menu__container
-                    li.menu__item
-                        a(href=".") Главная
-                    li.menu__item 
-                        a(href="./photos.html") Фото работ
-                    li.menu__item  
-                        a(href="./aboutus.html") О нас
-                    li.menu__item 
-                        a(href="./testimonials.html") Отзывы
-                    li.menu__item 
-                        a(href="./registration1.html") Регистрация
+            +main-menu(pagesList)
 
         main.page-content 
             block content
-
+        
         footer.footer
             .footer__wrapper
                 div.footer__map

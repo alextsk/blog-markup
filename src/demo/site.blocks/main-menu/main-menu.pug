@@ -1,0 +1,6 @@
+mixin main-menu(pagesList)
+    nav.main-menu
+        ul.main-menu__container
+          each page in pagesList
+            li.main-menu__item
+                a(href=page.anchor)=page.title
