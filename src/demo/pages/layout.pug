@@ -13,6 +13,7 @@ html(lang='en')
         include /src/components/messaging/messaging.pug
 
         include /src/demo/site.blocks/main-menu/main-menu.pug 
+        include /src/demo/site.blocks/site-head/site-head.pug 
 
         - 
             let { layout: {pagesList} } = loadJson('./src/demo/data.json')
@@ -20,14 +21,8 @@ html(lang='en')
 
 
     body
-        header.header
-                .header__logo.logo 
-                    .logo__title Частный мастер
-                    .logo__subtitle честные цены
-                .header__time Ежедневно с 9.00 до 22.00
-                a(href="tel:+79039130361").header__phone
-                    | +7 (903) 913-03-61
-
+        header
+            +site-head()
         .menu-parent
             +main-menu(pagesList)
 
