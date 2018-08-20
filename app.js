@@ -10818,30 +10818,9 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 __webpack_require__(6);
 
+__webpack_require__(26);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var img = (0, _jquery2.default)(".js-big-image__actual");
-var prevTarget = null;
-function activate(target) {
-  img.attr('src', target.data("image"));
-  if (prevTarget) prevTarget.removeClass("active");
-  target.addClass("active");
-  prevTarget = target;
-}
-
-(0, _jquery2.default)(".photos__item").click(function (evt) {
-  activate((0, _jquery2.default)(evt.currentTarget), prevTarget);
-});
-
-activate((0, _jquery2.default)((0, _jquery2.default)(".photos__item")[0]));
-
-(0, _jquery2.default)(".arrow-button--left").click(function () {
-  activate(prevTarget.prev().length ? prevTarget.prev() : (0, _jquery2.default)(".photos__item").last());
-});
-
-(0, _jquery2.default)(".arrow-button--right").click(function () {
-  return activate(prevTarget.next().length ? prevTarget.next() : (0, _jquery2.default)(".photos__item").first());
-});
 
 /***/ }),
 /* 6 */
@@ -11872,7 +11851,7 @@ function createChart(el) {
     return seg[1];
   });
   var doughnut = (0, _createSVGDoughnut2.default)(vals, outerRadius, innerRadius, pals);
-  var svgText = createSvgNode('text', { x: 50, y: 60, class: "big", 'text-anchor': "middle" });
+  var svgText = createSvgNode('text', { x: 47, y: 60, class: "text-in-circle", 'text-anchor': "middle" });
   var textNode = document.createTextNode(chartText);
 
   svgText.appendChild(textNode);
@@ -14547,7 +14526,7 @@ var _googleMaps2 = _interopRequireDefault(_googleMaps);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var el = (0, _jquery2.default)(".js-map")[0];
+var el = (0, _jquery2.default)(".js-location")[0];
 var lat = (0, _jquery2.default)(el).data("lat");
 var lng = (0, _jquery2.default)(el).data("lng");
 _googleMaps2.default.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w";
@@ -14574,10 +14553,10 @@ _googleMaps2.default.load(function (google) {
       } else {
         result = res2;
       }
-      (0, _jquery2.default)(".js-address1").html(result.address_components[0].long_name + ", ");
-      (0, _jquery2.default)(".js-address2").html(result.address_components[1].long_name + ' ');
-      (0, _jquery2.default)(".js-address3").html(result.address_components[2].long_name + ', ');
-      (0, _jquery2.default)(".js-address4").html(result.address_components[3].short_name + ' ');
+      (0, _jquery2.default)(".js-location__address1").html(result.address_components[0].long_name + ", ");
+      (0, _jquery2.default)(".js-location__address2").html(result.address_components[1].long_name + ' ');
+      (0, _jquery2.default)(".js-location__address3").html(result.address_components[2].long_name + ', ');
+      (0, _jquery2.default)(".js-location__address4").html(result.address_components[3].short_name + ' ');
     }
   });
 });
@@ -14840,25 +14819,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   var currentDate = null;
   var head = (0, _jquery2.default)(".calendar__head");
   var footer = (0, _jquery2.default)(".calendar__footer");
-  var calendar = (0, _jquery2.default)('.datepicker').datepicker({
-    prevText: '<svg width=16 height=25 transform="rotate(180.1)">' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
-    nextText: '<svg width=16 height=25>' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
+  var today = (0, _jquery2.default)(".js-calendar-today");
+  var calendar = (0, _jquery2.default)('.js-calendar').datepicker({
+    prevText: '<svg  style="width:100%; height:100%" viewBox="0 0 30 30" transform="rotate(180.1)">' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
+    nextText: '<svg style="width:100%; height:100%" viewBox="0 0 30 30">' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
     firstDay: 1,
     showOtherMonths: true,
-    onSelect: function onSelect(date) {
-      var _date$split = date.split('/'); // date === "mm/dd/yyyy"
-
-
-      var _date$split2 = _slicedToArray(_date$split, 2);
-
-      currentDate = _date$split2[1];
-
-      head.html(currentDate);
-    }
+    dayNamesMin: ["sun", "mon", "tue", "wed", "thu", "fri", "sat"],
+    onSelect: setHeader
   });
+
   calendar.prepend(head);
   calendar.append(footer);
-  currentDate = calendar.datepicker("getDate");
+  setTodayDate();
+
+  today.click(setTodayDate);
+
+  function setTodayDate() {
+    calendar.datepicker("setDate", new Date());
+    var date = calendar.datepicker("getDate");
+    head.html(date.getDate());
+  }
+
+  function setHeader(date) {
+    var _date$split = date.split('/'); // date === "mm/dd/yyyy"
+
+
+    var _date$split2 = _slicedToArray(_date$split, 2);
+
+    currentDate = _date$split2[1];
+
+    head.html(currentDate);
+  }
 });
 
 /***/ }),
@@ -17049,6 +17041,44 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     });
   });
 });
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var img = (0, _jquery2.default)(".js-photo-grid__image-actual");
+var prevTarget = null;
+
+function activate(target) {
+  img.attr('src', target.data("image"));
+  if (prevTarget) prevTarget.removeClass("active");
+  target.addClass("active");
+  prevTarget = target;
+}
+
+var imageList = (0, _jquery2.default)(".js-photo-grid__list > .photo-grid__item");
+imageList.click(function (evt) {
+  activate((0, _jquery2.default)(evt.currentTarget), prevTarget);
+});
+
+(0, _jquery2.default)(".arrow-button--left").click(function () {
+  activate(prevTarget.prev().length ? prevTarget.prev() : imageList.last());
+});
+
+(0, _jquery2.default)(".arrow-button--right").click(function () {
+  return activate(prevTarget.next().length ? prevTarget.next() : imageList.first());
+});
+
+activate((0, _jquery2.default)(imageList[0]));
 
 /***/ })
 /******/ ]);
