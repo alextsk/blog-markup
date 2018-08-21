@@ -1,4 +1,4 @@
-import {MDCRipple} from '@material/ripple';
+import Ripple from './ripple.js';
 
-const buttons = document.querySelectorAll('.button')
-buttons.forEach(button => MDCRipple.attachTo(button))
+const buttons = document.querySelectorAll('.js-ripple');
+buttons.forEach( button => new Ripple(button));

@@ -9,11 +9,11 @@ text-red = #e34a26
 
 .button
 	--thecolor : medium-green
-	--mdc-theme-primary: white
+	cursor pointer
 	box-sizing border-box
 	height 32px
 	line-height: 35px
-	padding: 0 29px
+	padding: 0 32px
 	border-radius 3px
 	display inline-block
 	user-select: none
@@ -22,8 +22,6 @@ text-red = #e34a26
 	font-weight bold
 	text-transform uppercase
 	position relative
-	transition .2s
-	font-family sans-serif
 	border 1px solid var(--thecolor)
 	color text-green
 	box-shadow 0 4px 0 0 dark-green
@@ -62,13 +60,30 @@ text-red = #e34a26
 		box-shadow 0 2px 0 0 dark-red
 		
 
-.mdc-ripple-surface:hover:before
-	opacity 0 !important
-		
-.button.mdc-ripple-upgraded--foreground-activation
-	box-shadow none !important
-	border-color #6ac2b5
+.ripple 
+	position: relative;
+	overflow: hidden;
+
+	&__container 
+		position absolute
+		top      0
+		right    0
+		bottom   0
+		left     0
+
+	&__rippler
+		transform        scale(0)
+		border-radius    100%
+		position         absolute
+		opacity          0.75
+		background-color #fff
+		animation        ripple 1000ms
+
+@keyframes ripple{
+ 	to
+   	opacity   0
+   	transform scale(2)
+
+
 	
-.button.button--error.mdc-ripple-upgraded--foreground-activation
-	box-shadow none !important
-	border-color #ea7155
+	
