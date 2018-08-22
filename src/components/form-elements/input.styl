@@ -1,45 +1,46 @@
 .input
   display flex
   height 28px
-  &--success
-    --state-color var(--support-color)
-  &--error
-    --state-color var(--main-color)
     
 .input__back
+  display flex
+  width 100%
+  
+.input__actual
   background-color var(--light-grey)
   color var(--text-dark)
-  padding 0 15px
+  padding 3px 13px 0
   flex 1
   color var(--text-dark)
   border-radius 4px
-  
-.input__actual
-  width: 100%
-  height 100%
   border none
-  background-color transparent
-  
+  &:focus:invalid~.input__message--error
+    display inline-block
+    --state-color var(--main-color)
+  &:focus:valid~.input__message--success
+    display inline-block
+    --state-color var(--support-color)
 .input__message
   min-width 72px
-  margin-left 5px
+  margin-left 7px
   padding 8px 
   text-align center
   border-radius 4px
   position relative
-  background-color var(--state-color)
+  background-color var(--state-color, red)
   text-transform uppercase
   color white
   font-size 10px
   font-family sans-serif
   letter-spacing .5px
-  
+  display none
+
   &:before
     content ''
     display block
     position absolute
-    left -5px
-    top 9px
+    left -4px
+    top 10px
     border-right 5px solid var(--state-color)
-    border-top 5px solid transparent
-    border-bottom 5px solid transparent
+    border-top 4px solid transparent
+    border-bottom 4px solid transparent

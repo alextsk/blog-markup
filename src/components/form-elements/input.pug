@@ -1,11 +1,8 @@
-mixin input(state)
+mixin input(placeholder, {pattern, errMessage="Error", sucMessage="Thanks!"}={})
     - var modifier = ''
-    if (state)
-        - modifier = state === 'success' ? 'input--success' : 'input--error'
-        - message = state === 'success' ? 'Thanks!' : 'Error'
  
     .input(class=modifier)
         .input__back
-            input(type='text').input__actual
-        if state
-            div.input__message(class=modifier)=message
+            input(type='text', placeholder=placeholder, pattern=pattern).input__actual
+            .input__message.input__message--error=errMessage
+            .input__message.input__message--success=sucMessage
