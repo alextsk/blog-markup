@@ -2,23 +2,29 @@
   height 23px
   display inline-block
   vertical-align middle
+  --stroke-color: white
+  &--disabled
+    --stroke-color: #c0c0c0
+    .tickbox__label
+      background-color var(--light-grey)
+      
 .tickbox__label
   display inline-block
   border-radius 50%
   width 23px
   height 23px
-  background-color var(--light-grey)
+  background-color var(--support-color)
+
 
     
 .tickbox__mark
-  stroke var(--text-dark)
+  stroke var(--stroke-color)
   display none
 
 
 .hidden
   display none
   &:checked + .tickbox__label
-    background-color var(--support-color)
     .tickbox__mark
       display inline-block
-      stroke white
+      stroke var(--stroke-color)
