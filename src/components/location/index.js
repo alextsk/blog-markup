@@ -8,14 +8,21 @@ const lng = $(el).data("lng")
 maps.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w"
 maps.LANGUAGE = "en" 
 maps.load(function(google) {
-  new google.maps.Map(el, { // eslint-disable-line no-new
+  var map = new google.maps.Map(el, { // eslint-disable-line no-new
     center: {lat: lat, lng: lng},
     zoom: 12,
     disableDefaultUI: true
   });
-  
+
   var geocoder = new google.maps.Geocoder();
   var geolocate = new google.maps.LatLng(lat, lng)
+  var marker = new google.maps.Marker({
+    position: {lat, lng},
+    map: map,
+    icon: '/images/Marker.png',
+    scale: .2,
+    title: 'Hello World!'
+  });
   geocoder.geocode({'latLng': geolocate}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       var result;

@@ -17,10 +17,5 @@ mixin location({ lat=.28, lng=110.24 })
                             circle(cx=135 cy=135 r=95  )
                             path(d="M 0, 135 h 100 M 135, 0 v 100 M 175, 135 h 100 M 135, 175 v 100")
 
-                .location__icon
-                    svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 180 240' height="100%")
-                        g(fill="#fff")
-                            mask(id="circle-mask")
-                                rect(x=0 y=0 width=300 height=300 fill="#fff")
-                                circle(cx=90 cy=80 r=30 fill="#000")
-                            path(d="M 90 10 C 180 20, 200 110, 90 230 C -20 110, 0 20, 90 10" mask="url(#circle-mask)")
+                .location__icon.location__icon--marker
+                    include /src/components/location/marker-icon.svg
