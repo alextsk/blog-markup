@@ -1,12 +1,13 @@
-mixin dropdown({items})
-    .dropdown(class= state==="failed" ? "dropdown--failed" : "")
+mixin dropdown({items, placeholder="Choose an option"}={})
+    .dropdown.js-dropdown(class= state==="failed" ? "dropdown--failed" : "")
         .dropdown__body  
-            input.dropdown__actual(disabled=true)
-            .dropdown__button
+            input.dropdown__actual(disabled=true, placeholder=placeholder)
+            .dropdown__button.js-dropdown__button
                 svg(viewBox="0 0 14 10").dropdown__icon
                         path(d="M1,1 l6,6 l6,-6" stroke="#fff" stroke-width="2px" fill="none")
         
         ul.dropdown__list
+            .dropdown__list-title=listTitle
             - for (var i = 0; i < items.length; i++)
-                li.dropdown__item=items[i] 
+                li.dropdown__item.js-dropdown__item=items[i] 
 
