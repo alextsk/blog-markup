@@ -15,11 +15,12 @@
     width 10.1875rem
     display inline-block
     text-align center
-    padding .8125rem 1.875rem 1rem
+    padding .7125rem 1.875rem 1rem
     background-color var(--light-grey)
-    border-radius .25rem
+    border-radius .35rem
     position relative
     margin-left .75rem
+    color #4f4f4f
   &__bubble-tail
     position absolute
     top calc(50% - .75rem)
@@ -33,7 +34,7 @@
   &__profession
     text-transform uppercase
     font-size .6875rem
-    font-weight 600
+    font-weight bold
 
   &__social-icons
     height 1.25rem
@@ -42,6 +43,12 @@
     display flex
     justify-content space-between
     
+  &__social-icon
+    height 1.25rem
+    fill #4f4f4f
+    &:hover
+      fill var(--main-color) 
+      
 .profile__head:hover + .profile__story
   background-color var(--support-color)
   color white
@@ -50,10 +57,6 @@
   .icon
     fill white
     
-.icon
-  height 1.25rem
-  &:hover
-    fill var(--main-color) 
     
    
       
