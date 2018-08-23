@@ -1,21 +1,22 @@
 .search
+  height 1.75rem
+  background-color var(--light-grey)
+  display flex
+  align-items stretch
+  border-radius .25rem
+  overflow hidden
   &__body
-    height 1.75rem
-    background-color var(--light-grey)
-    display flex
-    align-items stretch
-    border-radius .25rem
-    overflow hidden
-    padding-left .875rem
+    flex 1
 
   &__actual
     background-color transparent
     border none
     width 100%
     height 100%
+    padding-left .9rem
 
   &__button
-    width 2.3125rem
+    width 33px
     height 100%
     display flex
     justify-content center
@@ -25,9 +26,19 @@
   &__icon
     height .875rem
     width .875rem
+  &__message
+    padding-top .4rem
+    padding-left .9rem
+    letter-spacing -.2px
+    font-size 14px
+    vertical-align center
+    height 100%
+    width 100%
+    background-color var(--main-color)
+    color white
+    display none
     
 .search.search--failed 
-  .search__body
-    background-color var(--main-color)
-  .search__actual
-    color white
+  .search__message
+    display block
+  

@@ -1,9 +1,10 @@
-mixin search(state)
-    .search(class= state==="failed" ? "search--failed" : "")
+mixin search(placeholder, {state='', errMessage="I've not found what I'm looking for..."}={})
+    .search.js-search(class= state==="failed" ? "search--failed" : "")
         .search__body  
-            input.search__actual
-            .search__button
-                svg(viewBox="0 0 14 14").search__icon
-                    g
-                        circle(cx="6" cy="6" r="5" stroke="#fff" stroke-width="2px" fill="none")
-                        path(d="M10,10 l6,6" stroke="#fff" stroke-width="2px")
+            .search__message.js-search__message=errMessage
+            input(placeholder=placeholder, type=search).search__actual.js-search__actual
+        .search__button.js-search__button
+            svg(viewBox="0 0 14 14").search__icon
+                g
+                    circle(cx="6" cy="6" r="5" stroke="#fff" stroke-width="2px" fill="none")
+                    path(d="M10,10 l6,6" stroke="#fff" stroke-width="2px")
