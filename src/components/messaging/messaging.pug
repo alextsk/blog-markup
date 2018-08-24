@@ -2,32 +2,33 @@ include /src/components/form-elements/textarea.pug
 include /src/components/button/button.pug
 
 mixin messaging(opts)
-    .chat(class=opts.inverse ? "chat--inverse" : "")
-        .chat__title
-            .chat__title-text=opts.name || "Sarah Brown"
-        .chat__icons
-            span.chat__icon
+    .messaging(class=opts.inverse ? "messaging--inverse" : "")
+        .messaging__title
+            .messaging__title-text=opts.name || "Sarah Brown"
+        .messaging__icons
+            span.messaging__icon
                 svg(width=20, height=20 )
                     g
                         rect(x=0, y=0, width=20, height=15, rx=4, ry=4)
                         path(d="M 8, 15 l 7,5 l 0 -5")
-            span.chat__head-icon
+            span.messaging__head-icon
                 img(src=opts.userpic alt=opts.name || "Sarah Brown" )
-            span.chat__icon
+            span.messaging__icon
                 svg(width=24 height=20)
                     g
                         rect(x=0, y=3, width=24, height=16, rx=2, ry=2)
                         rect(x=6, y=0, width=12, height=4, rx=2, ry=2)
                         circle(cx=12, cy=11, r=4, stroke-width=2, stroke="#fff", fill="none")
-        .chat__body
-            .chat__messages
-                .chat__incoming-message
-                    svg(width="14" height="6" viewBox="0 0 13 7" class="chat__bubble-tail")
+        .messaging__body
+            .messaging__messages
+                .messaging__incoming-message
+                    svg(width="14" height="6" viewBox="0 0 13 7" class="messaging__bubble-tail")
                         path(d="M 0 7 C 8 -1, 5 -1, 13 7") 
-                    | Hey! So are we cool to meet at the art gallery? Say 8pm
-                .chat__outgoing-message
-                .chat__form
+                    span.messaging__incoming-message-text
+                        | Hey! So are we cool to meet at the art gallery? Say 8pm
+                .messaging__form
                     form
-                        +textarea({lines:3})
-                        .chat__button
+                        .messaging__outgoing-message
+                            +textarea("Yeah that sounds great. See you then.")
+                        .messaging__button
                             +button("reply", {theme: opts.inverse? "error": "", fill: "filled"})

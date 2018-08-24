@@ -1,6 +1,6 @@
 pads = 23px
 
-.chat
+.messaging
   --color1 : var(--main-color)
   --color2 : var(--support-color)
   width 288px
@@ -60,6 +60,16 @@ pads = 23px
     margin-top 15px
     color var(--text-dark)
     position relative
+  &__incoming-message-text
+    letter-spacing 1px
+  &__outgoing-message
+    height 90px 
+    border 3px solid white
+    border-radius 4px 
+    background-color #e5e5e5
+    padding-top 7px
+    padding-left 4px
+
   &__body
     padding 48px pads 26px
     background-color #f2f2f2
@@ -72,6 +82,5 @@ pads = 23px
     position absolute
     top -5px
     left calc(50% - 7px)
-  .textarea
-    border 3px solid white
-    border-radius 4px
+
+    

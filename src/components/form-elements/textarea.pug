@@ -2,4 +2,4 @@ mixin textarea(placeholder)
     - var rows = (opts && opts.lines) ? opts.lines : 5
     div.textarea
         .textarea__back
-            textarea(rows=rows, placeholder=placeholder, oninput='this.style.height = "";this.style.height = this.scrollHeight + 3 + "px"').textarea__actual
+            textarea(rows=rows, placeholder=placeholder).textarea__actual
