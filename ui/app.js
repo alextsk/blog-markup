@@ -13359,7 +13359,7 @@ var Location = function () {
       var marker = new google.maps.Marker({
         position: { lat: this.lat, lng: this.lng },
         map: map,
-        icon: '../../images/Marker.png',
+        icon: '../images/Marker.png',
         scale: .2,
         title: 'Hello World!'
       });
