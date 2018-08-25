@@ -10859,8 +10859,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var sliders = (0, _jquery2.default)('.slider');
 
-function clickOnPip(el) {
-  var value = Number(this.getAttribute('data-value'));
+function clickOnPip(el, event) {
+  var value = Number(event.currentTarget.getAttribute('data-value'));
   el.noUiSlider.set(value);
 }
 
@@ -10889,11 +10889,11 @@ sliders.each(function (i, el) {
 
   if (parts) {
     var pips = el.querySelectorAll('.noUi-value');
-    for (var j = 0; j < pips.length; j += 1) {
-      pips[i].addEventListener('click', function () {
-        return clickOnPip(el);
+    pips.forEach(function (pip) {
+      return pip.addEventListener('click', function (event) {
+        return clickOnPip(el, event);
       });
-    }
+    });
   }
 });
 
