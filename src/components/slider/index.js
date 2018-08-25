@@ -3,8 +3,8 @@ import noUiSlider from "nouislider"
 
 var sliders = $('.slider');
 
-function clickOnPip (el) {
-  var value = Number(this.getAttribute('data-value'));
+function clickOnPip (el, event) {
+  var value = Number(event.currentTarget.getAttribute('data-value'));
   el.noUiSlider.set(value);
 }
 
@@ -29,9 +29,7 @@ sliders.each((i, el) => {
 
   if (parts) {
     var pips = el.querySelectorAll('.noUi-value');
-    for ( var j = 0; j < pips.length; j += 1 ) {
-      pips[i].addEventListener('click', () => clickOnPip(el));
-    }
+    pips.forEach(pip => pip.addEventListener('click', (event) => clickOnPip(el, event)))
   }
   
   }
