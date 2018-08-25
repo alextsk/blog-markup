@@ -10534,8 +10534,8 @@ var Ripple = function () {
       var rippler = this.createElement('span', this.baseBlock + "__rippler");
       var size = container.offsetWidth;
       var pos = container.getBoundingClientRect();
-      var x = event.pageX - pos.left - size / 2;
-      var y = event.pageY - pos.top - size / 2;
+      var x = event.pageX - pos.left - size / 2 - window.pageXOffset;
+      var y = event.pageY - pos.top - size / 2 - window.pageYOffset;
       var style = "top:" + y + "px; \n                 left:" + x + "px; \n                 height:" + size + "px; \n                 width: " + size + "px;\n                 ";
       rippler.style = style;
       this.rippleContainer.appendChild(rippler);
