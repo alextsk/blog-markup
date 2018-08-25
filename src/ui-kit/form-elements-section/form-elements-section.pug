@@ -3,24 +3,24 @@ section.form-elements-section
     form.form-elements-section__body
         .form-elements-section__texts
             .form-elements-section__input-container
-                +input('error')
+                +input('Your Name', {pattern: ".{6,}"})
             .form-elements-section__input-container
-                +input('success')
+                +input('Your Email', {pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$", errMessage: "Error", sucMessage:"Thanks!"})
             .form-elements-section__input-container.form-elements-section__textarea
-                +textarea()
+                +textarea('Your Message')
             .form-elements-section__input-container.form-elements-section__button
-                +button("Submit!")
+                +button("Submit")
         .form-elements-section__toggles
             h1.section-header.form-elements-section__header--small toggles
             .form-elements-section__subsection
                 .form-elements-section__input-container
-                    +toggle(true)
-                .form-elements-section__input-container
                     +toggle(false)
+                .form-elements-section__input-container
+                    +toggle(true)
         .form-elements-section__ticks
             h1.section-header.form-elements-section__header--small tick boxes
             .form-elements-section__subsection
                 .form-elements-section__input-container
-                    +tickbox(true)
+                    +tickbox(true, true)
                 .form-elements-section__input-container
-                    +tickbox(false)
+                    +tickbox(false, true)

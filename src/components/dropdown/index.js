@@ -1,14 +1,14 @@
 import $ from "jquery"
 
 
-$(".dropdown").each((i,el) => {
+$(".js-dropdown").each((i,el) => {
   $(el)
-  .find(".dropdown__button")
+  .find(".js-dropdown__button")
   .click(() => {
     $(el).toggleClass("dropdown--open")
   })
   $(el)
-  .find(".dropdown__item")
+  .find(".js-dropdown__item")
   .click((e) => {
     var item = e.currentTarget
 

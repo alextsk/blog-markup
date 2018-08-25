@@ -1,8 +1,8 @@
 section.dropdown-section
     h1.dropdown-section__header.section-header search / drop down
     div.dropdown-section__element-container
-        +search()
+        +search('Search')
     div.dropdown-section__element-container
-        +search('failed')
+        +search('', {state: 'failed'})
     div.dropdown-section__element-container
         +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})

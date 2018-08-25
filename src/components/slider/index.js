@@ -17,9 +17,13 @@ sliders.each((i, el) => {
           min: 0,
           max: maxValue
       },
-      tooltips: [ true ],
+      tooltips: [ !parts ],
       start: [ Math.floor(maxValue / 2) ],
-      step: parts ? Math.floor(maxValue / (parts - 1)) : undefined,
+      step: parts ? Math.floor(maxValue / (parts - 1)) : 1,
+      format: {
+        to: value => value | 0,
+        from: value => value | 0
+      },
       pips: parts > 2 ? { mode: 'count', values: parts  } : undefined
   })
 
