@@ -306,31 +306,26 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   height: 23px;
   display: inline-block;
   vertical-align: middle;
-  --stroke-color: #fff;
-}
-.tickbox--disabled {
-  --stroke-color: #c0c0c0;
-}
-.tickbox--disabled .tickbox__label {
-  background-color: var(--light-grey);
 }
 .tickbox__label {
   display: inline-block;
   border-radius: 50%;
   width: 23px;
   height: 23px;
-  background-color: var(--support-color);
+  background-color: var(--light-grey);
+  cursor: pointer;
 }
 .tickbox__mark {
-  stroke: var(--stroke-color);
+  stroke: var(--dark-grey);
+}
+.tickbox__input {
   display: none;
 }
-.hidden {
-  display: none;
+.tickbox__input:checked + .tickbox__label {
+  background-color: var(--support-color);
 }
-.hidden:checked + .tickbox__label .tickbox__mark {
-  display: inline-block;
-  stroke: var(--stroke-color);
+.tickbox__input:checked + .tickbox__label .tickbox__mark {
+  stroke: #fff;
 }
 .input {
   display: flex;
