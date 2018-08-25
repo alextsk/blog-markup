@@ -13,8 +13,8 @@ class Ripple {
     let rippler = this.createElement('span', `${this.baseBlock}__rippler`);
     let size = container.offsetWidth;
     let pos = container.getBoundingClientRect();
-    let x = event.pageX - pos.left - (size / 2);
-    let y = event.pageY - pos.top - (size / 2);
+    let x = event.pageX - pos.left - (size / 2) - window.pageXOffset;
+    let y = event.pageY - pos.top - (size / 2) - window.pageYOffset;
     let style = `top:${y}px; 
                  left:${x}px; 
                  height:${size}px; 
