@@ -1108,10 +1108,10 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
 }
 .sliders-section__element-container {
   height: 50px;
-  width: 250px;
 }
 @media (min-width: 640px) {
   .sliders-section__element-container {
+    width: 250px;
     height: auto;
   }
 }
@@ -1283,10 +1283,16 @@ h2 {
   }
 }
 .wrapper__profile {
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
   padding-top: 3.1rem;
-  padding-left: 2.25rem;
   width: 21.85rem;
+}
+@media (min-width: 640px) {
+  .wrapper__profile {
+    display: inline-block;
+    padding-left: 2.25rem;
+  }
 }
 .wrapper__news {
   padding-top: 4.8rem;
