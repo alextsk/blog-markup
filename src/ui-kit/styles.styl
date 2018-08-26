@@ -57,9 +57,12 @@ h1,h2
       padding-left 3.82rem
       width 21.85rem
   &__profile
-    display inline-block
+    display block
+    margin 0 auto
     padding-top: 3.1rem;
-    padding-left: 2.25rem;
+    @media (min-width: mobile-break)
+      display inline-block
+      padding-left: 2.25rem;
     width: 21.85rem;
   &__news
     padding-top 4.8rem
