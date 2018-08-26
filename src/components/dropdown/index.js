@@ -1,18 +1,25 @@
 import $ from "jquery"
 
+class Dropdown {
+  constructor(element) {
+    this.element = $(element);
+    this.dropdownButton = this.element.find(".js-dropdown__button");
+    this.dropdownItems = this.element.find(".js-dropdown__item");
+    this.input = this.element.find(".dropdown__actual");
+    this.dropdownButton.click(this.toggleDropdown.bind(this))
+    this.dropdownItems.click(this.selectItem.bind(this))
+  }
+  
+  toggleDropdown() {
+    this.element.toggleClass("dropdown--open");
+  }
 
-$(".js-dropdown").each((i,el) => {
-  $(el)
-  .find(".js-dropdown__button")
-  .click(() => {
-    $(el).toggleClass("dropdown--open")
-  })
-  $(el)
-  .find(".js-dropdown__item")
-  .click((e) => {
-    var item = e.currentTarget
+  selectItem(event) {
+    let item = event.currentTarget
+    this.element.removeClass("dropdown--open")
+    this.input.val($(item).text())
+  }
 
-    $(el).removeClass("dropdown--open")
-    $(el).find(".dropdown__actual").val($(item).text())
-  })
-})
+}
+
+$(".js-dropdown").each((i,el) => new Dropdown(el))
