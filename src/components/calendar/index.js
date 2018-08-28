@@ -1,37 +1,38 @@
 import $ from "jquery"
 import datepickerFactory from 'jquery-datepicker';
 
-datepickerFactory($);
 
-$(function() {
-  let currentDate = null
-  const head = $(".calendar__head")
-  const footer = $(".calendar__footer")
-  const today = $(".js-calendar-today")
-  var calendar = $('.js-calendar').datepicker({
-    prevText: '<svg  style="width:100%; height:100%" viewBox="0 0 30 30" transform="rotate(180.1)">' + $(".arrow-icon").html() + "</svg>",
-    nextText: '<svg style="width:100%; height:100%" viewBox="0 0 30 30">' + $(".arrow-icon").html() + "</svg>",
-    firstDay: 1,
-    showOtherMonths: true,
-    dayNamesMin: [ "sun", "mon", "tue", "wed", "thu", "fri", "sat" ],
-    onSelect: setHeader
-  });
-
-  calendar.prepend(head)
-  calendar.append(footer)
-  setTodayDate()
-
-  today.click(setTodayDate)
-
-  function setTodayDate() {
-    calendar.datepicker( "setDate", new Date() )
-    let date = calendar.datepicker( "getDate" );
-    head.html(date.getDate())
+class Calendar {
+  constructor(element) {
+    datepickerFactory($);
+    this.currentDate = null
+    this.head = $(element).find(".js-calendar__head")
+    this.today = $(element).find(".js-calendar__today")
+    this.calendar = $(element).datepicker({
+      prevText: '<svg  style="width:100%; height:100%" viewBox="0 0 30 30" transform="rotate(180.1)">' + $(".arrow-icon").html() + "</svg>",
+      nextText: '<svg style="width:100%; height:100%" viewBox="0 0 30 30">' + $(".arrow-icon").html() + "</svg>",
+      firstDay: 1,
+      showOtherMonths: true,
+      dayNamesMin: [ "sun", "mon", "tue", "wed", "thu", "fri", "sat" ],
+      onSelect: this.setHeader.bind(this)
+    });
+    this.calendar.prepend(this.head)
+    this.calendar.append(this.today)
+    this.setTodayDate()
+    this.today.click(this.setTodayDate.bind(this))
   }
 
-  function setHeader(date) { // date === "mm/dd/yyyy"
-    [ ,currentDate, ] = date.split('/')
-    head.html(currentDate)
+  setTodayDate() {
+    this.calendar.datepicker( "setDate", new Date() )
+    let date = this.calendar.datepicker( "getDate" );
+    this.head.html(date.getDate())
   }
-});
+
+  setHeader(date) { // date === "mm/dd/yyyy"
+    [ ,this.currentDate, ] = date.split('/')
+    this.head.html(this.currentDate)
+  }
+}
+
+$('.js-calendar').each((index, element) => new Calendar(element))
 
