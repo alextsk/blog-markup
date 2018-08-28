@@ -33,19 +33,19 @@ text-red = #e34a26
     border 1px solid var(--thecolor)
   &:active
     box-shadow 0 0px 0 0 transparent !important
-  &--small
+  &--size--small
     height 22px
     line-height: 22px
     font-size 10px
     padding: 0 16px
     box-shadow 0 2px 0 0 dark-green
     
-  &--filled
+  &--fill--filled
     background-color var(--thecolor)
     color white !important
     width 100%
 
-  &--error
+  &--theme--error
     --thecolor : medium-red
     color text-red
     border-color var(--thecolor)
@@ -56,7 +56,7 @@ text-red = #e34a26
       box-shadow 0 3px 0 0 dark-red
       border 1px solid var(--thecolor)
     
-  &--small&--error
+  &--size--small&--theme--error
     box-shadow 0 2px 0 0 dark-red
     
 
