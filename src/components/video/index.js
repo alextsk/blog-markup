@@ -25,11 +25,11 @@ $(() => {
 
       if (mediaPlayer.paused || mediaPlayer.ended) {
         mediaPlayer.play()
-        .then(() => icons.toggleClass('hidden'));
+        .then(() => icons.toggleClass('video__pause-icon--hidden '));
       }
       else {
         mediaPlayer.pause()
-        icons.toggleClass('hidden');
+        icons.toggleClass('video__pause-icon--hidden ');
       }
     }
   }
