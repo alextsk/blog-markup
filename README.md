@@ -27,16 +27,31 @@
     </div>
   </li>
   <li>
-    Run the project with
-    <code>
-      gulp
-    </code>
-    to see the ui-kit itself add <code>/ui</code> to the url
+    to run the project write 
+    <div>
+      <code>
+        gulp
+      </code>
+    </div>
+      or, if gulp-cli is not installed globally
+     <div>
+      <code>
+        npm run serve
+      </code>
+    </div>
   </li>
   <li>
-    Build the project with
-    <code>
-      gulp build
-    </code>
+    to build without running  
+    <div>
+      <code>
+        gulp build
+      </code>
+    </div>
+    or, if gulp-cli is not installed globally
+     <div>
+      <code>
+        npm run build
+      </code>
+    </div>
   </li>
 </ul>

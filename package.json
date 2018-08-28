@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Alex <user@nomail.com>",
   "license": "MIT",
+  "scripts": {
+    "serve": "gulp",
+    "build": "gulp build"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
