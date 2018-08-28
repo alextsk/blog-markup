@@ -30,17 +30,21 @@
     width 26px
     height 26px
     cursor pointer
-    &--marker
-      g
-        fill #fff
     &:nth-child(2)
       margin 0 16px 0 21px
-    &:hover svg g
-      stroke var(--support-color)
-    &:nth-of-type(2):hover svg g
-      fill var(--support-color)
   &__address
     color white
     text-transform uppercase
     font-size 12px
+  
+
+.target-icon__group
+  stroke #fff
+  fill transparent
+  &:hover
+    stroke var(--support-color)
     
+.marker-icon__group
+  fill #fff
+  &:hover
+    fill var(--support-color)
