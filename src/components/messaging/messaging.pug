@@ -1,10 +1,10 @@
 include /src/components/textarea/textarea.pug
 include /src/components/button/button.pug
 
-mixin messaging(opts)
-    .messaging(class=opts.inverse ? "messaging--inverse" : "")
+mixin messaging({inverse, userpic, name="Sarah Brown"}={})
+    .messaging(class=inverse ? "messaging--inverse" : "")
         .messaging__title
-            .messaging__title-text=opts.name || "Sarah Brown"
+            .messaging__title-text=name
         .messaging__icons
             span.messaging__icon
                 svg(width=20, height=20 )
@@ -12,7 +12,7 @@ mixin messaging(opts)
                         rect(x=0, y=0, width=20, height=15, rx=4, ry=4)
                         path(d="M 8, 15 l 7,5 l 0 -5")
             span.messaging__icon.messaging__head-icon
-                img(src=opts.userpic alt=opts.name || "Sarah Brown" )
+                img(src=userpic alt=name)
             span.messaging__icon
                 svg(width=24 height=20)
                     g
@@ -26,9 +26,8 @@ mixin messaging(opts)
                         path(d="M 0 7 C 8 -1, 5 -1, 13 7") 
                     span.messaging__incoming-message-text
                         | Hey! So are we cool to meet at the art gallery? Say 8pm
-                .messaging__form
-                    form
-                        .messaging__outgoing-message
-                            +textarea("Yeah that sounds great. See you then.")
-                        .messaging__button
-                            +button("reply", {theme: opts.inverse? "error": "", fill: "filled"})
+                form.messaging__form
+                    .messaging__outgoing-message
+                        +textarea("Yeah that sounds great. See you then.")
+                    .messaging__button
+                        +button("reply", {theme: inverse ? "error": "", fill: "filled"})
