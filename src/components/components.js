@@ -1,6 +1,7 @@
 
 import './button/button'
-import './circlecharts'
+import './donut'
+import './percentage'
 import './slider'
 import './search'
 import './dropdown'
