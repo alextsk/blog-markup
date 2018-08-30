@@ -1822,9 +1822,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-svg-doughnut@^1.0.1:
+"create-svg-doughnut@https://github.com/alextsk/create-svg-doughnut":
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/create-svg-doughnut/-/create-svg-doughnut-1.0.1.tgz#033f798830968922e659f0a27d823656e38635b3"
+  resolved "https://github.com/alextsk/create-svg-doughnut#3ae38c84b67519ab6ab074242ad8e681bcbaaef1"
   dependencies:
     create-svg-pie "^1.0.0"
 

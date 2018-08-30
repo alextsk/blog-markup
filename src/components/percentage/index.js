@@ -1,22 +1,26 @@
 import $ from "jquery";
-import createSVGDoughnut from './vendor/create-svg-doughnut/src/createSVGDoughnut';
+import createSVGDoughnut from 'create-svg-doughnut';
 
 
-class Chart {
+class Percentage {
   constructor(element) {
+    this.element = element;
     const segments = $(element).data('chart-segments');
     const innerRadius = +$(element).data('chart-inner-radius');
     const outerRadius = +$(element).data('chart-outer-radius');
-    const chartText = $(element).data('chart-text') !== undefined ? $(element).data('chart-text').toString() : '';
     const vals = segments.map( seg => +seg[0] )
     const pals = segments.map( seg => seg[1] )
-    const doughnut = createSVGDoughnut(vals, outerRadius, innerRadius, pals);
+    this.doughnut = createSVGDoughnut(vals, outerRadius, innerRadius, pals);
+    this.addText()
+    element.appendChild(this.doughnut)
+  }
+
+  addText() {
+    const chartText = $(this.element).data('chart-text') !== undefined ? $(this.element).data('chart-text').toString() : '';
     const svgText = this.createSvgNode('text', { x: 47, y: 60, class: "text-in-circle", 'text-anchor':"middle" });
     const textNode = document.createTextNode(chartText);
-    
     svgText.appendChild(textNode);
-    doughnut.appendChild(svgText);
-    element.appendChild(doughnut)
+    this.doughnut.appendChild(svgText);
   }
 
   createSvgNode(nodeName, nodeAttributes) {
@@ -27,10 +31,8 @@ class Chart {
 }
 
 
-
 $(document).ready(() => {
-  $(".percentage").each((i, element) => new Chart(element));
-  $(".donut").each((i, element) => new Chart(element));
+  $(".percentage").each((i, element) => new Percentage(element));
 })
 
 

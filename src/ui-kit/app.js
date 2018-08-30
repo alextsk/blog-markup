@@ -1,5 +1,6 @@
 import '../components/button/button'
-import '../components/circlecharts'
+import '../components/donut'
+import '../components/percentage'
 import '../components/slider'
 import '../components/search'
 import '../components/dropdown'
