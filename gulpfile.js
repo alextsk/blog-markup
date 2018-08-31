@@ -11,6 +11,7 @@ var gulp = require('gulp'),
   var eslint = require('gulp-eslint');
   var data = require('gulp-data');
   var rename = require('gulp-rename');
+  var pxtorem = require('gulp-pxtorem');
 
 const 
   sitePath= 'src/demo',
@@ -90,6 +91,7 @@ function cssUi() {
       'include css': true,
        include: ['node_modules', __dirname]
     }))
+    .pipe(pxtorem({propList: ['*']}))
     .pipe(gulp.dest('./dist/ui'))
     .pipe(browserSync.stream());
 }
@@ -100,6 +102,7 @@ function css() {
       'include css': true,
        include: ['node_modules', __dirname]
     }))
+    .pipe(pxtorem({propList: ['*']}))
     .pipe(gulp.dest('./dist/'))
     .pipe(browserSync.stream());
 }
