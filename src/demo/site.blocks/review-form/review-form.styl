@@ -1,4 +1,3 @@
-
 .review-form
   &__inner
     display grid
@@ -7,23 +6,30 @@
     align-items baseline
     @media (min-width $mobile-break)
       grid-template-columns max-content auto
+      
   &__calendar
     justify-self center
     @media (min-width $mobile-break)
       justify-self end
+      
   &__inputs
     max-width 500px
+    
   &__rating
     margin-bottom -1.5rem !important
+    
   &__input-group
     justify-content space-between
     margin 1rem 0 
+    
     &--rating
       margin-bottom 2rem
+      
   &__legend
     text-align center
     font-size 1.4rem
     display block
     margin 10px
+    
   &__agreement 
     margin-left 10px 
