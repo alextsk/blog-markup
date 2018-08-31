@@ -1,7 +1,8 @@
 
 
 section.buttons-section
-    h1.buttons-section__header.section-header Standard buttons
+    h1.buttons-section__header
+        +section-header("Standard buttons")
     .buttons-section__body
         div.buttons-section__element-container
             +button("Button", {size:'small'})
