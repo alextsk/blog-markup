@@ -9,25 +9,25 @@
   text-align center
   color #4eb7a8
   cursor not-allowed
-  circle
+  &__circle
     fill grey 
     stroke grey
-  path
+  &__path
     stroke white
     
-  &--left
+  &--direction--left
     transform rotateZ(180deg)
   &--enabled
     cursor pointer
-    circle,
-    path
+    .arrow-button__circle,
+    .arrow-button__path
       stroke #4eb7a8
       fill transparent
     &:hover
-      circle
+      .arrow-button__circle
         stroke #4eb7a8
         fill #4eb7a8
-      path
+      .arrow-button__path
         stroke white
 
       

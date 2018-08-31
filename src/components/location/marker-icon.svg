@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 180 240" height="100%" id="marker-icon">
-  <g fill="#f00">
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 180 240" height="100%" id="marker-icon" class="marker-icon">
+  <g fill="#f00" class="marker-icon__group">
     <mask id="circle-mask">
       <rect x="0" y="0" width="300" height="300" fill="#fff"></rect>
       <circle cx="90" cy="80" r="30" fill="#000"></circle>
