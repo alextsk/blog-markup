@@ -1,7 +1,6 @@
 mixin input(placeholder, {pattern, errMessage="Error", sucMessage="Thanks!"}={})
-    - var modifier = ''
  
-    .input(class=modifier)
+    .input
         .input__back
             input(type='text', placeholder=placeholder, pattern=pattern).input__actual
             .input__message.input__message--error=errMessage

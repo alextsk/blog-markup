@@ -25,14 +25,17 @@ text-red = #e34a26
   border 1px solid var(--thecolor)
   color text-green
   box-shadow 0 4px 0 0 dark-green
-  background-color transparent
+  background-color white
+  
   &:hover
     background-color var(--thecolor)
     color white
     box-shadow 0 3px 0 0 dark-green
     border 1px solid var(--thecolor)
+    
   &:active
     box-shadow 0 0px 0 0 transparent !important
+    
   &--size--small
     height 22px
     line-height: 22px
@@ -40,23 +43,30 @@ text-red = #e34a26
     padding: 0 16px
     box-shadow 0 2px 0 0 dark-green
     
-  &--fill--filled
+  &--filled
     background-color var(--thecolor)
     color white !important
     width 100%
-
-  &--theme--error
+    
+ &--small-padding 
+    width 100%
+    padding-left 10px
+    padding-right 10px
+    
+  &--error
     --thecolor : medium-red
     color text-red
     border-color var(--thecolor)
     box-shadow 0 4px 0 0 dark-red
+    
     &:hover
       background-color var(--thecolor)
       color white
       box-shadow 0 3px 0 0 dark-red
       border 1px solid var(--thecolor)
     
-  &--size--small&--theme--error
+    
+  &--size--small&--error
     box-shadow 0 2px 0 0 dark-red
     
 

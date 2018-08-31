@@ -5,6 +5,7 @@
   align-items stretch
   border-radius .25rem
   overflow hidden
+  
   &__body
     flex 1
 
@@ -14,6 +15,7 @@
     width 100%
     height 100%
     padding-left .9rem
+    
     &:focus::placeholder 
       opacity 0
 
@@ -25,9 +27,11 @@
     align-items center 
     cursor pointer
     background-color var(--main-color)
+    
   &__icon
     height .875rem
     width .875rem
+    
   &__message
     padding-top .4rem
     padding-left .9rem
@@ -40,7 +44,7 @@
     color white
     display none
     
-.search.search--failed 
-  .search__message
-    display block
+  &--failed 
+    & ^[0]__message
+      display block
   

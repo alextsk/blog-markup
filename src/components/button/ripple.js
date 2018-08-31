@@ -1,7 +1,7 @@
 class Ripple {
   constructor(element, {baseBlock="ripple"}={}) {
     this.element = element instanceof HTMLElement ? element : document.querySelector(element);
-    if (!this.element) throw `There is no node corresponding to ${element} in this document`
+    if (!this.element) throw new Error(`There is no node corresponding to ${element} in this document`);
     this.baseBlock = baseBlock;
     this.rippleContainer = this.createElement("div", `${this.baseBlock}__container`);
     this.element.appendChild(this.rippleContainer);

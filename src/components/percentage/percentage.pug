@@ -7,6 +7,6 @@ mixin percentage(value=0)
         data-chart-inner-radius="43"
         data-chart-outer-radius="47",
         data-chart-text=percents.toString(),
-        data-chart-segments='[ [' + percents + ',"#e75735"], [' + (rest) + ',"' + (colorRest) + '"] ]'
+        data-chart-segments=`[ [${percents}, "#e75735"], [${rest} ,"${colorRest}"] ]`
     )
         
