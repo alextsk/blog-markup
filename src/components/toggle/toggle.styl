@@ -34,14 +34,14 @@
     border-radius 50%
     background-color white
 
-  .toggle__actual:checked
-    &+.toggle__label 
+  &__actual:checked
+    &+^[0]__label 
       background-color var(--support-color)
       
-      & > .toggle__circle
+      & > ^[0]__circle
         order 2  
         
-    &+.toggle__label:after
+    &+^[0]__label:after
       content "on" 
       order 1
 
