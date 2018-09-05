@@ -1,40 +1,52 @@
 import $ from 'jquery'
 
+class Video {
+  constructor(element) {
+    this.$mediaPlayer = $(element).find('.js-video__actual');
+    this.mediaPlayer = this.$mediaPlayer[0]
+    this.progressBar = $(element).find('.js-video__progress-bar');
+    this.progressPosition = $(element).find('.js-video__progress-position');
+    this.fullscreenButton = $(element).find('.js-video__fullscreen');
+    this.playButton = $(element).find(".js-video__play-pause-button")
+    this.icons = $(element).find(".js-video__pp-icon")
+    this.mediaPlayer.controls = false;
+    
+    this.$mediaPlayer.on('timeupdate', this.updateProgressBar(this.mediaPlayer, this.progressPosition).bind(this))
+    this.playButton.click(this.togglePlayPause(this.icons, this.mediaPlayer).bind(this))
+    this.progressBar.click(this.setVideoTime(this.mediaPlayer, this.progressBar, this.progressPosition).bind(this))
+    this.fullscreenButton.click(() => this.setFullscreen(this.mediaPlayer).bind(this))
+  }
 
-$(() => {
-  const videos = $('.video')
-
-  function updateProgressBar(mediaPlayer, progressPosition) {
+  updateProgressBar(mediaPlayer, progressPosition) {
     return function handler() {
       const percentage = Math.floor((100 / mediaPlayer.duration) * mediaPlayer.currentTime);
       progressPosition.css({width: percentage + '%'});
     }
   }
 
-  function setVideoTime(mediaPlayer, progressBar, progressPosition) {
+  setVideoTime(mediaPlayer, progressBar, progressPosition) {
     return function handler(evt) {
       const ratio = evt.offsetX / progressBar.width()
       const mPlayer = mediaPlayer;
       mPlayer.currentTime = ratio * mediaPlayer.duration
-      updateProgressBar(mediaPlayer, progressPosition)()
+      this.updateProgressBar(mediaPlayer, progressPosition)()
     }
   }
   
-  function togglePlayPause(icons, mediaPlayer) {
+  togglePlayPause(icons, mediaPlayer) {
     return function handler() {
-
       if (mediaPlayer.paused || mediaPlayer.ended) {
-        mediaPlayer.play()
+        mediaPlayer
+        .play()
         .then(() => icons.toggleClass('video__pause-icon--hidden '));
-      }
-      else {
+      } else {
         mediaPlayer.pause()
         icons.toggleClass('video__pause-icon--hidden ');
       }
     }
   }
 
-  function setFullscreen(elem) {
+  setFullscreen(elem) {
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.mozRequestFullScreen) {
@@ -43,21 +55,6 @@ $(() => {
       elem.webkitRequestFullscreen();
     }
   }
+}
 
-  videos.each((ind, video) => {
-    const $mediaPlayer = $(video).find('.video__actual');
-    const mediaPlayer = $mediaPlayer[0]
-    const progressBar = $(video).find('.js-video__progress-bar');
-    const progressPosition = $(video).find('.js-video__progress-position');
-    const fullscreenButton = $(video).find('.js-video__fullscreen');
-    const playButton = $(video).find(".js-video__play-pause-button")
-    const icons = $(video).find(".js-video__pp-icon")
-    mediaPlayer.controls = false;
-    
-    $mediaPlayer.on('timeupdate', updateProgressBar(mediaPlayer, progressPosition))
-    playButton.click(togglePlayPause(icons, mediaPlayer))
-    progressBar.click(setVideoTime(mediaPlayer,progressBar, progressPosition))
-    fullscreenButton.click(() => setFullscreen(mediaPlayer))
-  })
-})
-
+$('.js-video').each( (ind, element) => new Video(element) )

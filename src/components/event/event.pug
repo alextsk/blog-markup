@@ -1,4 +1,5 @@
 include ../button/button.pug
+
 mixin event({image, date:{day, month}, title, copy="lorem ipsum"}={})
     .event(style="--image-location: url(" + image + ");")
         .event__image
@@ -9,4 +10,4 @@ mixin event({image, date:{day, month}, title, copy="lorem ipsum"}={})
             h2.event__title=title
             .event__copy=copy
             .event__button-back
-                +button("Add to calendar", {size:'small'})
+                +button("Add to calendar", {size:'small', theme: "small-padding"})

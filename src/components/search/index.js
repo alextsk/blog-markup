@@ -9,10 +9,11 @@ class Search {
     this.searchButton.click(this.find.bind(this));
     this.searchMessage.click(this.hideSearchMessage.bind(this));
   }
+
   find() {
-    console.log("this.searchButton");
     this.element.addClass('search--failed');
   }
+  
   hideSearchMessage() {
     this.element.removeClass("search--failed");
     this.searchInput.focus()

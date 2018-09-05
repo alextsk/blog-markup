@@ -9,7 +9,6 @@ class Location {
     maps.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w"
     maps.LANGUAGE = "en" 
     maps.load(this.createMap.bind(this));
-
   }
 
   createMap(google) {
@@ -18,7 +17,6 @@ class Location {
         zoom: 12,
         disableDefaultUI: true
       });
-
     var geocoder = new google.maps.Geocoder();
     var geolocate = new google.maps.LatLng(this.lat, this.lng)
     var marker = new google.maps.Marker({
@@ -28,20 +26,16 @@ class Location {
       scale: .2,
       title: 'Hello World!'
     });
+
     geocoder.geocode({'latLng': geolocate}, function(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
-        var result;
-        var [res1, res2] = results; 
-        if (results.length > 1) {
-         result = res1;
-        } else {
-         result = res2;
-        }
+        let [res1, res2] = results; 
+        let result = (results.length > 1) ? res1 : res2;
         $(".js-location__address1").html(result.address_components[0].long_name + ", ")
         $(".js-location__address2").html(result.address_components[1].long_name + ' ')
         $(".js-location__address3").html(result.address_components[2].long_name + ', ')
         $(".js-location__address4").html(result.address_components[3].short_name + ' ')
-       }  
+      }  
     });    
   }
 }

@@ -1,7 +1,6 @@
 import $ from "jquery";
 import createSVGDoughnut from 'create-svg-doughnut';
 
-
 class Percentage {
   constructor(element) {
     this.element = element;
@@ -16,8 +15,8 @@ class Percentage {
   }
 
   addText() {
-    const chartText = $(this.element).data('chart-text') !== undefined ? $(this.element).data('chart-text').toString() : '';
-    const svgText = this.createSvgNode('text', { x: 47, y: 60, class: "text-in-circle", 'text-anchor':"middle" });
+    const chartText = $(this.element).data('chart-text').toString() || '';
+    const svgText = this.createSvgNode('text', { x: 47, y: 60, class: "percentage__text-in-circle", 'text-anchor':"middle" });
     const textNode = document.createTextNode(chartText);
     svgText.appendChild(textNode);
     this.doughnut.appendChild(svgText);
@@ -29,7 +28,6 @@ class Percentage {
     return node;
   }
 }
-
 
 $(document).ready(() => {
   $(".percentage").each((i, element) => new Percentage(element));

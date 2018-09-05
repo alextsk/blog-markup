@@ -1,4 +1,4 @@
-mixin location({ lat=.28, lng=110.24 })
+mixin location({ lat=.28, lng=110.24 }={})
     .location
         .location__actual.js-location( data-lat=lat, data-lng=lng )
         .location__bar
@@ -13,6 +13,5 @@ mixin location({ lat=.28, lng=110.24 })
             .location__controls
                 .location__icon
                     include /src/components/location/target-icon.svg
-
                 .location__icon.location__icon--marker
                     include /src/components/location/marker-icon.svg

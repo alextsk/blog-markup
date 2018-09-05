@@ -1,5 +1,4 @@
 mixin textarea(placeholder)
-    - var rows = (opts && opts.lines) ? opts.lines : 5
     .textarea
         .textarea__back
-            textarea(rows=rows, placeholder=placeholder).textarea__actual
+            textarea(rows=5, placeholder=placeholder).textarea__actual
