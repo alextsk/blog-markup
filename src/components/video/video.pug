@@ -1,11 +1,11 @@
-mixin video(opts)
-    .video
-        if(opts.first)
+mixin video({ first=true, poster, src })
+    .video.js-video
+        if(first)
             svg(width=0 height=0 viewBox="0 0 11 11")
                 defs
                     path(d="M 4,5 l3,-3 l-2,-2 h 5 v 5 l-2,-2 l -3, 3 z" id="original-arrow")
-        video(preload, controls=true poster=opts.poster).video__actual
-            source(src=opts.src)
+        video(preload, controls=true poster=poster).video__actual.js-video__actual
+            source(src=src)
 
         .video__controls
             .video__play-pause-button.js-video__play-pause-button(title='play')

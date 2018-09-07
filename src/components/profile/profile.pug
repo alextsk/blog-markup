@@ -1,11 +1,11 @@
-mixin profile(opts)
+mixin profile({image, name="userpic", profession})
     .profile
         include ./icons.svg.pug
         .profile__head
-            img(src=opts.image, alt=opts.name || "userpic")
+            img(src=image, alt=name || "userpic")
         .profile__story
-            .profile__name=opts.name
-            .profile__profession=opts.profession
+            .profile__name=name
+            .profile__profession=profession
 
             .profile__social-icons
                 a(href="")

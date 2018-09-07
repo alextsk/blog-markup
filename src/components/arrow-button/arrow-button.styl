@@ -2,33 +2,51 @@
   box-sizing border-box
   display inline-block
   user-select none
+  padding 0
+  margin 0
+  border none
+  background none
   width 50px
   height 50px
   border-radius 50%
   line-height 50px
   text-align center
   color #4eb7a8
-  cursor not-allowed
-  &__circle
-    fill grey 
-    stroke grey
-  &__path
-    stroke white
-    
+  outline none
+  cursor pointer  
+      
   &--direction--left
     transform rotateZ(180deg)
-  &--enabled
-    cursor pointer
-    .arrow-button__circle,
-    .arrow-button__path
+    
+  &__border
       stroke #4eb7a8
       fill transparent
-    &:hover
-      .arrow-button__circle
-        stroke #4eb7a8
-        fill #4eb7a8
-      .arrow-button__path
-        stroke white
+      
+  &__pointer
+      stroke #4eb7a8
+      
+  &:hover
+     .arrow-button__border
+      stroke #4eb7a8
+      fill #4eb7a8
+      
+     .arrow-button__pointer
+      stroke white
+      
+  &--disabled,
+  &--disabled:hover
+    cursor not-allowed
+    
+    .arrow-button__border
+      stroke grey
+      fill grey
+      
+    .arrow-button__pointer
+      stroke white
+
+
+      
+
 
       
     

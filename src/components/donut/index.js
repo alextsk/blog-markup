@@ -1,7 +1,6 @@
 import $ from "jquery";
 import createSVGDoughnut from 'create-svg-doughnut';
 
-
 class Donut {
   constructor(element) {
     const segments = $(element).data('chart-segments');
@@ -19,7 +18,6 @@ class Donut {
     return node;
   }
 }
-
 
 $(document).ready(() => {
   $(".donut").each((i, element) => new Donut(element));

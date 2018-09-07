@@ -1,22 +1,28 @@
-@require '/src/demo/site.blocks/registration-stage-1/registration-stage-1.styl';
-@require '/src/demo/site.blocks/registration-stage-2/registration-stage-2.styl';
-@require '/src/demo/site.blocks/registration-stage-3/registration-stage-3.styl';
+@require '/src/demo/site.blocks/registration-stage-1/registration-stage-1.styl'
+@require '/src/demo/site.blocks/registration-stage-2/registration-stage-2.styl'
+@require '/src/demo/site.blocks/registration-stage-3/registration-stage-3.styl'
 
 .registration
   width 30rem
+  
   &__stage 
     margin 2rem 0
+    
   &__form
     margin 0 auto
+    
   &__title
-    font-size: 1.3rem
+    font-size 1.3rem
+    
   &__arrows
     padding-top 1rem
     display flex
     justify-content space-between
+    
   &__arrow-anchor-disabled
-    pointer-events: none;
-    cursor: default;
+    pointer-events none
+    cursor not-allowed
+    
   &__form-body
     border none
 

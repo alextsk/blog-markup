@@ -5,8 +5,7 @@ block includes
         include /src/components/video/video.pug
         include /src/components/arrow-button/arrow-button.pug
         include /src/demo/site.blocks/photo-grid/photo-grid.pug
-        - 
-            let { photoPage: {photoList} } = loadJson('./src/demo/data.json');
+        - let { photoPage: {photoList} } = loadJson('./src/demo/data.json');
 
 block content
     h1 Ремонт квартир в Томске - фото 

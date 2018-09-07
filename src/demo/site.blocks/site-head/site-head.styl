@@ -5,19 +5,23 @@
   @media (min-width: $break)
     grid-template-columns 2fr 1fr
     grid-template-rows 1fr 1fr
+    
   &__time 
     align-self end
+    
   &__phone
     align-self start
     text-decoration none
     color black
     font-size calc(var(--logo-font-basic) * 2px)
+    
     &:visited,
     &:active
       color black
   
   &__logo
       grid-row span 2
+      
   &__logo-title
     font-size calc(var(--logo-font-basic) * 2.5px)
     font-weight 300

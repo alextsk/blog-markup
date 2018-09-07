@@ -1,7 +1,7 @@
-mixin slider(maxValue, opts)
+mixin slider(maxValue, {parts="", pips="", color="1"}={})
     .slider.js-slider(
       data-max-value=maxValue,
-      data-parts=opts && opts.parts ? opts.parts : "",
-      data-pips-one=opts && opts.pips ? opts.pips + "" : "",
-      class=opts && opts.color == "1" ? "slider--color--one" : "slider--color--two"
+      data-parts= parts,
+      data-pips-one= pips,
+      class= color == "1" ? "slider--color--one" : "slider--color--two"
     )

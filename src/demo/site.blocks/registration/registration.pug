@@ -19,8 +19,10 @@ mixin registration(stage, title)
             legend.registration__title=title
             fieldset.registration__form-body
                 +#{`registration-stage-`+ stage }()
-            .registration__arrows
-                a.registration__arrow-anchor(href=`./registration${stage===1?3:stage-1}.html`, class= stage===1 ? "registration__arrow-anchor-disabled" : '')
-                    +arrow-button('left', stage!==1)
-                a(href=`./registration${stage===3?1:stage+1}.html`, , class= stage===3 ? "registration__arrow-anchor-disabled" : '').registration__arrow-anchor
-                    +arrow-button('right', stage!==3)
+        .registration__arrows
+            - var classLeft = stage===1 ? "registration__arrow-anchor-disabled" : ''
+            a.registration__arrow-anchor(href=`./registration${stage===1?3:stage-1}.html`, class=classLeft)
+                +arrow-button('left', stage!==1)
+            - var classRight = stage===3 ? "registration__arrow-anchor-disabled" : ''
+            a(href=`./registration${stage===3?1:stage+1}.html`, class=classRight ).registration__arrow-anchor
+                +arrow-button('right', stage!==3)

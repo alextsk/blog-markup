@@ -1,16 +1,14 @@
 import $ from "jquery"
 import noUiSlider from "nouislider"
 
-
 class Slider {
   constructor(element) {
     const maxValue = $(element).data('max-value');
     const parts = $(element).data('parts');
-
     noUiSlider.create(element, {
         range: {
-            min: 0,
-            max: maxValue
+          min: 0,
+          max: maxValue
         },
         tooltips: [ !parts ],
         start: [ Math.floor(maxValue / 2) ],
@@ -21,7 +19,6 @@ class Slider {
         },
         pips: parts > 2 ? { mode: 'count', values: parts  } : undefined
     })
-
     if (parts) {
       var pips = $(element).find('.noUi-value');
       pips.each((index, pip) => $(pip).click((event) => this.clickOnPip(element, event)))
@@ -34,5 +31,4 @@ class Slider {
   }
 }
 
-
- $('.js-slider').each((i, element) => new Slider(element));
+$('.js-slider').each((i, element) => new Slider(element));

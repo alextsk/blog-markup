@@ -9,12 +9,16 @@
     width 23px
     height 23px
     background-color var(--light-grey)
-    cursor pointer  
+    cursor pointer
+      
   &__mark
     stroke var(--dark-grey)
+    
   &__input
     display none
+    
     &:checked + .tickbox__label
       background-color var(--support-color)
+      
       .tickbox__mark
         stroke white

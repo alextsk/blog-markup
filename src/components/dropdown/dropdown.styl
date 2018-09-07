@@ -2,8 +2,9 @@
   background-color var(--light-grey)
   border-radius 4px
   position relative
+  
   &__body
-    height 25px
+    height 28px
     background-color var(--light-grey)
     display flex
     align-items stretch
@@ -12,6 +13,7 @@
     border-radius 4px
     ^[0]--open &
       border-bottom-right-radius 0
+      
   &__actual
     background-color transparent
     border none
@@ -19,7 +21,8 @@
     height 100%
     pointer-events none
     text-transform capitalize
-    padding-top: 6px;
+    padding-top: 2px;
+    
   &__button
     width 37px
     height 100%
@@ -28,9 +31,11 @@
     justify-content center
     align-items center 
     background-color var(--support-color)
+    
   &__icon
     height 14px
     width 14px
+    
   &__list
     display none
     position absolute
@@ -43,6 +48,7 @@
     border-radius 4px 0 4px 4px
     ^[0]--open &
       display block
+      
   &__item
     padding 3px 0 0 13px 
     height 30px

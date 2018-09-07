@@ -3,48 +3,32 @@
   display grid
   grid-template-columns 1fr 1fr minmax(300px, 1fr)
   grid-gap 20px
+  
   &__list
-    display: inline-grid;
+    display inline-grid
     grid-column span 2
-    
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr))
-    grid-auto-rows: 50px;
+    grid-template-columns repeat(auto-fit, minmax(50px, 1fr))
+    grid-auto-rows 50px
 
   &__item
     display flex
+    
     &.active
       border 1px solid yellow
-    img
+      
+  &__thumbnail
       width 100%
+      
   &__big-image
     display flex
     justify-content stretch
     position relative
-    align-self: start;
+    align-self start
+    
   &__controls
     align-self center
     position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+    width 100%
+    display flex
+    justify-content space-between
   
-.glide__arrow
-  display inline-block
-  position absolute
-  top 50%
-  transform translateY(-50%)
-  &--left
-    left -20px
-  &--right 
-    right -20px
-.glide__slide
-   border-radius 4px
-   overflow hidden
-   display grid
-   /*no idea why it fixes the cuttin of bottom 5 pixels*/
-.slick-slide > div 
-  margin-right 10px
-  overflow hidden
-  border-radius 40px
-.note-title
-  font-size calc(var(--font-basic)*1.2px)

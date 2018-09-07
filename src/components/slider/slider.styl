@@ -1,22 +1,19 @@
 @require "nouislider/distribute/nouislider.min.css"
 
-
-  
-.slider--color--one
-  --slider-color : var(--main-color)
-.slider--color--two
-  --slider-color : var(--support-color)
 .slider
   background-color var(--slider-color)
-
-    
-*
-  &:active,
-  &:hover, 
-  &:focus
-    outline: 0
-    outline-offset: -2
-    
+  &--color--one
+    --slider-color : var(--main-color)
+  &--color--two
+    --slider-color : var(--support-color)
+  *
+    &:active,
+    &:hover, 
+    &:focus
+      outline: 0
+      outline-offset: -2
+  &[data-parts]
+    margin-bottom 0px  
       
 .noUi-target
   border none
@@ -24,6 +21,7 @@
   
 .noUi-horizontal
   height 4px  
+  
   .noUi-tooltip 
     display: block;
     border none
@@ -35,6 +33,7 @@
     line-height 100%
     bottom: 141%
     background-color var(--slider-color)
+    
     &:after
       background-color transparent  
       content ""
@@ -55,11 +54,10 @@
     box-shadow none
     border none
     background-color var(--slider-color)
-    &:before,&:after
+    
+    &:before,
+    &:after
       display none
-     
-.slider[data-parts]
-  margin-bottom 0px
 
 .noUi-pips-horizontal
   padding .26rem 0 0 
