@@ -22,7 +22,7 @@ class Location {
     var geocoder = new google.maps.Geocoder();
     var geolocate = new google.maps.LatLng(this.lat, this.lng)
     var marker = new google.maps.Marker({
-      position: {lat: this.lat, lng: this.lng},
+      position: { lat: this.lat, lng: this.lng },
       map: map,
       icon: '../images/Marker.png',
       scale: .2,
