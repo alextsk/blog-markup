@@ -131,10 +131,6 @@ const browser = function() {
   });
 };
 
-
-const serve = gulp.series(build, function() {
-
-
 const serve = gulp.series(build, function() {
   browserSync.init({
       server: "./dist"
