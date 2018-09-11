@@ -8,7 +8,6 @@ dark-red = #bf3e1f
 text-red = #e34a26
 
 .button
-  --thecolor : medium-green
   cursor pointer
   box-sizing border-box
   height 32px
@@ -22,18 +21,10 @@ text-red = #e34a26
   font-weight bold
   outline none
   text-transform uppercase
+  white-space nowrap
   position relative
-  border 1px solid var(--thecolor)
-  color text-green
-  box-shadow 0 4px 0 0 dark-green
   background-color white
-  
-  &:hover
-    background-color var(--thecolor)
-    color white
-    box-shadow 0 3px 0 0 dark-green
-    border 1px solid var(--thecolor)
-    
+
   &:active
     box-shadow 0 0px 0 0 transparent !important
     
@@ -48,28 +39,35 @@ text-red = #e34a26
     background-color var(--thecolor)
     color white !important
     width 100%
-    
-  &--small-padding 
-    width 100%
-    padding-left 10px
-    padding-right 10px
       
-  &--error
-    --thecolor : medium-red
-    color text-red
-    border-color var(--thecolor)
-    box-shadow 0 4px 0 0 dark-red
-    
-    &:hover
-      background-color var(--thecolor)
-      color white
-      box-shadow 0 3px 0 0 dark-red
+  &--color
+    &--red
+      --thecolor : medium-red
+      color text-red
+
       border 1px solid var(--thecolor)
-    
-    
-  &--size--small&--error
+      box-shadow 0 4px 0 0 dark-red
+      
+      &:hover
+        background-color var(--thecolor)
+        color white
+        box-shadow 0 3px 0 0 dark-red
+        border 1px solid var(--thecolor)
+        
+    &--green
+      --thecolor : medium-green
+      border 1px solid var(--thecolor)
+      color text-green
+      box-shadow 0 4px 0 0 dark-green  
+      
+      &:hover
+        background-color var(--thecolor)
+        color white
+        box-shadow 0 3px 0 0 dark-green
+        border 1px solid var(--thecolor)
+        
+  &--size--small&--color-red
     box-shadow 0 2px 0 0 dark-red
-    
 
 .ripple 
   position: relative;
@@ -94,7 +92,3 @@ text-red = #e34a26
   to
     opacity   0
     transform scale(2)
-
-
-  
-  

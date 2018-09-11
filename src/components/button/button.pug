@@ -1,3 +1,3 @@
-mixin button(text, {size="big", theme="success", fill="none"}={})
-    - var classes = [`button--size--${size}`, `button--${theme}`, `button--${fill}`]
+mixin button(text, {size="big", color="green", fill="none"}={})
+    - var classes = [`button--size--${size}`, `button--color--${color}`, `button--${fill}`]
     button.button.ripple.js-ripple(class=classes)=text

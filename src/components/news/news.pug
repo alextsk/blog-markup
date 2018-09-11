@@ -1,5 +1,5 @@
 mixin news({image, title, date = (new Date()).toLocaleDateString(), copy="lorem ipsum"}={})
-    .news(style="--image-location: url(" + image + ");")
+    .news(style=`--image-location: url("${image}");`)
         .news__image
         .news__body
             h2.news__title=title

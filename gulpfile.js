@@ -107,8 +107,9 @@ function fonts(){
     .pipe(gulp.dest('dist/fonts'))
 }
 function lint() {
-  return gulp.src(['./src/**/*.js', "!./src/components/circlecharts/vendor{,/**}"])
+  return gulp.src(['./src/**/*.js'])
     .pipe(eslint({
+      configFile: "./.eslintrc",
       fix: true
     }))
     .pipe(eslint.format());
@@ -121,6 +122,17 @@ const deploy = gulp.series(build, function () {
     .pipe(gulpDeploy()) 
 });
 
+
+const browser = function() {
+  browserSync.init({
+    server: {
+        baseDir: "./"
+    }
+  });
+};
+
+
+const serve = gulp.series(build, function() {
 
 
 const serve = gulp.series(build, function() {
