@@ -31,10 +31,7 @@ class Location {
       if (status === google.maps.GeocoderStatus.OK) {
         let [res1, res2] = results; 
         let result = (results.length > 1) ? res1 : res2;
-        $(".js-location__address1").html(result.address_components[0].long_name + ", ")
-        $(".js-location__address2").html(result.address_components[1].long_name + ' ')
-        $(".js-location__address3").html(result.address_components[2].long_name + ', ')
-        $(".js-location__address4").html(result.address_components[3].short_name + ' ')
+        $(".js-location__address").html(result.formatted_address)
       }  
     });    
   }

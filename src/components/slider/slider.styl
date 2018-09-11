@@ -2,84 +2,81 @@
 
 .slider
   background-color var(--slider-color)
-  &--color--one
-    --slider-color : var(--main-color)
-  &--color--two
+  &--color--green
     --slider-color : var(--support-color)
-  *
-    &:active,
-    &:hover, 
-    &:focus
-      outline: 0
-      outline-offset: -2
+  &--color--orange
+    --slider-color : var(--main-color)
+
   &[data-parts]
     margin-bottom 0px  
-      
-.noUi-target
-  border none
-  box-shadow none
-  
-.noUi-horizontal
-  height 4px  
-  
-  .noUi-tooltip 
-    display: block;
+        
+  &.noUi-target
     border none
-    outline none
-    color white
-    font-size 13px
-    border-radius 5px
-    padding 6px 10px 5px
-    line-height 100%
-    bottom: 141%
-    background-color var(--slider-color)
-    
-    &:after
-      background-color transparent  
-      content ""
-      position absolute
-      top 92%
-      width: 0px
-      height 0px
-      border-radius 4px
-      border-left 6px solid transparent
-      border-right 6px solid transparent
-      border-top 7px solid var(--slider-color) 
-      
-  .noUi-handle
-    width 20px
-    height 20px
-    top -3px
-    border-radius 50%
     box-shadow none
-    border none
-    background-color var(--slider-color)
     
-    &:before,
-    &:after
+  &.noUi-horizontal
+    height 4px 
+    
+    .noUi-tooltip 
+      display: block;
+      border none
+      outline none
+      color white
+      font-size 13px
+      border-radius 5px
+      padding 6px 10px 5px
+      line-height 100%
+      bottom: 141%
+      background-color var(--slider-color)
+      
+      &:after
+        background-color transparent  
+        content ""
+        position absolute
+        top 92%
+        left 33%
+        width 0px
+        height 0px
+        border-radius 4px
+        border-left 6px solid transparent
+        border-right 6px solid transparent
+        border-top 7px solid var(--slider-color) 
+        
+    .noUi-handle
+      width 20px
+      height 20px
+      top -7px
+      right -8px !important
+      border-radius 50%
+      box-shadow none
+      border none
+      background-color var(--slider-color)
+      outline none
+      
+      &:before,
+      &:after
+        display none
+
+  .noUi-pips-horizontal
+    padding .26rem 0 0 
+    font-size .70rem
+    color #cccccc
+    font-weight bold
+
+    .noUi-marker
       display none
 
-.noUi-pips-horizontal
-  padding .26rem 0 0 
-  font-size .70rem
-  color #cccccc
-  font-weight bold
+    .noUi-value
+      cursor pointer
+      
+    .noUi-connect, .noUi-origin
+      top -5px
 
-.noUi-marker
-  display none
+    .noUi-handle .noUi-tooltip 
+      display: flex
+      justify-content center
+      
 
-.noUi-value
-  cursor pointer
-  
-.noUi-connect, .noUi-origin
-  top -5px
-
-.noUi-handle .noUi-tooltip 
-  display: flex
-  justify-content center
-  
-html:not([dir=rtl]) .noUi-horizontal .noUi-handle
-  right -8px
 
       
   
