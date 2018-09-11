@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10436,6 +10436,52 @@ return jQuery;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_svg_pie__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_create_svg_pie___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_create_svg_pie__);
+
+
+
+
+function createSVGDoughnut(data, outerRadius, innerRadius = outerRadius * 0.8, palette) {
+    const pie = __WEBPACK_IMPORTED_MODULE_0_create_svg_pie___default()(data, outerRadius, palette);
+
+    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    const mask = document.createElementNS("http://www.w3.org/2000/svg", "mask");
+    mask.id = "hole" + Math.floor(Math.random() * 10000); // fix, was simply hole
+
+    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", outerRadius);
+    circle.setAttribute("cy", outerRadius);
+    circle.setAttribute("r", innerRadius);
+
+    const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    rect.setAttribute("width", '100%');
+    rect.setAttribute("height", '100%');
+    rect.setAttribute("fill", "white");
+
+    defs.appendChild(mask);
+    mask.appendChild(rect);
+    mask.appendChild(circle);
+
+    const childElementCount = pie.childElementCount;
+    for (var i = 0; i < childElementCount; i++) {
+        if (pie.childNodes[i].setAttribute) {
+            pie.childNodes[i].setAttribute('mask', `url(#${ mask.id })`); // fix, was simply #hole
+        }
+    }
+
+    pie.appendChild(defs);
+    return pie;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (createSVGDoughnut);
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10456,36 +10502,38 @@ exports['default'] = createSVGElement;
 module.exports = exports['default'];
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-__webpack_require__(3);
-
-__webpack_require__(5);
-
-__webpack_require__(11);
-
-__webpack_require__(13);
-
-__webpack_require__(14);
-
-__webpack_require__(15);
-
-__webpack_require__(17);
-
-__webpack_require__(19);
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _ripple = __webpack_require__(4);
+__webpack_require__(4);
+
+__webpack_require__(6);
+
+__webpack_require__(11);
+
+__webpack_require__(12);
+
+__webpack_require__(14);
+
+__webpack_require__(15);
+
+__webpack_require__(16);
+
+__webpack_require__(18);
+
+__webpack_require__(20);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _ripple = __webpack_require__(5);
 
 var _ripple2 = _interopRequireDefault(_ripple);
 
@@ -10497,7 +10545,7 @@ buttons.forEach(function (button) {
 });
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10515,28 +10563,28 @@ var Ripple = function () {
   function Ripple(element) {
     var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
         _ref$baseBlock = _ref.baseBlock,
-        baseBlock = _ref$baseBlock === undefined ? "ripple" : _ref$baseBlock;
+        baseBlock = _ref$baseBlock === undefined ? 'ripple' : _ref$baseBlock;
 
     _classCallCheck(this, Ripple);
 
     this.element = element instanceof HTMLElement ? element : document.querySelector(element);
-    if (!this.element) throw "There is no node corresponding to " + element + " in this document";
+    if (!this.element) throw new Error('There is no node corresponding to ' + element + ' in this document');
     this.baseBlock = baseBlock;
-    this.rippleContainer = this.createElement("div", this.baseBlock + "__container");
+    this.rippleContainer = this.createElement("div", this.baseBlock + '__container');
     this.element.appendChild(this.rippleContainer);
     this.element.addEventListener('click', this.addRipple.bind(this));
   }
 
   _createClass(Ripple, [{
-    key: "addRipple",
+    key: 'addRipple',
     value: function addRipple(event) {
       var container = this.rippleContainer;
-      var rippler = this.createElement('span', this.baseBlock + "__rippler");
+      var rippler = this.createElement('span', this.baseBlock + '__rippler');
       var size = container.offsetWidth;
       var pos = container.getBoundingClientRect();
       var x = event.pageX - pos.left - size / 2 - window.pageXOffset;
       var y = event.pageY - pos.top - size / 2 - window.pageYOffset;
-      var style = "top:" + y + "px; \n                 left:" + x + "px; \n                 height:" + size + "px; \n                 width: " + size + "px;\n                 ";
+      var style = 'top:' + y + 'px;\n                 left:' + x + 'px; \n                 height:' + size + 'px; \n                 width: ' + size + 'px;\n                 ';
       rippler.style = style;
       this.rippleContainer.appendChild(rippler);
       window.setTimeout(function () {
@@ -10544,7 +10592,7 @@ var Ripple = function () {
       }, 2000);
     }
   }, {
-    key: "createElement",
+    key: 'createElement',
     value: function createElement(tag, className) {
       var el = document.createElement(tag);
       el.classList.add(className);
@@ -10555,63 +10603,7 @@ var Ripple = function () {
   return Ripple;
 }();
 
-;
-
 exports.default = Ripple;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-var _createSVGDoughnut = __webpack_require__(6);
-
-var _createSVGDoughnut2 = _interopRequireDefault(_createSVGDoughnut);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function createSvgNode(n, v) {
-  var node = document.createElementNS("http://www.w3.org/2000/svg", n);
-  Object.keys(v).forEach(function (p) {
-    return node.setAttributeNS(null, p, v[p]);
-  });
-  return node;
-}
-
-function createChart(el) {
-  var segments = (0, _jquery2.default)(el).data('chart-segments');
-  var innerRadius = +(0, _jquery2.default)(el).data('chart-inner-radius');
-  var outerRadius = +(0, _jquery2.default)(el).data('chart-outer-radius');
-  var chartText = (0, _jquery2.default)(el).data('chart-text') !== undefined ? (0, _jquery2.default)(el).data('chart-text').toString() : '';
-  var vals = segments.map(function (seg) {
-    return +seg[0];
-  });
-  var pals = segments.map(function (seg) {
-    return seg[1];
-  });
-  var doughnut = (0, _createSVGDoughnut2.default)(vals, outerRadius, innerRadius, pals);
-  var svgText = createSvgNode('text', { x: 47, y: 60, class: "text-in-circle", 'text-anchor': "middle" });
-  var textNode = document.createTextNode(chartText);
-
-  svgText.appendChild(textNode);
-  doughnut.appendChild(svgText);
-  el.appendChild(doughnut);
-}
-
-(0, _jquery2.default)(document).ready(function () {
-  (0, _jquery2.default)(".percentage").each(function (i, element) {
-    return createChart(element);
-  });
-  (0, _jquery2.default)(".donut").each(function (i, element) {
-    return createChart(element);
-  });
-});
 
 /***/ }),
 /* 6 */
@@ -10620,52 +10612,58 @@ function createChart(el) {
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _createSvgPie = __webpack_require__(7);
+var _jquery = __webpack_require__(0);
 
-var _createSvgPie2 = _interopRequireDefault(_createSvgPie);
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _createSvgDoughnut = __webpack_require__(1);
+
+var _createSvgDoughnut2 = _interopRequireDefault(_createSvgDoughnut);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function createSVGDoughnut(data, outerRadius) {
-    var innerRadius = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : outerRadius * 0.8;
-    var palette = arguments[3];
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-    var pie = (0, _createSvgPie2.default)(data, outerRadius, palette);
+var Donut = function () {
+  function Donut(element) {
+    _classCallCheck(this, Donut);
 
-    var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-    var mask = document.createElementNS("http://www.w3.org/2000/svg", "mask");
-    mask.id = "hole" + Math.floor(Math.random() * 10000); // fix, was simply hole
+    this.node = document.createElementNS("http://www.w3.org/2000/svg", 'text');
+    var segments = (0, _jquery2.default)(element).data('chart-segments');
+    var innerRadius = +(0, _jquery2.default)(element).data('chart-inner-radius');
+    var outerRadius = +(0, _jquery2.default)(element).data('chart-outer-radius');
+    var vals = segments.map(function (seg) {
+      return +seg[0];
+    });
+    var pals = segments.map(function (seg) {
+      return seg[1];
+    });
+    var doughnut = (0, _createSvgDoughnut2.default)(vals, outerRadius, innerRadius, pals);
+    element.appendChild(doughnut);
+  }
 
-    var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    circle.setAttribute("cx", outerRadius);
-    circle.setAttribute("cy", outerRadius);
-    circle.setAttribute("r", innerRadius);
+  _createClass(Donut, [{
+    key: 'createSvgNode',
+    value: function createSvgNode(nodeAttributes) {
+      var _this = this;
 
-    var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    rect.setAttribute("width", '100%');
-    rect.setAttribute("height", '100%');
-    rect.setAttribute("fill", "white");
-
-    defs.appendChild(mask);
-    mask.appendChild(rect);
-    mask.appendChild(circle);
-
-    var childElementCount = pie.childElementCount;
-    for (var i = 0; i < childElementCount; i++) {
-        if (pie.childNodes[i].setAttribute) {
-            pie.childNodes[i].setAttribute('mask', "url(#" + mask.id + ")"); // fix, was simply #hole
-        }
+      Object.keys(nodeAttributes).forEach(function (attribute) {
+        return _this.node.setAttributeNS(null, attribute, nodeAttributes[attribute]);
+      });
+      return this.node;
     }
+  }]);
 
-    pie.appendChild(defs);
-    return pie;
-}
+  return Donut;
+}();
 
-exports.default = createSVGDoughnut;
+(0, _jquery2.default)(document).ready(function () {
+  (0, _jquery2.default)('.donut').each(function (i, element) {
+    return new Donut(element);
+  });
+});
 
 /***/ }),
 /* 7 */
@@ -10679,7 +10677,7 @@ Object.defineProperty(exports, '__esModule', {
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _createSVGElementJs = __webpack_require__(1);
+var _createSVGElementJs = __webpack_require__(2);
 
 var _createSVGElementJs2 = _interopRequireDefault(_createSVGElementJs);
 
@@ -10773,7 +10771,7 @@ var _slicedToArray = (function () { function sliceIterator(arr, i) { var _arr = 
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _createSVGElementJs = __webpack_require__(1);
+var _createSVGElementJs = __webpack_require__(2);
 
 var _createSVGElementJs2 = _interopRequireDefault(_createSVGElementJs);
 
@@ -10830,58 +10828,147 @@ module.exports = exports["default"];
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _nouislider = __webpack_require__(12);
+var _createSvgDoughnut = __webpack_require__(1);
+
+var _createSvgDoughnut2 = _interopRequireDefault(_createSvgDoughnut);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Percentage = function () {
+  function Percentage(element) {
+    _classCallCheck(this, Percentage);
+
+    this.element = element;
+    this.node = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    var segments = (0, _jquery2.default)(element).data('chart-segments');
+    var innerRadius = +(0, _jquery2.default)(element).data('chart-inner-radius');
+    var outerRadius = +(0, _jquery2.default)(element).data('chart-outer-radius');
+    var vals = segments.map(function (seg) {
+      return +seg[0];
+    });
+    var pals = segments.map(function (seg) {
+      return seg[1];
+    });
+    this.doughnut = (0, _createSvgDoughnut2.default)(vals, outerRadius, innerRadius, pals);
+    this.addText();
+    element.appendChild(this.doughnut);
+  }
+
+  _createClass(Percentage, [{
+    key: 'addText',
+    value: function addText() {
+      var chartText = (0, _jquery2.default)(this.element).data('chart-text').toString() || '';
+      var svgText = this.createSvgNode({
+        x: 47, y: 60, class: 'percentage__text-in-circle', 'text-anchor': 'middle'
+      });
+      var textNode = document.createTextNode(chartText);
+      svgText.appendChild(textNode);
+      this.doughnut.appendChild(svgText);
+    }
+  }, {
+    key: 'createSvgNode',
+    value: function createSvgNode(nodeAttributes) {
+      var _this = this;
+
+      Object.keys(nodeAttributes).forEach(function (attribute) {
+        return _this.node.setAttributeNS(null, attribute, nodeAttributes[attribute]);
+      });
+      return this.node;
+    }
+  }]);
+
+  return Percentage;
+}();
+
+(0, _jquery2.default)(document).ready(function () {
+  (0, _jquery2.default)('.percentage').each(function (i, element) {
+    return new Percentage(element);
+  });
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _nouislider = __webpack_require__(13);
 
 var _nouislider2 = _interopRequireDefault(_nouislider);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var sliders = (0, _jquery2.default)('.slider');
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function clickOnPip(el, event) {
-  var value = Number(event.currentTarget.getAttribute('data-value'));
-  el.noUiSlider.set(value);
-}
+var Slider = function () {
+  function Slider(element) {
+    var _this = this;
 
-sliders.each(function (i, el) {
-  var maxValue = (0, _jquery2.default)(el).data('max-value');
-  var parts = (0, _jquery2.default)(el).data('parts');
+    _classCallCheck(this, Slider);
 
-  _nouislider2.default.create(el, {
-    range: {
-      min: 0,
-      max: maxValue
-    },
-    tooltips: [!parts],
-    start: [Math.floor(maxValue / 2)],
-    step: parts ? Math.floor(maxValue / (parts - 1)) : 1,
-    format: {
-      to: function to(value) {
-        return value | 0;
+    this.element = element;
+    var maxValue = (0, _jquery2.default)(element).data('max-value');
+    var parts = (0, _jquery2.default)(element).data('parts');
+    _nouislider2.default.create(element, {
+      range: {
+        min: 0,
+        max: maxValue
       },
-      from: function from(value) {
-        return value | 0;
-      }
-    },
-    pips: parts > 2 ? { mode: 'count', values: parts } : undefined
-  });
-
-  if (parts) {
-    var pips = el.querySelectorAll('.noUi-value');
-    pips.forEach(function (pip) {
-      return pip.addEventListener('click', function (event) {
-        return clickOnPip(el, event);
-      });
+      tooltips: [!parts],
+      start: [Math.floor(maxValue / 2)],
+      step: parts ? Math.floor(maxValue / (parts - 1)) : 1,
+      format: {
+        to: function to(value) {
+          return Math.floor(value);
+        },
+        from: function from(value) {
+          return Math.floor(value);
+        }
+      },
+      pips: parts > 2 ? { mode: 'count', values: parts } : undefined
     });
+    if (parts) {
+      var pips = (0, _jquery2.default)(element).find('.noUi-value');
+      pips.each(function (index, pip) {
+        return (0, _jquery2.default)(pip).click(function (event) {
+          return _this.clickOnPip(element, event);
+        });
+      });
+    }
   }
+
+  _createClass(Slider, [{
+    key: 'clickOnPip',
+    value: function clickOnPip(el, event) {
+      var value = Number(event.currentTarget.getAttribute('data-value'));
+      this.element.noUiSlider.set(value);
+    }
+  }]);
+
+  return Slider;
+}();
+
+(0, _jquery2.default)('.js-slider').each(function (i, element) {
+  return new Slider(element);
 });
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! nouislider - 11.1.0 - 2018-04-02 11:18:13 */
@@ -13236,7 +13323,7 @@ function scope ( target, options, originalOptions ){
 }));
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13267,7 +13354,6 @@ var Search = function () {
   _createClass(Search, [{
     key: 'find',
     value: function find() {
-      console.log("this.searchButton");
       this.element.addClass('search--failed');
     }
   }, {
@@ -13286,38 +13372,11 @@ var Search = function () {
 });
 
 /***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _jquery2.default)(".js-dropdown").each(function (i, el) {
-  (0, _jquery2.default)(el).find(".js-dropdown__button").click(function () {
-    (0, _jquery2.default)(el).toggleClass("dropdown--open");
-  });
-  (0, _jquery2.default)(el).find(".js-dropdown__item").click(function (e) {
-    var item = e.currentTarget;
-
-    (0, _jquery2.default)(el).removeClass("dropdown--open");
-    (0, _jquery2.default)(el).find(".dropdown__actual").val((0, _jquery2.default)(item).text());
-  });
-});
-
-/***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -13325,7 +13384,60 @@ var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _googleMaps = __webpack_require__(16);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Dropdown = function () {
+  function Dropdown(element) {
+    _classCallCheck(this, Dropdown);
+
+    this.element = (0, _jquery2.default)(element);
+    this.dropdownButton = this.element.find(".js-dropdown__button");
+    this.dropdownItems = this.element.find(".js-dropdown__item");
+    this.input = this.element.find(".dropdown__actual");
+    this.dropdownButton.click(this.toggleDropdown.bind(this));
+    this.dropdownItems.click(this.selectItem.bind(this));
+  }
+
+  _createClass(Dropdown, [{
+    key: "toggleDropdown",
+    value: function toggleDropdown() {
+      this.element.toggleClass("dropdown--open");
+    }
+  }, {
+    key: "selectItem",
+    value: function selectItem(event) {
+      var item = event.currentTarget;
+      this.element.removeClass("dropdown--open");
+      this.input.val((0, _jquery2.default)(item).text());
+    }
+  }]);
+
+  return Dropdown;
+}();
+
+(0, _jquery2.default)(".js-dropdown").each(function (i, el) {
+  return new Dropdown(el);
+});
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint no-new: "off" */
+
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _googleMaps = __webpack_require__(17);
 
 var _googleMaps2 = _interopRequireDefault(_googleMaps);
 
@@ -13338,48 +13450,39 @@ var Location = function () {
     _classCallCheck(this, Location);
 
     this.el = element;
-    this.lat = (0, _jquery2.default)(this.el).data("lat");
-    this.lng = (0, _jquery2.default)(this.el).data("lng");
-    _googleMaps2.default.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w";
-    _googleMaps2.default.LANGUAGE = "en";
+    this.lat = (0, _jquery2.default)(this.el).data('lat');
+    this.lng = (0, _jquery2.default)(this.el).data('lng');
+    _googleMaps2.default.KEY = 'AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w';
+    _googleMaps2.default.LANGUAGE = 'en';
     _googleMaps2.default.load(this.createMap.bind(this));
   }
 
   _createClass(Location, [{
-    key: "createMap",
+    key: 'createMap',
     value: function createMap(google) {
-      var map = new google.maps.Map(this.el, { // eslint-disable-line no-new
+      var map = new google.maps.Map(this.el, {
         center: { lat: this.lat, lng: this.lng },
         zoom: 12,
         disableDefaultUI: true
       });
-
       var geocoder = new google.maps.Geocoder();
       var geolocate = new google.maps.LatLng(this.lat, this.lng);
-      var marker = new google.maps.Marker({
+      new google.maps.Marker({
         position: { lat: this.lat, lng: this.lng },
         map: map,
         icon: '../images/Marker.png',
-        scale: .2,
+        scale: 0.2,
         title: 'Hello World!'
       });
-      geocoder.geocode({ 'latLng': geolocate }, function (results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-          var result;
 
+      geocoder.geocode({ latLng: geolocate }, function (results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
           var _results = _slicedToArray(results, 2),
               res1 = _results[0],
               res2 = _results[1];
 
-          if (results.length > 1) {
-            result = res1;
-          } else {
-            result = res2;
-          }
-          (0, _jquery2.default)(".js-location__address1").html(result.address_components[0].long_name + ", ");
-          (0, _jquery2.default)(".js-location__address2").html(result.address_components[1].long_name + ' ');
-          (0, _jquery2.default)(".js-location__address3").html(result.address_components[2].long_name + ', ');
-          (0, _jquery2.default)(".js-location__address4").html(result.address_components[3].short_name + ' ');
+          var result = results.length > 1 ? res1 : res2;
+          (0, _jquery2.default)('.js-location__address').html(result.formatted_address);
         }
       });
     }
@@ -13393,7 +13496,7 @@ var Location = function () {
 });
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
@@ -13626,66 +13729,74 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint prefer-destructuring:0 */
+
 
 var _jquery = __webpack_require__(0);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _jqueryDatepicker = __webpack_require__(18);
+var _jqueryDatepicker = __webpack_require__(19);
 
 var _jqueryDatepicker2 = _interopRequireDefault(_jqueryDatepicker);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jqueryDatepicker2.default)(_jquery2.default);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-(0, _jquery2.default)(function () {
-  var currentDate = null;
-  var head = (0, _jquery2.default)(".calendar__head");
-  var footer = (0, _jquery2.default)(".calendar__footer");
-  var today = (0, _jquery2.default)(".js-calendar-today");
-  var calendar = (0, _jquery2.default)('.js-calendar').datepicker({
-    prevText: '<svg  style="width:100%; height:100%" viewBox="0 0 30 30" transform="rotate(180.1)">' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
-    nextText: '<svg style="width:100%; height:100%" viewBox="0 0 30 30">' + (0, _jquery2.default)(".arrow-icon").html() + "</svg>",
-    firstDay: 1,
-    showOtherMonths: true,
-    dayNamesMin: ["sun", "mon", "tue", "wed", "thu", "fri", "sat"],
-    onSelect: setHeader
-  });
+var Calendar = function () {
+  function Calendar(element) {
+    _classCallCheck(this, Calendar);
 
-  calendar.prepend(head);
-  calendar.append(footer);
-  setTodayDate();
-
-  today.click(setTodayDate);
-
-  function setTodayDate() {
-    calendar.datepicker("setDate", new Date());
-    var date = calendar.datepicker("getDate");
-    head.html(date.getDate());
+    (0, _jqueryDatepicker2.default)(_jquery2.default);
+    this.currentDate = null;
+    this.head = (0, _jquery2.default)(element).find('.js-calendar__head');
+    this.today = (0, _jquery2.default)(element).find('.js-calendar__today');
+    this.calendar = (0, _jquery2.default)(element).datepicker({
+      prevText: '<svg  style="width:100%; height:100%" viewBox="0 0 30 30" transform="rotate(180.1)"> ' + (0, _jquery2.default)('.arrow-icon').html() + '</svg>',
+      nextText: '<svg style="width:100%; height:100%" viewBox="0 0 30 30"> ' + (0, _jquery2.default)('.arrow-icon').html() + '</svg>',
+      firstDay: 1,
+      showOtherMonths: true,
+      dayNamesMin: ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+      onSelect: this.setHeader.bind(this)
+    });
+    this.calendar.prepend(this.head);
+    this.calendar.append(this.today);
+    this.setTodayDate();
+    this.today.click(this.setTodayDate.bind(this));
   }
 
-  function setHeader(date) {
-    var _date$split = date.split('/'); // date === "mm/dd/yyyy"
+  _createClass(Calendar, [{
+    key: 'setTodayDate',
+    value: function setTodayDate() {
+      this.calendar.datepicker('setDate', new Date());
+      var date = this.calendar.datepicker('getDate');
+      this.head.html(date.getDate());
+    }
+  }, {
+    key: 'setHeader',
+    value: function setHeader(date) {
+      // date === "mm/dd/yyyy"
+      this.currentDate = date.split('/')[1];
+      this.head.html(this.currentDate);
+    }
+  }]);
 
+  return Calendar;
+}();
 
-    var _date$split2 = _slicedToArray(_date$split, 2);
-
-    currentDate = _date$split2[1];
-
-    head.html(currentDate);
-  }
+(0, _jquery2.default)('.js-calendar').each(function (index, element) {
+  return new Calendar(element);
 });
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
@@ -15799,10 +15910,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 });
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* eslint comma-dangle:0 */
 
 
 var _jquery = __webpack_require__(0);
@@ -15811,66 +15925,73 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _jquery2.default)(function () {
-  var videos = (0, _jquery2.default)('.video');
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  function updateProgressBar(mediaPlayer, progressPosition) {
-    return function handler() {
-      var percentage = Math.floor(100 / mediaPlayer.duration * mediaPlayer.currentTime);
-      progressPosition.css({ width: percentage + '%' });
-    };
+var Video = function () {
+  function Video(element) {
+    _classCallCheck(this, Video);
+
+    this.$mediaPlayer = (0, _jquery2.default)(element).find('.js-video__actual');
+    this.mediaPlayer = this.$mediaPlayer[0];
+    this.progressBar = (0, _jquery2.default)(element).find('.js-video__progress-bar');
+    this.progressPosition = (0, _jquery2.default)(element).find('.js-video__progress-position');
+    this.fullscreenButton = (0, _jquery2.default)(element).find('.js-video__fullscreen');
+    this.playButton = (0, _jquery2.default)(element).find('.js-video__play-pause-button');
+    this.icons = (0, _jquery2.default)(element).find('.js-video__pp-icon');
+    this.mediaPlayer.controls = false;
+
+    this.$mediaPlayer.on('timeupdate', this.updateProgressBar.bind(this));
+    this.playButton.click(this.togglePlayPause.bind(this));
+    this.progressBar.click(this.setVideoTime.bind(this));
+    this.fullscreenButton.click(this.setFullscreen.bind(this));
   }
 
-  function setVideoTime(mediaPlayer, progressBar, progressPosition) {
-    return function handler(evt) {
-      var ratio = evt.offsetX / progressBar.width();
-      var mPlayer = mediaPlayer;
-      mPlayer.currentTime = ratio * mediaPlayer.duration;
-      updateProgressBar(mediaPlayer, progressPosition)();
-    };
-  }
+  _createClass(Video, [{
+    key: 'updateProgressBar',
+    value: function updateProgressBar() {
+      var percentage = Math.floor(100 / this.mediaPlayer.duration * this.mediaPlayer.currentTime);
+      this.progressPosition.css({ width: percentage + '%' });
+    }
+  }, {
+    key: 'setVideoTime',
+    value: function setVideoTime(evt) {
+      var ratio = evt.offsetX / this.progressBar.width();
+      this.mediaPlayer.currentTime = ratio * this.mediaPlayer.duration;
+      this.updateProgressBar.bind(this);
+    }
+  }, {
+    key: 'togglePlayPause',
+    value: function togglePlayPause() {
+      var _this = this;
 
-  function togglePlayPause(icons, mediaPlayer) {
-    return function handler() {
-
-      if (mediaPlayer.paused || mediaPlayer.ended) {
-        mediaPlayer.play().then(function () {
-          return icons.toggleClass('hidden');
+      if (this.mediaPlayer.paused || this.mediaPlayer.ended) {
+        this.mediaPlayer.play().then(function () {
+          return _this.icons.toggleClass('video__pause-icon--hidden ');
         });
       } else {
-        mediaPlayer.pause();
-        icons.toggleClass('hidden');
+        this.mediaPlayer.pause();
+        this.icons.toggleClass('video__pause-icon--hidden ');
       }
-    };
-  }
-
-  function setFullscreen(elem) {
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) {
-      elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) {
-      elem.webkitRequestFullscreen();
     }
-  }
+  }, {
+    key: 'setFullscreen',
+    value: function setFullscreen() {
+      var elem = this.mediaPlayer;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      }
+    }
+  }]);
 
-  videos.each(function (ind, video) {
-    var $mediaPlayer = (0, _jquery2.default)(video).find('.video__actual');
-    var mediaPlayer = $mediaPlayer[0];
-    var progressBar = (0, _jquery2.default)(video).find('.js-video__progress-bar');
-    var progressPosition = (0, _jquery2.default)(video).find('.js-video__progress-position');
-    var fullscreenButton = (0, _jquery2.default)(video).find('.js-video__fullscreen');
-    var playButton = (0, _jquery2.default)(video).find(".js-video__play-pause-button");
-    var icons = (0, _jquery2.default)(video).find(".js-video__pp-icon");
-    mediaPlayer.controls = false;
+  return Video;
+}();
 
-    $mediaPlayer.on('timeupdate', updateProgressBar(mediaPlayer, progressPosition));
-    playButton.click(togglePlayPause(icons, mediaPlayer));
-    progressBar.click(setVideoTime(mediaPlayer, progressBar, progressPosition));
-    fullscreenButton.click(function () {
-      return setFullscreen(mediaPlayer);
-    });
-  });
+(0, _jquery2.default)('.js-video').each(function (ind, element) {
+  return new Video(element);
 });
 
 /***/ })
