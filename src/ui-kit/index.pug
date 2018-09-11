@@ -7,7 +7,32 @@ html(lang='en')
         link(rel="stylesheet", href="styles.css")
         title Document 
         include components.pug
+        include ./buttons-section/buttons-section.pug
+        include ./arrows-section/arrows-section.pug
+        include ./piecharts-section/piecharts-section.pug
+        include ./sliders-section/sliders-section.pug
+        include ./stages-section/stages-section.pug
+        include ./form-elements-section/form-elements-section.pug
+        include ./dropdowns-section/dropdowns-section.pug
+        include ./profiles-section/profiles-section.pug
+        include ./news-section/news-section.pug
+        include ./location-section/location-section.pug
+        include ./calendar-section/calendar-section.pug
+        include ./messaging-section/messaging-section.pug
+        include ./video-section/video-section.pug
     body
-        include wrapper/wrapper.pug
+        +buttons-section()
+        +arrows-section()
+        +piecharts-section()
+        +sliders-section()
+        +stages-section()    
+        +form-elements-section() 
+        +dropdowns-section()
+        +profiles-section()
+        +news-section()
+        +location-section()
+        +calendar-section()
+        +messaging-section()
+        +video-section()
         script(src='./app.js')
         

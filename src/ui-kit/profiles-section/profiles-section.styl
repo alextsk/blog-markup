@@ -1,13 +1,20 @@
 .profiles-section
-  display inline-block
   vertical-align top
-  
+  display block
+  margin 0 auto
+  padding-top: 3.1rem;
+  width: 18.85rem;
+  @media(min-width: mobile-break)
+    display inline-block
+    padding-left 41px
+
   &__header
-    margin-bottom 1.66rem
-    margin-top .4375rem
-    padding-right 1.125rem
+    margin-bottom 28px
+    margin-top 3px
+    padding-right 7px
+    section-header()
 
   &__element-container:not(:last-of-type)
     display flex
-    margin-bottom 1.2rem
+    margin-bottom 26px
     justify-content center

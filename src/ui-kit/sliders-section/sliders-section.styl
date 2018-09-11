@@ -1,4 +1,6 @@
 .sliders-section
+  padding-top 9px
+  
   &__body
     width 81%
     margin 0 auto
@@ -8,7 +10,10 @@
     @media (min-width: mobile-break)
       flex-direction row
       justify-content space-between
-      
+  
+  &__header
+    section-header()
+    
   &__element-container
     height 50px 
     @media (min-width: mobile-break)
