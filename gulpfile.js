@@ -12,7 +12,9 @@ var eslint = require('gulp-eslint');
 var data = require('gulp-data');
 var rename = require('gulp-rename');
 var pxtorem = require('gulp-pxtorem');
-
+const debug = require('gulp-debug');
+var concatCss = require('gulp-concat-css');
+var insert = require('gulp-insert');
 const 
   siteSrc = 'src/demo',
   uiKitSrc = 'src/ui-kit',
@@ -71,12 +73,18 @@ function html() {
 
 function cssGeneric(src, dist) {
   return function() {
-    return gulp.src(`${src}/styles.styl`)
+    var variableContent = fs.readFileSync(`${src}/variables.styl`, "utf8");
+    return gulp.src([`src/components/**/*.styl`,`${src}/**/*.styl`])
+    .pipe(insert.transform(function(contents, file) {
+      return variableContent + '\n' + contents;       
+    }))
     .pipe(stylus({
       'include css': true,
-       include: ['node_modules', __dirname]
+       include: ['node_modules', __dirname],
+       define: { 'mobile-break': '640px' }
     }))
     .pipe(pxtorem({propList: ['*']}))
+    .pipe(concatCss('styles.css'))
     .pipe(gulp.dest(dist))
     .pipe(browserSync.stream());
   }
@@ -94,7 +102,7 @@ function img() {
 }
  
 function clean() {
-  return del([ 'dist/**/*.*' ]);
+  return del([ 'dist/**' ]);
 }
 
 function favicon() {
@@ -142,6 +150,7 @@ const serve = gulp.series(build, function() {
   gulp.watch("dist/**/*.*").on('change', browserSync.reload);
 });
 
+gulp.task('clean', clean);
 gulp.task('lint', lint);
 gulp.task('deploy', deploy);
 gulp.task('build', build);
