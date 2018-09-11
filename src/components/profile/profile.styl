@@ -21,11 +21,13 @@
     position relative
     margin-left .75rem
     color #4f4f4f
+    
   &__bubble-tail
     position absolute
     top calc(50% - .75rem)
     left -.5625rem
     fill var(--light-grey)
+    
   &__name
     font-size 1.125rem
     &:hover
@@ -49,13 +51,13 @@
     &:hover
       fill var(--main-color) 
       
-.profile__head:hover + .profile__story
-  background-color var(--support-color)
-  color white
-  .profile__bubble-tail
-    fill var(--support-color)
-  .icon
-    fill white
+  &__head:hover + &__story
+    background-color var(--support-color)
+    color white
+    
+    & ^[0]__bubble-tail
+      fill var(--support-color)
+
     
     
    
