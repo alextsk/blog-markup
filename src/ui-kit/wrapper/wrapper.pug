@@ -1,27 +1,41 @@
+include ../buttons-section/buttons-section.pug
+include ../arrows-section/arrows-section.pug
+include ../piecharts-section/piecharts-section.pug
+include ../sliders-section/sliders-section.pug
+include ../stages-section/stages-section.pug
+include ../form-elements-section/form-elements-section.pug
+include ../dropdowns-section/dropdowns-section.pug
+include ../profiles-section/profiles-section.pug
+include ../news-section/news-section.pug
+include ../location-section/location-section.pug
+include ../calendar-section/calendar-section.pug
+include ../messaging-section/messaging-section.pug
+include ../video-section/video-section.pug
+
 .wrapper
     .wrapper__buttons
-        include ../buttons-section/buttons-section.pug
+        +buttons-section()
     .wrapper__arrows
-        include ../arrows-section/arrows-section.pug
+        +arrows-section()
     .wrapper__piecharts 
-        include ../piecharts-section/piecharts-section.pug
+        +piecharts-section()
     .wrapper__sliders
-        include ../sliders-section/sliders-section.pug
+        +sliders-section()
     .wrapper__stages
-        include ../stages-section/stages-section.pug    
+        +stages-section()    
     .wrapper__form-elements
-        include ../form-elements-section/form-elements-section.pug 
+        +form-elements-section() 
     .wrapper__dropdowns
-        include ../dropdowns-section/dropdowns-section.pug
+        +dropdowns-section()
     .wrapper__profile
-        include ../profiles-section/profiles-section.pug
+        +profiles-section()
     .wrapper__news
-        include ../news-section/news-section.pug
+        +news-section()
     .wrapper__location
-        include ../location-section/location-section.pug
+        +location-section()
     .wrapper__calendar
-        include ../calendar-section/calendar-section.pug
+        +calendar-section()
     .wrapper__messaging
-        include ../messaging-section/messaging-section.pug
+        +messaging-section()
     .wrapper__video
-        include ../video-section/video-section.pug
+        +video-section()

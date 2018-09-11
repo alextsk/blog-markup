@@ -1,8 +1,9 @@
-section.news-section
-    h1.news-section__head
-      +section-header("news & events") 
-    .news-section__body
-        .news-section__element-container
-            +news({image:"../images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
-        .news-section__element-container
-            +event({image:"../images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
+mixin news-section()
+    section.news-section
+        h1.news-section__head
+          +section-header("news & events") 
+        .news-section__body
+            .news-section__element-container
+                +news({image:"../images/bike.jpg", title: "It's all going downhill", date: "24 august 2013", copy: lorem})
+            .news-section__element-container
+                +event({image:"../images/city.jpg", title: "this is the title", date:{day:"24", month:"Aug"}, copy: lorem1})
