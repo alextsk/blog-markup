@@ -1,44 +1,43 @@
-import $ from "jquery"
-import maps from "google-maps"
+/* eslint no-new: "off" */
+import $ from 'jquery';
+import maps from 'google-maps';
 
 class Location {
   constructor(element) {
-    this.el = element
-    this.lat = $(this.el).data("lat")
-    this.lng = $(this.el).data("lng")
-    maps.KEY = "AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w"
-    maps.LANGUAGE = "en" 
+    this.el = element;
+    this.lat = $(this.el).data('lat');
+    this.lng = $(this.el).data('lng');
+    maps.KEY = 'AIzaSyDZZlCXwgC_cO0bD_3nsEFkyD_Gf3PbG5w';
+    maps.LANGUAGE = 'en';
     maps.load(this.createMap.bind(this));
   }
 
   createMap(google) {
-    var map = new google.maps.Map(this.el, { // eslint-disable-line no-new
-        center: {lat: this.lat, lng: this.lng},
-        zoom: 12,
-        disableDefaultUI: true
-      });
-    var geocoder = new google.maps.Geocoder();
-    var geolocate = new google.maps.LatLng(this.lat, this.lng)
-    var marker = new google.maps.Marker({
+    const map = new google.maps.Map(this.el, {
+      center: { lat: this.lat, lng: this.lng },
+      zoom: 12,
+      disableDefaultUI: true,
+    });
+    const geocoder = new google.maps.Geocoder();
+    const geolocate = new google.maps.LatLng(this.lat, this.lng);
+    new google.maps.Marker({
       position: { lat: this.lat, lng: this.lng },
-      map: map,
+      map,
       icon: '../images/Marker.png',
-      scale: .2,
-      title: 'Hello World!'
+      scale: 0.2,
+      title: 'Hello World!',
     });
 
-    geocoder.geocode({'latLng': geolocate}, function(results, status) {
+    geocoder.geocode({ latLng: geolocate }, (results, status) => {
       if (status === google.maps.GeocoderStatus.OK) {
-        let [res1, res2] = results; 
-        let result = (results.length > 1) ? res1 : res2;
-        $(".js-location__address1").html(result.address_components[0].long_name + ", ")
-        $(".js-location__address2").html(result.address_components[1].long_name + ' ')
-        $(".js-location__address3").html(result.address_components[2].long_name + ', ')
-        $(".js-location__address4").html(result.address_components[3].short_name + ' ')
-      }  
-    });    
+        const [res1, res2] = results;
+        const result = (results.length > 1) ? res1 : res2;
+        $('.js-location__address').html(result.formatted_address);
+      }
+    });
   }
 }
 
-$('.js-location').each((index, element) => new Location(element))
+$('.js-location').each((index, element) => new Location(element));
+
 
