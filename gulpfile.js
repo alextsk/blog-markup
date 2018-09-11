@@ -94,7 +94,7 @@ var cssUi = cssGeneric(uiKitSrc, uiKitDist)
 var cssSite = cssGeneric(siteSrc, siteDist)
 
 function img() {
-  return gulp.src(['images/*.*', 'src/**/*.png'])
+  return gulp.src(['src/images/*.*', 'src/**/*.png'])
     //.pipe(imagemin({verbose: true}))
     .pipe(rename({dirname: ''}))
     .pipe(gulp.dest('./dist/images/'))
@@ -111,7 +111,7 @@ function favicon() {
 }
 
 function fonts(){
-  return gulp.src('fonts/*.*')
+  return gulp.src('src/fonts/*.*')
     .pipe(gulp.dest('dist/fonts'))
 }
 function lint() {
