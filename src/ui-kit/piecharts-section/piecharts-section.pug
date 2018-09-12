@@ -1,14 +1,15 @@
-section.piechart-section
-    h1.piechart-section__header
-        +section-header("percentages / pie chart") 
-    .piechart-section__body
-        .piechart-section__element-container
-            +percentage(0)
-        .piechart-section__element-container
-            +percentage(38)
-        .piechart-section__element-container
-            +percentage(62)
-        .piechart-section__element-container
-            +percentage(89)
-        .piechart-section__element-container
-            +donut([[159, "#747474"], [370, "#e75735"], [420, "#4eb7a8"], [460, "#e5e5e5"]]) 
+mixin piecharts-section()
+    section.piecharts-section
+        h1.piecharts-section__header
+            +section-header("percentages / pie chart") 
+        .piecharts-section__body
+            .piecharts-section__element-container
+                +percentage(0)
+            .piecharts-section__element-container
+                +percentage(38)
+            .piecharts-section__element-container
+                +percentage(62)
+            .piecharts-section__element-container
+                +percentage(89)
+            .piecharts-section__element-container
+                +donut([[159, "#747474"], [370, "#e75735"], [420, "#4eb7a8"], [460, "#e5e5e5"]]) 

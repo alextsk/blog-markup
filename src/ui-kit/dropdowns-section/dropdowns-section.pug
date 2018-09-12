@@ -1,9 +1,10 @@
-section.dropdown-section
-    h1.dropdown-section__header
-        +section-header("search / drop down")
-    .dropdown-section__element-container
-        +search('Search')
-    .dropdown-section__element-container
-        +search('', {state: 'failed'})
-    .dropdown-section__element-container
-        +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})
+mixin dropdowns-section()
+    section.dropdowns-section
+        h1.dropdowsn-section__header
+            +section-header("search / drop down")
+        .dropdowns-section__element-container
+            +search('Search')
+        .dropdowns-section__element-container
+            +search('', {state: 'failed'})
+        .dropdowns-section__element-container
+            +dropdown({items:['This is option 1', 'This is option 2', 'This is option 3', 'This is option 4']})

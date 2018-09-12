@@ -1,16 +1,17 @@
-section.arrows-section
-    h1.arrows-section__header
-        +section-header("Arrow buttons") 
-    .arrows-section__body
-        .arrows-section__item
-            +arrow-button('left', true)
-        .arrows-section__item  
-            +arrow-button('right', true)
-        .arrows-section__item  
-            +arrow-button('left', false)
-        .arrows-section__item  
-            +arrow-button('right', false)
-        .arrows-section__item  
-            +arrow-button('left', true)
-        .arrows-section__item  
-            +arrow-button('right', true)
+mixin arrows-section()
+    section.arrows-section
+        h1.arrows-section__header
+            +section-header("Arrow buttons") 
+        .arrows-section__body
+            .arrows-section__item
+                +arrow-button('left', true)
+            .arrows-section__item  
+                +arrow-button('right', true)
+            .arrows-section__item  
+                +arrow-button('left', false)
+            .arrows-section__item  
+                +arrow-button('right', false)
+            .arrows-section__item  
+                +arrow-button('left', true)
+            .arrows-section__item  
+                +arrow-button('right', true)

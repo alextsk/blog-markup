@@ -1,8 +1,9 @@
-section.sliders-section
-    h1.sliders-section__header
-      +section-header("Sliders") 
-    .sliders-section__body
-        .sliders-section__element-container
-            +slider(100, {color: "orange"})   
-        .sliders-section__element-container
-            +slider(100, {parts: 5, color: "green"})
+mixin sliders-section()
+    section.sliders-section
+        h1.sliders-section__header
+          +section-header("Sliders") 
+        .sliders-section__body
+            .sliders-section__element-container
+                +slider(100, {color: "orange"})   
+            .sliders-section__element-container
+                +slider(100, {parts: 5, color: "green"})

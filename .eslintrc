@@ -8,7 +8,7 @@
   "parserOptions": {
     "ecmaVersion": 7
   },
-  rules:{
+  "rules":{
     "linebreak-style": 0
   }
 }
