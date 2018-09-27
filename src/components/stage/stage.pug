@@ -1,12 +1,11 @@
 mixin stage(step, total)
     .stage
         span.stage__point.stage__point--active 1
-        - for (var x = 1; x < total; x++)
-            - step--
-            if step > 0
+        - for (var i = 1; i < total; i++)
+            if i < step
                 .stage__line.stage__line--active
-                span.stage__point.stage__point--active=x+1
+                span.stage__point.stage__point--active=i+1
             else
                 .stage__line
-                span.stage__point=x+1
+                span.stage__point=i+1
 
