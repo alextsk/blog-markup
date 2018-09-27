@@ -23,7 +23,7 @@ const
 
 function scriptsGeneric(src, dist) {
   return function() {
-    return gulp.src(`${src}/app.js`)
+    return gulp.src([`${src}/app.js`, `src/components/**/*.js`], { allowEmpty: true })
     .pipe(webpackStream({
       output: {
         filename: 'app.js',
@@ -49,14 +49,14 @@ var scriptsUi = scriptsGeneric(uiKitSrc, uiKitDist);
 var scriptsSite = scriptsGeneric(siteSrc, siteDist); 
 
 function htmlUi() {
-  return gulp.src('src/ui-kit/index.pug')
+  return gulp.src(['src/components/**/*.pug', 'src/ui-kit/index.pug'])
     .pipe(pug({basedir: __dirname}))
     .pipe(gulp.dest('./dist/ui'))
     .pipe(browserSync.stream());
 }
 
 function html() {
-  return gulp.src('src/demo/pages/**/*.pug')
+  return gulp.src(['src/components/**/*.pug', 'src/demo/pages/**/*.pug'])
     .pipe(
       data( function() {
         return { 
